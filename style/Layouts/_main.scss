@@ -1,0 +1,36 @@
+@import "../Utils/mixins";
+@import "../Utils/variables";
+
+main {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    #generateButton {
+      background-color: $deux;
+      width: 100px;
+      height: 42px;
+      border: 2px outset;
+      border-radius: 50px;
+      cursor: pointer;
+      &:active {
+        background-color: $six;
+        border: 2px inset;
+        color: $cinq;
+      }
+    }
+    #result {
+      padding-top: 20px;
+    }
+  }
+}
