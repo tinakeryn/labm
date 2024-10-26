@@ -1,8 +1,13 @@
 @import "../Utils/mixins";
 @import "../Utils/variables";
 
+// body {
+//   background-color: $un;
+// }
+
 body {
-  margin: 0;
-  background: url(https://github.com/tinakeryn/laboratoire/blob/main/style/Images/background.png?raw=true)
-    fixed no-repeat center;
+  background-color: $un; // Couleur de fond
+  color: $texte; // Couleur de texte
+  font-family: "Arial", sans-serif; // Police par défaut
+  line-height: 1.6; // Amélioration de la lisibilité
 }

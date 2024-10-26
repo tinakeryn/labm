@@ -1,98 +1,107 @@
 @import "../Utils/mixins";
 @import "../Utils/variables";
 
+// main {
+//   .container {
+//     display: -webkit-box;
+//     display: -ms-flexbox;
+//     display: flex;
+//     -webkit-box-align: center;
+//     -ms-flex-align: center;
+//     align-items: center;
+//     -webkit-box-pack: justify;
+//     -ms-flex-pack: justify;
+//     justify-content: space-between;
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     #generateButton,
+//     #generateECBUGermButton {
+//       background-color: $deux;
+//       // width: 100px;
+//       height: 42px;
+//       border: 2px outset;
+//       border-radius: 50px;
+//       cursor: pointer;
+//       &:active {
+//         background-color: $six;
+//         border: 2px inset;
+//         color: $cinq;
+//       }
+//     }
+//     #result {
+//       padding-top: 20px;
+//     }
+//   }
+// }
+
 main {
-  form {
-    width: 800px;
-    margin: auto;
-    fieldset {
-      border-color: $border;
-      margin-bottom: 20px;
-      legend {
-        background-color: $quatre;
-        color: $un;
-        font-weight: bold;
-        border: 1px solid $border;
-        padding: 5px;
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; // Centrer les éléments
+    margin: 40px auto; // Marges autour de la section
+    background-color: $trois; // Fond gris légèrement plus clair pour la section
+    border-radius: 15px; // Coins arrondis
+    padding: 20px; // Espacement intérieur
+    max-width: 700px; // Largeur maximale pour éviter l'étirement
+    -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25); // Ombre douce pour un effet de profondeur
+    .hidden {
+      display: none;
+    }
+
+    button {
+      background-color: $buttonColor; // Couleur des boutons
+      color: $cinq; // Couleur du texte des boutons
+      height: 45px; // Hauteur fixe
+      border: none; // Pas de bordure par défaut
+      border-radius: 25px; // Coins arrondis
+      cursor: pointer; // Changer le curseur au survol
+      font-size: 1.1rem; // Taille de police pour les boutons
+      -webkit-transition: background-color 0.3s, -webkit-transform 0.2s;
+      transition: background-color 0.3s, -webkit-transform 0.2s;
+      -o-transition: background-color 0.3s, transform 0.2s;
+      transition: background-color 0.3s, transform 0.2s;
+      transition: background-color 0.3s, transform 0.2s, -webkit-transform 0.2s; // Transition pour le changement de couleur
+
+      &:hover {
+        -webkit-transform: translateY(-2px);
+        -ms-transform: translateY(-2px);
+        transform: translateY(-2px); // Légère élévation au survol
+        background-color: $buttonHoverColor;
+        color: $trois; // Couleur du texte au survol
       }
-      label {
-        color: $quatre;
-        margin-bottom: 10px;
-      }
-      input {
-        margin-bottom: 10px;
-        width: 150px;
+
+      &:active {
+        background-color: darken($quatre, 10%); // Changement de couleur lors du clic
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0); // Remettre à la normale
       }
     }
-  }
-  #test-result {
-    display: none;
-    margin: auto;
-    background-color: white;
-    position: relative;
-    width: 700px;
-    height: 950px;
-    * {
-      color: black;
+
+    // Styles pour les résultats
+    .result {
+      background-color: $cinq; // Utiliser une couleur de fond plus claire pour les résultats
+      border: 1px solid $texte; // Bordure claire
+      border-radius: 10px; // Coins arrondis
+      padding: 15px; // Espacement intérieur
+      margin-top: 20px; // Espacement au-dessus
+      width: 100%; // Prendre toute la largeur
+      color: $texte; // Couleur de texte
+      font-family: "Inconsolata", monospace; // Police pour les résultats
+      white-space: pre-wrap; // Conserver les retours à la ligne
+      -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre douce pour un effet de profondeur
     }
-    &-header {
-      h2,
-      h3 {
-        text-align: center;
-      }
-      h2 {
-        padding-top: 20px;
-        color: black;
-        font-size: 30px;
-      }
-      h3 {
-        color: darkred;
-        border: 2px solid darkred;
-        padding-left: 5px;
-        padding-right: 5px;
-        position: absolute;
-        top: 142px;
-        right: 70px;
-        font-size: 32px;
-        -webkit-transform: rotate(-8deg);
-        -ms-transform: rotate(-8deg);
-        transform: rotate(-8deg);
-      }
-      hr {
-        border: 1mm solid $trois;
-      }
-    }
-    &-body {
-      #identity {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        gap: 20px;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        font-size: 18px;
-      }
-      #drugTest {
-        #resultDrugName {
-          text-align: center;
-          font-size: 22px;
-        }
-      }
-      #graphiqueDosages {
-        margin-top: 50px;
-        padding-left: 10px;
-        padding-right: 20px;
-      }
-    }
-    &-logo {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-    }
-  }
-  #convertBtn {
-    display: none;
-    margin: auto;
   }
 }

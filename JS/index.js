@@ -1,289 +1,284 @@
-const nameRegex = /[\d²&~"#{([|`_@)+=}$£¤¨%*µ!§:;.,?<>°\\\^\]\/]/g;
+// Statistiques de répartition des groupes sanguins
+const bloodGroups = [
+  { type: "O+", percentage: 37 },
+  { type: "A+", percentage: 27 },
+  { type: "B+", percentage: 23 },
+  { type: "AB+", percentage: 7 },
+  { type: "O-", percentage: 2 },
+  { type: "A-", percentage: 2 },
+  { type: "B-", percentage: 1 },
+  { type: "AB-", percentage: 1 },
+];
 
-let index;
-let dataObject;
-let inputName;
-let inputValue;
-let isFirstnameOK;
-let firstname;
-let isLastnameOK;
-let lastname;
-let fullname;
+// Fonction pour générer un groupe sanguin aléatoire
+function generateBloodGroup() {
+  let rand = Math.random() * 100;
+  let cumulativePercentage = 0;
 
-let drugType = "";
-let drugName = "";
-let nomDrogue = "";
-let identificationStatus = "";
-let dure = "drogue dure";
-let douce = "drogue douce";
-
-const formButton = document.getElementById("form-button");
-const divID = document.getElementById("identity");
-const form = document.querySelector("form");
-
-let array = [];
-
-/**
- * Fonction générique qui récupère les données du formulaire et
- * les stocke sous forme d'objet dans le tableau array
- * @param {String} inputId
- */
-const getData = (inputId) => {
-  let inputData = document.getElementById(inputId);
-  dataValue = inputData.value;
-  if (dataValue != "") {
-    array.push({ dataName: inputId, dataValue });
-  }
-};
-
-/**
- * Fonction générique qui récupère un objet et ses données depuis array
- * @param {String} inputId
- */
-const getFromArray = (inputId) => {
-  getData(inputId);
-  for (object of array) {
-    if (object.dataName === inputId) {
-      index = array.indexOf(object);
-      dataObject = object;
-      inputName = dataObject.dataName;
-      inputValue = dataObject.dataValue;
+  for (let i = 0; i < bloodGroups.length; i++) {
+    cumulativePercentage += bloodGroups[i].percentage;
+    if (rand <= cumulativePercentage) {
+      return bloodGroups[i].type;
     }
   }
-};
+}
 
-/**
- * Récupérer et valider le prénom
- */
-const getFirstname = () => {
-  getFromArray("firstname");
-  if (nameRegex.test(inputValue) === false) {
-    isFirstnameOK = true;
-    firstname = inputValue;
-    array.splice(index, 1);
-  } else {
-    isFirstnameOK = false;
-    addError(dataObject);
-  }
-};
-
-/**
- * Récupérer et valider le nom de famille
- */
-const getLastname = () => {
-  getFromArray("lastname");
-  if (nameRegex.test(inputValue) === false) {
-    isLastnameOK = true;
-    lastname = inputValue;
-    array.splice(index, 1);
-  } else {
-    isLastnameOK = false;
-    addError(dataObject);
-  }
-};
-
-/**
- * Récupérer la nouvelle donnée prénom + nom de famille et la stocker dans array
- */
-const getName = () => {
-  getFirstname();
-  getLastname();
-  if (isFirstnameOK == true && isLastnameOK == true) {
-    fullname = firstname + " " + lastname;
-    array.push({ dataName: "fullname", dataValue: fullname });
-  }
-};
-
-/**
- * Récupérer les données du tableau et les afficher sur le site
- * @param {String} data
- * @param {String} resultElementId
- */
-const getAgentDatasFromArray = (data, resultElementId) => {
-  for (object of array) {
-    if (object.dataName === data) {
-      dataIndex = array.indexOf(object);
-      dataObject = object;
-      dataName = dataObject.dataName;
-      dataValue = dataObject.dataValue;
-      let element = document.getElementById(resultElementId);
-      element.textContent = dataValue;
-    }
-  }
-};
-
-/**
- * Fonction qui détermine le type de drogue à partir du nom
- * @param {String} drug
- */
-const identifyType = (drug) => {
-  if (drug === "cannabis") {
-    drugType = douce;
-  } else {
-    drugType = dure;
-  }
-};
-
-/**
- * Fonction générique qui permet d'identifier une substance en fonction de sa quantité
- * @param {Number} quantity = quantité de la substance
- * @param {Number} threshold = seuil minimum nécessaire à l'identification
- */
-
-const randomizedID = (quantity, threshold) => {
-  let drugNameElement = document.getElementById("resultDrugName");
-  let canvasElement = document.getElementById("graphiqueDosages");
-  if (quantity >= threshold) {
-    // La machine a 95% de chance de réussir à identifier la substance si le seuil minimum d'identification est atteint
-    if (Math.random() < 0.95) {
-      drugNameElement.innerHTML = `Substance identifiée : <b>${dataValue}</b>.`;
-    } else {
-      drugNameElement.textContent = "Echec de l'identification.";
-      canvasElement.style.display = "none";
-    }
-  } else {
-    // Les chances de réussite sont réduites à 65% si le seuil minimum d'identification n'est pas atteint
-    if (Math.random() < 0.65) {
-      drugNameElement.innerHTML = `Substance identifiée : <b>${dataValue}</b>.`;
-    } else {
-      drugNameElement.innerHTML = "Echec de l'identification.";
-      canvasElement.style.display = "none";
-    }
-  }
-};
-
-/**
- * Fonction qui identifie une substance en fonction de sa quantité
- * @param {String} drug = substance testée
- * @param {Number} quantity = quantité de la substance testée
- */
-const identifyName = (drug, quantity) => {
-  identifyType(drug);
-  drugName = drug;
-  if (drugType === dure) {
-    randomizedID(quantity, 5);
-  } else {
-    randomizedID(quantity, 10);
-  }
-};
-
-identifyFromArray = (data) => {
-  let quantity = 0;
-  for (object of array) {
-    if (object.dataName === drugquantity) {
-      dataValue = quantity;
-    }
-    if (object.dataName === data) {
-      dataObject = object;
-      dataName = dataObject.dataName;
-      dataValue = dataObject.dataValue;
-      identifyName(dataName, quantity);
-      nomDrogue = dataValue;
-    }
-  }
-};
-
-/**
- * Création d'un graphique dynamique en fonction du résultat de l'identification
- */
-
-const creerGraphique = (nomDrogue) => {
-  const ctx = document.getElementById("graphiqueDosages").getContext("2d");
-
-  // Générez un tableau de données aléatoires pour toutes les drogues
-  const dosages = {
-    cannabis: (Math.random() * (5 - 2) + 2).toFixed(2), // Dosage aléatoire entre 2% et 5%, arrondi à 2 décimales
-    cocaïne: (Math.random() * (5 - 2) + 2).toFixed(2),
-    crack: (Math.random() * (5 - 2) + 2).toFixed(2),
-    ecstasy: (Math.random() * (5 - 2) + 2).toFixed(2),
-    héroïne: (Math.random() * (5 - 2) + 2).toFixed(2),
-    méthamphétamines: (Math.random() * (5 - 2) + 2).toFixed(2),
-  };
-
-  dosages[nomDrogue] = (Math.random() * (100 - 20) + 20).toFixed(2); // Dosage aléatoire entre 20% et 100% pour la drogue identifiée
-
-  const chartData = {
-    labels: ["Cannabis", "Cocaïne", "Crack", "Ecstasy", "Héroïne", "Méthamphétamines"],
-    datasets: [
-      {
-        label: "Pureté (%)",
-        data: Object.values(dosages),
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-        ],
-        borderColor: [
-          "rgb(255, 99, 132)",
-          "rgb(255, 159, 64)",
-          "rgb(255, 205, 86)",
-          "rgb(75, 192, 192)",
-          "rgb(54, 162, 235)",
-          "rgb(153, 102, 255)",
-          "rgb(201, 203, 207)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  new Chart(ctx, {
-    type: "bar",
-    data: chartData,
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          max: 100,
-        },
-      },
-      plugins: {
-        title: {
-          display: true,
-          text: "Composition de l'échantillon",
-        },
-      },
-    },
-  });
-};
-
-formButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  let resultSheet = document.getElementById("test-result");
-  let convertButton = document.getElementById("convertBtn");
-  resultSheet.style.display = "block";
-  convertButton.style.display = "block";
-  form.style.display = "none";
-  getData("matricule");
-  getName();
-  getData("drugname");
-  getData("drugquantity");
-  getAgentDatasFromArray("fullname", "agentFullname");
-  getAgentDatasFromArray("matricule", "agentId");
-  identifyFromArray("drugname", "resultDrugName");
-  creerGraphique(nomDrogue);
+// Événement de clic sur le bouton
+document.getElementById("generateButton").addEventListener("click", function () {
+  let resultElement = document.getElementById("result");
+  resultElement.textContent = generateBloodGroup();
 });
 
-/**
- * Création d'un jpg à partir du résultat de l'identification
- */
-document.getElementById("convertBtn").addEventListener("click", function () {
-  html2canvas(document.getElementById("test-result")).then(function (canvas) {
-    // Créer une image JPG à partir du canvas
-    var imgData = canvas.toDataURL("image/png");
+// Dictionnaires des germes
+const urinaryGerms = [
+  "Escherichia coli",
+  "Klebsiella pneumoniae",
+  "Proteus mirabilis",
+  "Pseudomonas aeruginosa",
+  "Staphylococcus saprophyticus",
+  "Enterococcus faecalis",
+];
 
-    // Créer un élément image pour afficher l'image JPG
-    var img = new Image();
-    img.src = imgData;
+const pulmonaryGerms = [
+  "Streptococcus pneumoniae",
+  "Haemophilus influenzae",
+  "Staphylococcus aureus",
+  "Legionella pneumophila",
+  "Mycoplasma pneumoniae",
+  "Chlamydia pneumoniae",
+  "Candida albicans",
+];
 
-    const downloadLink = document.createElement("a");
-    downloadLink.href = imgData;
-    downloadLink.download = "rapport.png"; // Nom du fichier à télécharger
-    downloadLink.click();
-    // Ajouter l'image à la page ou faire d'autres traitements
-    document.body.appendChild(img);
+const orlGerms = [
+  "Streptococcus pneumoniae",
+  "Haemophilus influenzae",
+  "Moraxella catarrhalis",
+  "Streptococcus pyogenes",
+  "Staphylococcus aureus",
+  "Candida albicans",
+];
+
+// Dictionnaires des antibiotiques
+const urinaryATB = [
+  "Amoxicilline + acide clavulanique",
+  "Ceftriaxone",
+  "Céfixime",
+  "Ciprofloxacine",
+  "Fosfomycine",
+  "Gentamicine",
+  "Nitrofurantoïne",
+  "Pivmécillinam",
+  "Tétracycline",
+  "Triméthroprime + sulfamides",
+];
+
+const pulmonaryATB = [
+  "Amoxicilline + acide clavulanique",
+  "Azithromycine",
+  "Céfuroxime",
+  "Ciprofloxacine",
+  "Clarithromycine",
+  "Doxycycline",
+  "Moxifloxacine",
+  "Vancomycine",
+  "Fluconazole",
+  "Itraconazole",
+];
+
+const orlATB = [
+  "Amoxicilline + acide clavulanique",
+  "Azithromycine",
+  "Ceftriaxone",
+  "Céfuroxime",
+  "Clarithromycine",
+  "Doxycycline",
+  "Gentamicine",
+  "Moxifloxacine",
+  "Vancomycine",
+  "Fluconazole",
+];
+
+// Dictionnaire des résistances connues
+const resistancesConnues = {
+  "Escherichia coli": ["Ciprofloxacine", "Nitrofurantoïne"],
+  "Klebsiella pneumoniae": [
+    "Amoxicilline + acide clavulanique",
+    "Triméthroprime + sulfamides",
+    "Ceftriaxone",
+  ],
+  "Proteus mirabilis": ["Ciprofloxacine", "Gentamicine"],
+  "Pseudomonas aeruginosa": ["Ciprofloxacine", "Fosfomycine", "Ceftriaxone"],
+  "Staphylococcus saprophyticus": ["Triméthroprime + sulfamides", "Ciprofloxacine"],
+  "Enterococcus faecalis": [
+    "Amoxicilline + acide clavulanique",
+    "Triméthroprime + sulfamides",
+    "Nitrofurantoïne",
+  ],
+  "Streptococcus pneumoniae": ["Céphalosporines", "Azithromycine"],
+  "Haemophilus influenzae": ["Ampicilline", "Clarithromycine"],
+  "Staphylococcus aureus": ["Methicillin", "Céfuroxime"],
+  "Legionella pneumophila": ["Azithromycine", "Clarithromycine"],
+  "Mycoplasma pneumoniae": [],
+  "Chlamydia pneumoniae": ["Tétracycline"],
+  "Candida albicans": [],
+  "Streptococcus pyogenes": ["Pénicilline", "Céphalosporines"],
+  "Moraxella catarrhalis": ["Amoxicilline"],
+  "Fusobacterium necrophorum": [],
+  "Corynebacterium diphtheriae": [],
+};
+
+// Fonction pour générer un germe aléatoire à partir du dictionnaire des germes urinaires
+function generateUrinaryGerm() {
+  const randomIndex = Math.floor(Math.random() * urinaryGerms.length);
+  return urinaryGerms[randomIndex];
+}
+
+// Fonction pour générer un antibiogramme virtuel
+function generateAntibiogram(germe) {
+  const antibiogram = {};
+
+  // Obtenir les résistances connues pour le germe
+  const resistances = resistancesConnues[germe] || [];
+  const antibiogramKeys = [...urinaryATB];
+
+  // Assurer au moins une sensibilité
+  const sensitivityIndex = Math.floor(Math.random() * antibiogramKeys.length);
+  antibiogram[antibiogramKeys[sensitivityIndex]] = "Sensible";
+
+  // Générer aléatoirement les résultats de l'antibiogramme
+  antibiogramKeys.forEach((atb) => {
+    if (!antibiogram[atb]) {
+      // Si l'antibiotique n'est pas encore attribué
+      antibiogram[atb] = resistances.includes(atb) ? "Résistant" : "Sensible";
+    }
   });
+
+  return antibiogram;
+}
+
+// Fonction pour formater les résultats selon l'ordre de urinaryATB
+function formatAntibiogram(antibiogram) {
+  const orderedResults = [];
+  urinaryATB.forEach((atb) => {
+    orderedResults.push(`${atb}: ${antibiogram[atb] || "Non testé"}`);
+  });
+  return orderedResults.join("\n");
+}
+
+// Événement de clic sur le bouton de génération de germe pour l'ECBU
+document.getElementById("generateECBUGermButton").addEventListener("click", function () {
+  const germe = generateUrinaryGerm();
+  const antibiogram = generateAntibiogram(germe);
+
+  const ecbuResultElement = document.getElementById("ecbuResult");
+  ecbuResultElement.textContent = `Germe : ${germe}`;
+  ecbuResultElement.classList.remove("hidden"); // Affiche le germe
+
+  const ecbuATBResultElement = document.getElementById("ecbuATBResult");
+  ecbuATBResultElement.textContent = "Antibiogramme :\n\n" + formatAntibiogram(antibiogram);
+  ecbuATBResultElement.classList.remove("hidden"); // Affiche l'antibiogramme
+});
+
+// Fonction pour générer un germe aléatoire à partir du dictionnaire des germes pulmonaires
+function generatePulmonaryGerm() {
+  const randomIndex = Math.floor(Math.random() * pulmonaryGerms.length);
+  return pulmonaryGerms[randomIndex];
+}
+
+function generatePulmonaryAntibiogram(germe) {
+  const antibiogram = {};
+
+  // Obtenir les résistances connues pour le germe
+  const resistances = resistancesConnues[germe] || [];
+  const antibiogramKeys = [...pulmonaryATB];
+
+  // Assurer au moins une sensibilité
+  const sensitivityIndex = Math.floor(Math.random() * antibiogramKeys.length);
+  antibiogram[antibiogramKeys[sensitivityIndex]] = "Sensible";
+
+  // Générer aléatoirement les résultats de l'antibiogramme
+  antibiogramKeys.forEach((atb) => {
+    if (!antibiogram[atb]) {
+      // Si l'antibiotique n'est pas encore attribué
+      antibiogram[atb] = resistances.includes(atb) ? "Résistant" : "Sensible";
+    }
+  });
+
+  return antibiogram;
+}
+
+// Fonction pour formater les résultats selon l'ordre de pulmonaryATB
+function formatPulmonaryAntibiogram(antibiogram) {
+  const orderedResults = [];
+  pulmonaryATB.forEach((atb) => {
+    orderedResults.push(`${atb}: ${antibiogram[atb] || "Non testé"}`);
+  });
+  return orderedResults.join("\n");
+}
+
+// Événement de clic sur le bouton de génération de germe pour l'ECBC
+document.getElementById("generateECBCGermButton").addEventListener("click", function () {
+  const germe = generatePulmonaryGerm();
+  const antibiogram = generatePulmonaryAntibiogram(germe);
+
+  const ecbcResultElement = document.getElementById("ecbcResult");
+  ecbcResultElement.textContent = `Germe : ${germe}`;
+  ecbcResultElement.classList.remove("hidden"); // Affiche le germe
+
+  const ecbcATBResultElement = document.getElementById("ecbcATBResult");
+  ecbcATBResultElement.textContent =
+    "Antibiogramme :\n\n" + formatPulmonaryAntibiogram(antibiogram);
+  ecbcATBResultElement.classList.remove("hidden"); // Affiche l'antibiogramme
+});
+
+// Fonction pour générer un germe aléatoire à partir du dictionnaire des germes ORL
+function generateOrlGerm() {
+  const randomIndex = Math.floor(Math.random() * orlGerms.length);
+  return orlGerms[randomIndex];
+}
+
+// Fonction pour générer un antibiogramme virtuel pour les germes ORL
+function generateOrlAntibiogram(germe) {
+  const antibiogram = {};
+
+  // Obtenir les résistances connues pour le germe
+  const resistances = resistancesConnues[germe] || [];
+  const antibiogramKeys = [...orlATB];
+
+  // Assurer au moins une sensibilité
+  const sensitivityIndex = Math.floor(Math.random() * antibiogramKeys.length);
+  antibiogram[antibiogramKeys[sensitivityIndex]] = "Sensible";
+
+  // Générer aléatoirement les résultats de l'antibiogramme
+  antibiogramKeys.forEach((atb) => {
+    if (!antibiogram[atb]) {
+      // Si l'antibiotique n'est pas encore attribué
+      antibiogram[atb] = resistances.includes(atb) ? "Résistant" : "Sensible";
+    }
+  });
+
+  return antibiogram;
+}
+
+// Fonction pour formater les résultats selon l'ordre de orlATB
+function formatOrlAntibiogram(antibiogram) {
+  const orderedResults = [];
+  orlATB.forEach((atb) => {
+    orderedResults.push(`${atb}: ${antibiogram[atb] || "Non testé"}`);
+  });
+  return orderedResults.join("\n");
+}
+
+// Événement de clic sur le bouton de génération de germe pour le prélèvement ORL
+document.getElementById("generateORLGermButton").addEventListener("click", function () {
+  const germe = generateOrlGerm();
+  const antibiogram = generateOrlAntibiogram(germe);
+
+  const orlResultElement = document.getElementById("orlResult");
+  orlResultElement.textContent = `Germe : ${germe}`;
+  orlResultElement.classList.remove("hidden"); // Affiche le germe
+
+  const orlATBResultElement = document.getElementById("orlATBResult");
+  orlATBResultElement.textContent = "Antibiogramme :\n\n" + formatOrlAntibiogram(antibiogram);
+  orlATBResultElement.classList.remove("hidden"); // Affiche l'antibiogramme
 });
