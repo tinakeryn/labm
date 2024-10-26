@@ -2,5 +2,7 @@
 @import "../Utils/variables";
 
 body {
-  background-color: $un;
+  margin: 0;
+  background: url(https://github.com/tinakeryn/laboratoire/blob/main/style/Images/background.png?raw=true)
+    fixed no-repeat center;
 }
