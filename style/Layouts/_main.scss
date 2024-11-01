@@ -30,14 +30,14 @@ main {
     flex-direction: column;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; // Centrer les éléments
-    margin: 40px auto; // Marges autour de la section
-    background-color: $trois; // Fond gris légèrement plus clair pour la section
-    border-radius: 15px; // Coins arrondis
-    padding: 20px; // Espacement intérieur
-    max-width: 700px; // Largeur maximale pour éviter l'étirement
+    align-items: center;
+    margin: 40px auto;
+    background-color: $trois;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
     -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25); // Ombre douce pour un effet de profondeur
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
     h2 {
       margin: 0;
     }
@@ -45,32 +45,32 @@ main {
       display: none;
     }
     button {
-      background-color: $buttonColor; // Couleur des boutons
-      color: $cinq; // Couleur du texte des boutons
-      height: 45px; // Hauteur fixe
-      border: none; // Pas de bordure par défaut
-      border-radius: 25px; // Coins arrondis
-      cursor: pointer; // Changer le curseur au survol
-      font-size: 1.1rem; // Taille de police pour les boutons
+      background-color: $buttonColor;
+      color: $cinq;
+      height: 45px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1.1rem;
       -webkit-transition: background-color 0.3s, -webkit-transform 0.2s;
       transition: background-color 0.3s, -webkit-transform 0.2s;
       -o-transition: background-color 0.3s, transform 0.2s;
       transition: background-color 0.3s, transform 0.2s;
-      transition: background-color 0.3s, transform 0.2s, -webkit-transform 0.2s; // Transition pour le changement de couleur
+      transition: background-color 0.3s, transform 0.2s, -webkit-transform 0.2s;
 
       &:hover {
         -webkit-transform: translateY(-2px);
         -ms-transform: translateY(-2px);
-        transform: translateY(-2px); // Légère élévation au survol
+        transform: translateY(-2px);
         background-color: $buttonHoverColor;
-        color: $trois; // Couleur du texte au survol
+        color: $trois;
       }
 
       &:active {
-        background-color: darken($quatre, 10%); // Changement de couleur lors du clic
+        background-color: darken($quatre, 10%);
         -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
-        transform: translateY(0); // Remettre à la normale
+        transform: translateY(0);
       }
     }
     .fa-xmark {
@@ -87,17 +87,17 @@ main {
       top: 300px;
     }
     .result {
-      background-color: $cinq; // Utiliser une couleur de fond plus claire pour les résultats
-      border: 1px solid $texte; // Bordure claire
-      border-radius: 10px; // Coins arrondis
-      padding: 15px; // Espacement intérieur
-      margin-top: 20px; // Espacement au-dessus
-      width: 100%; // Prendre toute la largeur
-      color: $texte; // Couleur de texte
-      font-family: "Inconsolata", monospace; // Police pour les résultats
-      white-space: pre-wrap; // Conserver les retours à la ligne
+      background-color: $cinq;
+      border: 1px solid $texte;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+      width: 100%;
+      color: $texte;
+
+      white-space: pre-wrap;
       -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre douce pour un effet de profondeur
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     form {
       display: -webkit-box;
