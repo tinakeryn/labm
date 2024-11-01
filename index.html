@@ -7,11 +7,9 @@
       content="Laboratoire d'analyses médicales de Mount Zonah - Light City"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/173443c88a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="icon" href="./style/Images/icon.png" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inconsolata&display=swap");
-    </style>
     <title>Accueil</title>
   </head>
   <body>
@@ -19,34 +17,77 @@
       <h1>Laboratoire d'Analyses Médicales</h1>
     </header>
     <main>
-      <section class="container">
+      <!-- Table des matières -->
+      <nav>
+        <h2>Table des matières</h2>
+        <ul>
+          <li><a href="#bloodTypeSection">Déterminer un groupe sanguin</a></li>
+          <li><a href="#hgpoSection">Résultats d'analyses HGPO</a></li>
+          <li><a href="#t21Section">Générer T21</a></li>
+          <li><a href="#ecbuSection">Résultats d'ECBU</a></li>
+          <li><a href="#ecbcSection">Résultats d'expectoration (ECBC)</a></li>
+          <li><a href="#orlSection">Résultats d'un prélèvement ORL</a></li>
+        </ul>
+      </nav>
+
+      <!-- Sections -->
+      <section class="container" id="bloodTypeSection">
         <h2>Déterminer un groupe sanguin</h2>
         <p>Appuyez sur le bouton pour obtenir un groupe sanguin aléatoire :</p>
-        <button id="generateButton">Générer un groupe aléatoire</button>
+        <button id="generateBloodTypeButton">Générer un groupe aléatoire</button>
         <div id="result"></div>
       </section>
-      <section class="container ecbu">
+
+      <section class="container hgpo" id="hgpoSection">
+        <h2>Résultats d'analyses HGPO</h2>
+        <p>Appuyez sur le bouton pour obtenir les résultats d'un test HGPO :</p>
+        <button id="generateHGPOButton">Générer un résultat HGPO</button>
+        <i id="hgpoClose" class="fa-solid fa-xmark hidden"></i>
+        <p class="hgpo__result hidden result" id="hgpoResult"></p>
+      </section>
+
+      <section class="container t21" id="t21Section">
+        <h2>Générer T21</h2>
+        <p>Entrez les informations suivantes :</p>
+        <form>
+          <label for="dobInput">Date de naissance de la patiente :</label>
+          <input type="date" id="dobInput" />
+          <label for="nuchalInput">Clarté nucale de l'embryon (en mm) :</label>
+          <input type="number" id="nuchalInput" step="0.1" />
+        </form>
+        <button id="generateT21Button">Générer T21</button>
+        <i id="t21Close" class="fa-solid fa-xmark hidden"></i>
+        <p class="t21 hidden result" id="t21Result"></p>
+      </section>
+
+      <section class="container ecbu" id="ecbuSection">
         <h2>Résultats d'ECBU</h2>
         <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
         <button id="generateECBUGermButton">Générer un germe aléatoire</button>
+        <i id="ecbuClose" class="fa-solid fa-xmark hidden"></i>
         <div class="ecbu__germe hidden result" id="ecbuResult"></div>
         <pre id="ecbuATBResult" class="hidden result"></pre>
       </section>
-      <section class="container ecbc">
+
+      <section class="container ecbc" id="ecbcSection">
         <h2>Résultats d'expectoration (ECBC)</h2>
         <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
         <button id="generateECBCGermButton">Générer un germe aléatoire</button>
+        <i id="ecbcClose" class="fa-solid fa-xmark hidden"></i>
         <div class="ecbc__germe hidden result" id="ecbcResult"></div>
         <pre id="ecbcATBResult" class="hidden result"></pre>
       </section>
-      <section class="container orl">
+
+      <section class="container orl" id="orlSection">
         <h2>Résultats d'un prélèvement ORL</h2>
         <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
         <button id="generateORLGermButton">Générer un germe aléatoire</button>
+        <i id="orlClose" class="fa-solid fa-xmark hidden"></i>
         <div class="orl__germe hidden result" id="orlResult"></div>
         <pre id="orlATBResult" class="hidden result"></pre>
       </section>
     </main>
+    <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
     <script src="./JS/index.js"></script>
   </body>
 </html>

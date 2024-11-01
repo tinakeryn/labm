@@ -1,43 +1,26 @@
 @import "../Utils/mixins";
 @import "../Utils/variables";
 
-// main {
-//   .container {
-//     display: -webkit-box;
-//     display: -ms-flexbox;
-//     display: flex;
-//     -webkit-box-align: center;
-//     -ms-flex-align: center;
-//     align-items: center;
-//     -webkit-box-pack: justify;
-//     -ms-flex-pack: justify;
-//     justify-content: space-between;
-//     -webkit-box-orient: vertical;
-//     -webkit-box-direction: normal;
-//     -ms-flex-direction: column;
-//     flex-direction: column;
-//     #generateButton,
-//     #generateECBUGermButton {
-//       background-color: $deux;
-//       // width: 100px;
-//       height: 42px;
-//       border: 2px outset;
-//       border-radius: 50px;
-//       cursor: pointer;
-//       &:active {
-//         background-color: $six;
-//         border: 2px inset;
-//         color: $cinq;
-//       }
-//     }
-//     #result {
-//       padding-top: 20px;
-//     }
-//   }
-// }
-
 main {
+  nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    ul {
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          &:hover {
+            color: $six;
+          }
+        }
+      }
+    }
+  }
   .container {
+    position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -55,10 +38,12 @@ main {
     max-width: 700px; // Largeur maximale pour éviter l'étirement
     -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25); // Ombre douce pour un effet de profondeur
+    h2 {
+      margin: 0;
+    }
     .hidden {
       display: none;
     }
-
     button {
       background-color: $buttonColor; // Couleur des boutons
       color: $cinq; // Couleur du texte des boutons
@@ -88,8 +73,19 @@ main {
         transform: translateY(0); // Remettre à la normale
       }
     }
-
-    // Styles pour les résultats
+    .fa-xmark {
+      font-size: 24px;
+      position: absolute;
+      top: 150px;
+      right: 20px;
+      &:hover {
+        cursor: pointer;
+        color: $six;
+      }
+    }
+    #t21Close {
+      top: 300px;
+    }
     .result {
       background-color: $cinq; // Utiliser une couleur de fond plus claire pour les résultats
       border: 1px solid $texte; // Bordure claire
@@ -102,6 +98,24 @@ main {
       white-space: pre-wrap; // Conserver les retours à la ligne
       -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Ombre douce pour un effet de profondeur
+    }
+    form {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      input {
+        -ms-flex-item-align: center;
+        align-self: center;
+        background-color: $un;
+        width: 100px;
+        text-align: center;
+      }
     }
   }
 }
