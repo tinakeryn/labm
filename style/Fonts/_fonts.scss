@@ -15,9 +15,13 @@ p {
 button {
   font-size: 1.1rem;
 }
-#result {
+#bloodTypeResult {
   font-size: 2rem;
 }
 .result {
   font-family: "Inconsolata", monospace;
+}
+.fa-person-digging {
+  font-size: 5rem;
+  color: $quatre;
 }

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Laboratoire d'analyses médicales de Mount Zonah - Light City"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/173443c88a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" href="./style/Images/icon.png" />
+    <title>LABM de Mount Zonah - Light City</title>
+  </head>
+  <body>
+    <header>
+      <h1>Biologie générale</h1>
+    </header>
+    <main>
+      <nav>
+        <h2>Table des matières</h2>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-reply"></i> Retour à l'accueil</a>
+          </li>
+          <li></li>
+          <li><i class="fa-solid fa-microscope icone"></i> Biologie générale :</li>
+          <ul>
+            <li>
+              <a href="#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
+            </li>
+            <li>
+              <a href="#vs&crpSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
+            </li>
+            <li>
+              <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
+            </li>
+            <li>
+              <a href="#coagSection"><i class="fa-solid fa-caret-right"></i> Coagulation</a>
+            </li>
+            <li>
+              <a href="#diabeteSection"><i class="fa-solid fa-caret-right"></i> Diabète</a>
+            </li>
+            <li>
+              <a href="#ealSection"><i class="fa-solid fa-caret-right"></i> Bilan lipidique</a>
+            </li>
+            <li>
+              <a href="#kidneySection"><i class="fa-solid fa-caret-right"></i> Rein</a>
+            </li>
+            <li>
+              <a href="#liverSection"><i class="fa-solid fa-caret-right"></i> Foie</a>
+            </li>
+            <li>
+              <a href="#thyroidSection"><i class="fa-solid fa-caret-right"></i> Thyroïde</a>
+            </li>
+            <li>
+              <a href="#allergySection"><i class="fa-solid fa-caret-right"></i> Allergies</a>
+            </li>
+            <li>
+              <a href="#otherSection"><i class="fa-solid fa-caret-right"></i> Divers</a>
+            </li>
+          </ul>
+          <li>
+            <a href="/grossesse.html"><i class="fa-solid fa-person-pregnant"></i> Grossesse</a>
+          </li>
+          <li>
+            <a href="/ist.html"><i class="fa-solid fa-ribbon"></i> IST</a>
+          </li>
+          <li>
+            <a href="/microbiologie.html"><i class="fa-solid fa-virus-covid"></i> Microbiologie</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="container" id="nfsSection">
+        <h2>Générer une NFS</h2>
+        <form id="nfsContextForm">
+          <label for="nfsContextSelect">Sélectionnez un contexte :</label>
+          <select id="nfsContextSelect" name="nfsContext">
+            <option value="Normal">Normal</option>
+            <option value="Grossesse">Grossesse</option>
+            <option value="Chimio">Chimio</option>
+            <option value="Saignement">Saignement</option>
+          </select>
+        </form>
+        <button id="generateNfsButton">Générer une NFS</button>
+        <i id="nfsClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="nfsResult"></div>
+      </section>
+      <section class="container" id="vs&crpSection">
+        <h2>Générer une VS et une CRP</h2>
+        <i class="fa-solid fa-person-digging"></i>
+        <!-- <form id="vs&crpContextForm">
+          <label for="vs&crpContextSelect">Sélectionnez un contexte :</label>
+          <select id="vs&crpContextSelect" name="vs&crpContext">
+            <option value="Normal">Normal</option>
+            <option value="Grossesse">Grossesse</option>
+            <option value="Infection bactérienne">Infection bactérienne</option>
+            <option value="Infection virale">Infection virale</option>
+          </select>
+        </form>
+        <button id="vs&crpButton">Générer une VS et une CRP</button>
+        <div id="vs&crpResult"></div> -->
+      </section>
+      <section class="container" id="bloodTypeSection">
+        <h2>Générer un groupe sanguin</h2>
+        <p>Appuyez sur le bouton pour obtenir un groupe sanguin aléatoire :</p>
+        <button id="generateBloodTypeButton">Générer un groupe aléatoire</button>
+        <i id="bloodTypeClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="bloodTypeResult"></div>
+      </section>
+      <section class="container" id="coagSection">
+        <h2>Générer bilan de coagulation</h2>
+        <p>D-Dimères, TP, TCA et Fibrinogène</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="diabeteSection">
+        <h2>Glycémie et HbA1C (diabète etc)</h2>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="ealSection">
+        <h2>Bilan lipidique</h2>
+        <p>Cholesterol et triglycérides</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="kidneySection">
+        <h2>Bilan rénal</h2>
+        <p>Créatinine et ionogramme sanguin</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="liverSection">
+        <h2>Bilan hépatique</h2>
+        <p>TGO, TGP, GGT et PAL</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="thyroidSection">
+        <h2>Bilan thyroïdien</h2>
+        <p>TSH, T4 Libre, Anticorps anti-thyroïdiens</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="allergySection">
+        <h2>Allergies</h2>
+        <p>Pneumallergènes, Trophallergènes</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="otherSection">
+        <h2>Divers</h2>
+        <p>Troponine, Vitamines (B9, B12 et D), Biochimie urinaire</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+    </main>
+    <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
+    <script src="./JS/index.js"></script>
+    <script src="./JS/biologie/dico.js"></script>
+    <script src="./JS/biologie/biologie.js"></script>
+  </body>
+</html>

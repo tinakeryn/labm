@@ -16,12 +16,17 @@ button {
   font-size: 1.1rem;
 }
 
-#result {
+#bloodTypeResult {
   font-size: 2rem;
 }
 
 .result {
   font-family: "Inconsolata", monospace;
+}
+
+.fa-person-digging {
+  font-size: 5rem;
+  color: #a3c1da;
 }
 
 body {
@@ -62,8 +67,19 @@ main nav {
 main nav ul li {
   list-style: none;
 }
+main nav ul li .icone {
+  font-size: 1.7rem;
+  color: #a3c1da;
+  width: 30px;
+  text-align: center;
+}
 main nav ul li a {
   text-decoration: none;
+}
+main nav ul li a .fa-solid {
+  width: 20px;
+  text-align: center;
+  color: #a3c1da;
 }
 main nav ul li a:hover {
   color: #7fb3d5;
@@ -82,6 +98,47 @@ main .container {
 }
 main .container h2 {
   margin: 0;
+}
+main .container .indexTitle a {
+  text-decoration: none;
+}
+main .container .indexTitle a .fa-solid {
+  width: 20px;
+  text-align: center;
+  color: #a3c1da;
+}
+main .container .indexTitle a:hover {
+  color: #7fb3d5;
+}
+main .container .indexTitle .fa-solid {
+  width: 25px;
+  margin-right: 5px;
+  text-align: center;
+  color: #a3c1da;
+}
+main .container .indexUl {
+  margin-top: -10px;
+  width: 600px;
+}
+main .container .indexUl li {
+  list-style: none;
+}
+main .container .indexUl li .icone {
+  font-size: 1.7rem;
+  color: #a3c1da;
+  width: 30px;
+  text-align: center;
+}
+main .container .indexUl li a {
+  text-decoration: none;
+}
+main .container .indexUl li a .fa-solid {
+  width: 20px;
+  text-align: center;
+  color: #a3c1da;
+}
+main .container .indexUl li a:hover {
+  color: #7fb3d5;
 }
 main .container .hidden {
   display: none;
@@ -135,9 +192,27 @@ main .container form {
   gap: 10px;
   padding-bottom: 20px;
 }
-main .container form input {
+main .container form input,
+main .container form select {
   align-self: center;
   background-color: #2b2b2b;
   width: 100px;
   text-align: center;
+}
+main .container div table {
+  margin: auto;
+  margin-top: 20px;
+  width: 500px;
+  border: 2px solid #f5f5f5;
+  border-collapse: collapse;
+}
+main .container div table th,
+main .container div table td {
+  border: 1px solid #f5f5f5;
+  padding: 8px;
+  text-align: center;
+}
+main .container div table th,
+main .container div table .tdTitle {
+  color: #a3c1da;
 }/*# sourceMappingURL=style.css.map */

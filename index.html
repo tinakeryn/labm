@@ -21,71 +21,183 @@
       <nav>
         <h2>Table des matières</h2>
         <ul>
-          <li><a href="#bloodTypeSection">Déterminer un groupe sanguin</a></li>
-          <li><a href="#hgpoSection">Résultats d'analyses HGPO</a></li>
-          <li><a href="#t21Section">Générer T21</a></li>
-          <li><a href="#ecbuSection">Résultats d'ECBU</a></li>
-          <li><a href="#ecbcSection">Résultats d'expectoration (ECBC)</a></li>
-          <li><a href="#orlSection">Résultats d'un prélèvement ORL</a></li>
-          <li><a href="https://tinakeryn.github.io/echographies/">Echographies</a></li>
+          <li>
+            <a href="/biologie.html"><i class="fa-solid fa-microscope"></i> Biologie générale</a>
+          </li>
+          <li>
+            <a href="/grossesse.html"><i class="fa-solid fa-person-pregnant"></i> Grossesse</a>
+          </li>
+          <li>
+            <a href="/ist.html"><i class="fa-solid fa-ribbon"></i> IST</a>
+          </li>
+          <li>
+            <a href="/microbiologie.html"><i class="fa-solid fa-virus-covid"></i> Microbiologie</a>
+          </li>
         </ul>
       </nav>
-
-      <!-- Sections -->
-      <section class="container" id="bloodTypeSection">
-        <h2>Déterminer un groupe sanguin</h2>
-        <p>Appuyez sur le bouton pour obtenir un groupe sanguin aléatoire :</p>
-        <button id="generateBloodTypeButton">Générer un groupe aléatoire</button>
-        <div id="result"></div>
+      <section class="container">
+        <h2 class="indexTitle">
+          <a href="/biologie.html"><i class="fa-solid fa-microscope"></i> Biologie générale</a>
+        </h2>
+        <div>
+          <p>Ici vous retrouverez les analyses suivantes :</p>
+          <ul class="indexUl">
+            <li>
+              <a href="/biologie.html#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
+            </li>
+            <li>
+              <a href="/biologie.html#vs&crpSection"
+                ><i class="fa-solid fa-caret-right"></i> VS & CRP</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#bloodTypeSection"
+                ><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#coagSection"
+                ><i class="fa-solid fa-caret-right"></i> Coagulation (D-Dimères, TP, TCA et
+                Fibrinogène)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#diabeteSection"
+                ><i class="fa-solid fa-caret-right"></i> Glycémie et HbA1C (diabète)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#ealSection"
+                ><i class="fa-solid fa-caret-right"></i> Bilan lipidique (Cholesterol etc)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#kidneySection"
+                ><i class="fa-solid fa-caret-right"></i> Bilan rénal (Créatinine et ionogramme
+                sanguin)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#liverSection"
+                ><i class="fa-solid fa-caret-right"></i> Bilan hépatique (TGO, TGP, GGT et PAL)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#thyroidSection"
+                ><i class="fa-solid fa-caret-right"></i> Bilan thyroïdien (TSH, T4L, Anticorps
+                anti-thyroïdiens)</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#allergySection"
+                ><i class="fa-solid fa-caret-right"></i> Allergies</a
+              >
+            </li>
+            <li>
+              <a href="/biologie.html#otherSection"
+                ><i class="fa-solid fa-caret-right"></i> Diverses autres analyses (Troponine,
+                vitamines, biochimie urinaire)</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
-
-      <section class="container hgpo" id="hgpoSection">
-        <h2>Résultats d'analyses HGPO</h2>
-        <p>Appuyez sur le bouton pour obtenir les résultats d'un test HGPO :</p>
-        <button id="generateHGPOButton">Générer un résultat HGPO</button>
-        <i id="hgpoClose" class="fa-solid fa-xmark hidden"></i>
-        <p class="hgpo__result hidden result" id="hgpoResult"></p>
+      <section class="container">
+        <h2 class="indexTitle">
+          <a href="/grossesse.html"><i class="fa-solid fa-person-pregnant"></i> Grossesse</a>
+        </h2>
+        <div>
+          <p>Ici vous retrouverez les analyses suivantes :</p>
+          <ul class="indexUl">
+            <li>
+              <a href="/grossesse.html#hcgSection"
+                ><i class="fa-solid fa-caret-right"></i> Dosage βHCG (Test de grossesse)</a
+              >
+            </li>
+            <li>
+              <a href="/grossesse.html#seroSection">
+                <i class="fa-solid fa-caret-right"></i> Sérologies de grossesse
+              </a>
+            </li>
+            <li>
+              <a href="/grossesse.html#hgpoSection"
+                ><i class="fa-solid fa-caret-right"></i> Diabète gestationnel</a
+              >
+            </li>
+            <li>
+              <a href="/grossesse.html#t21Section"
+                ><i class="fa-solid fa-caret-right"></i> Trisomie 21</a
+              >
+            </li>
+            <li>
+              <a href="/grossesse.html#dpniSection"
+                ><i class="fa-solid fa-caret-right"></i> DPNI (Dépistage Non Invasif des trisomies
+                13, 18 & 21)</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
-
-      <section class="container t21" id="t21Section">
-        <h2>Générer T21</h2>
-        <p>Entrez les informations suivantes :</p>
-        <form>
-          <label for="dobInput">Date de naissance de la patiente :</label>
-          <input type="date" id="dobInput" />
-          <label for="nuchalInput">Clarté nucale de l'embryon (en mm) :</label>
-          <input type="number" id="nuchalInput" step="0.1" />
-        </form>
-        <button id="generateT21Button">Générer T21</button>
-        <i id="t21Close" class="fa-solid fa-xmark hidden"></i>
-        <p class="t21 hidden result" id="t21Result"></p>
+      <section class="container">
+        <h2 class="indexTitle">
+          <a href="/ist.html"><i class="fa-solid fa-ribbon"></i> IST</a>
+        </h2>
+        <div>
+          <p>Ici vous retrouverez les analyses suivantes :</p>
+          <ul class="indexUl">
+            <li>
+              <a href="/ist.html#hepatitesSection"
+                ><i class="fa-solid fa-caret-right"></i>Hépatites B & C</a
+              >
+            </li>
+            <li>
+              <a href="/ist.html#hivSection"><i class="fa-solid fa-caret-right"></i>VIH (Sida)</a>
+            </li>
+            <li>
+              <a href="/ist.html#bwSection"><i class="fa-solid fa-caret-right"></i>Syphilis</a>
+            </li>
+            <li>
+              <a href="/ist.html#istvgSection"
+                ><i class="fa-solid fa-caret-right"></i>Chlamydiae et Gonocoques vaginaux</a
+              >
+            </li>
+            <li>
+              <a href="/ist.html#isturSection"
+                ><i class="fa-solid fa-caret-right"></i>Chlamydiae et Gonocoques urinaires</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
-
-      <section class="container ecbu" id="ecbuSection">
-        <h2>Résultats d'ECBU</h2>
-        <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
-        <button id="generateECBUGermButton">Générer un germe aléatoire</button>
-        <i id="ecbuClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="ecbu__germe hidden result" id="ecbuResult"></div>
-        <pre id="ecbuATBResult" class="hidden result"></pre>
-      </section>
-
-      <section class="container ecbc" id="ecbcSection">
-        <h2>Résultats d'expectoration (ECBC)</h2>
-        <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
-        <button id="generateECBCGermButton">Générer un germe aléatoire</button>
-        <i id="ecbcClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="ecbc__germe hidden result" id="ecbcResult"></div>
-        <pre id="ecbcATBResult" class="hidden result"></pre>
-      </section>
-
-      <section class="container orl" id="orlSection">
-        <h2>Résultats d'un prélèvement ORL</h2>
-        <p>Appuyez sur le bouton pour obtenir un germe aléatoire et son antibiogramme :</p>
-        <button id="generateORLGermButton">Générer un germe aléatoire</button>
-        <i id="orlClose" class="fa-solid fa-xmark hidden"></i>
-        <div class="orl__germe hidden result" id="orlResult"></div>
-        <pre id="orlATBResult" class="hidden result"></pre>
+      <section class="container">
+        <h2 class="indexTitle">
+          <a href="/microbiologie.html"><i class="fa-solid fa-virus-covid"></i> Microbiologie</a>
+        </h2>
+        <div>
+          <p>Ici vous retrouverez les analyses suivantes :</p>
+          <ul class="indexUl">
+            <li>
+              <a href="/microbiologie.html#ecbuSection"
+                ><i class="fa-solid fa-caret-right"></i>ECBU</a
+              >
+            </li>
+            <li>
+              <a href="/microbiologie.html#ecbcSection"
+                ><i class="fa-solid fa-caret-right"></i>expectoration (ECBC)</a
+              >
+            </li>
+            <li>
+              <a href="/microbiologie.html#orlSection"
+                ><i class="fa-solid fa-caret-right"></i>ORL</a
+              >
+            </li>
+            <li>
+              <a href="/microbiologie.html#covidSection"
+                ><i class="fa-solid fa-caret-right"></i>Grippe & Covid</a
+              >
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
     <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>

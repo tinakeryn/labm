@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Laboratoire d'analyses médicales de Mount Zonah - Light City"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://kit.fontawesome.com/173443c88a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="icon" href="./style/Images/icon.png" />
+    <title>LABM de Mount Zonah - Light City</title>
+  </head>
+  <body>
+    <header>
+      <h1>Analyses liées à la grossesse</h1>
+    </header>
+    <main>
+      <!-- Table des matières -->
+      <nav>
+        <h2>Table des matières</h2>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-reply"></i> Retour à l'accueil</a>
+          </li>
+          <li>
+            <a href="/biologie.html"><i class="fa-solid fa-microscope"></i> Biologie générale</a>
+          </li>
+          <li></li>
+          <li><span class="fa-solid fa-person-pregnant icone"></span>Grossesse :</li>
+          <ul>
+            <li>
+              <a href="#hcgSection">
+                <i class="fa-solid fa-caret-right"></i> Dosage βHCG (Test de grossesse)
+              </a>
+            </li>
+            <li>
+              <a href="#seroSection">
+                <i class="fa-solid fa-caret-right"></i> Sérologies de grossesse
+              </a>
+            </li>
+            <li>
+              <a href="#hgpoSection"> <i class="fa-solid fa-caret-right"></i> Générer HGPO </a>
+            </li>
+            <li>
+              <a href="#t21Section">
+                <i class="fa-solid fa-caret-right"></i> Générer Trisomie 21
+              </a>
+            </li>
+            <li>
+              <a href="#dpniSection"> <i class="fa-solid fa-caret-right"></i> Générer DPNI </a>
+            </li>
+            <li>
+              <a href="https://tinakeryn.github.io/echographies/" target="_blank">
+                <i class="fa-solid fa-caret-right"></i> Site pour les échographies
+              </a>
+            </li>
+          </ul>
+          <li>
+            <a href="/ist.html"><i class="fa-solid fa-ribbon"></i> IST</a>
+          </li>
+          <li>
+            <a href="/microbiologie.html"><i class="fa-solid fa-virus-covid"></i> Microbiologie</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="container" id="kidneySection">
+        <h2>Test de grossesse</h2>
+        <p>Dosage de la βHCG</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container" id="seroSection">
+        <h2>Sérologies de grossesse</h2>
+        <p>Toxoplasmose, rubéole et CMV</p>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+      <section class="container hgpo" id="hgpoSection">
+        <h2>Résultats d'analyses HGPO</h2>
+        <p>Appuyez sur le bouton pour obtenir les résultats d'un test HGPO :</p>
+        <button id="generateHGPOButton">Générer un résultat HGPO</button>
+        <i id="hgpoClose" class="fa-solid fa-xmark hidden"></i>
+        <p class="hgpo__result hidden result" id="hgpoResult"></p>
+      </section>
+      <section class="container t21" id="t21Section">
+        <h2>Générer T21</h2>
+        <p>Entrez les informations suivantes :</p>
+        <form>
+          <label for="dobInput">Date de naissance de la patiente :</label>
+          <input type="date" id="dobInput" />
+          <label for="nuchalInput">Clarté nucale de l'embryon (en mm) :</label>
+          <input type="number" id="nuchalInput" step="0.1" />
+        </form>
+        <button id="generateT21Button">Générer T21</button>
+        <i id="t21Close" class="fa-solid fa-xmark hidden"></i>
+        <p class="t21 hidden result" id="t21Result"></p>
+      </section>
+      <section class="container" id="dpniSection">
+        <h2>Générer DPNI</h2>
+        <i class="fa-solid fa-person-digging"></i>
+      </section>
+    </main>
+    <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>
+    <script src="./JS/index.js"></script>
+    <script src="./JS/grossesse/dico.js"></script>
+    <script src="./JS/grossesse/grossesse.js"></script>
+  </body>
+</html>
