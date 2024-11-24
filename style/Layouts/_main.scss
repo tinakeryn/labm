@@ -127,6 +127,16 @@ main {
         transform: translateY(0);
       }
     }
+    .disabledButton {
+      background-color: $deux;
+      &:hover {
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+        background-color: $deux;
+        cursor: auto;
+      }
+    }
     .fa-xmark {
       font-size: 24px;
       position: absolute;
@@ -193,6 +203,12 @@ main {
         th,
         .tdTitle {
           color: $quatre;
+        }
+      }
+      .resultParagraph {
+        font-size: 1rem;
+        span {
+          font-weight: bold;
         }
       }
     }
