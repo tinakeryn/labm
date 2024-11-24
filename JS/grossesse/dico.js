@@ -74,7 +74,15 @@ const hcgRangesMolar = {
   "6-8": { min: 100000, max: 200000 },
   "8-12": { min: 200000, max: 500000 },
   "12-16": { min: 100000, max: 500000 },
-  "16-40": { min: 0, max: 5000 },
+};
+
+const hcgRangesNonViable = {
+  "3-4": { min: 5, max: 100 },
+  "4-5": { min: 10, max: 300 },
+  "5-6": { min: 20, max: 600 },
+  "6-8": { min: 50, max: 1000 },
+  "8-12": { min: 60, max: 1500 },
+  "12-16": { min: 50, max: 1000 },
 };
 
 const caseDictionary = {
@@ -84,5 +92,6 @@ const caseDictionary = {
   4: "Cas 9",
   ectopic: "Cas 7",
   molar: "Cas 10",
+  nonViable: "Cas 1.3, 1.4, 1.5, 2.2, 2.3, 6.2",
 };
 //? Dictionnaires βHCG <--

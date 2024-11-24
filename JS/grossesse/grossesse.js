@@ -1,27 +1,277 @@
 //? --> Générer un taux de βHCG
 const generateHcgButton = document.getElementById("generateHcgButton");
+generateHcgButton.disabled = true;
+let numberOfBabies = "Non applicable";
+let hcgRangesToUse;
+let gestation;
 
-function generateRandomHcg(pregnancyStage) {
+//* Récupérer le nombre de bébé(s)
+function getNumberOfBabies() {
+  const numberOfBabiesSelect = document.getElementById("babyCountSelect");
+  // Si le nombre de bébé(s) est rendu aléatoire
+  if (numberOfBabiesSelect) {
+    if (numberOfBabiesSelect.value === "random") {
+      numberOfBabies = Math.floor(Math.random() * 4) + 1;
+    } else {
+      numberOfBabies = parseInt(numberOfBabiesSelect.value);
+    }
+  }
+}
+
+//* Utiliser le bon dictionnaire
+function getDictionnary() {
+  getNumberOfBabies();
   const miscarriageReasonSelect = document.getElementById("miscarriageReasonSelect");
   const miscarriageReason = miscarriageReasonSelect ? miscarriageReasonSelect.value : null;
 
-  // Choisir le dictionnaire en fonction de la raison
-  let hcgRangesToUse = hcgRanges; // Par défaut
+  // Choisir le dictionnaire en fonction de la raison ou du nombre de bébés
   if (miscarriageReason === "molar") {
     hcgRangesToUse = hcgRangesMolar;
   } else if (miscarriageReason === "ectopic") {
     hcgRangesToUse = hcgRangesEctopic;
-  }
-
-  // Vérifier que le stade de grossesse existe dans le dictionnaire choisi
-  if (hcgRangesToUse[pregnancyStage]) {
-    const range = hcgRangesToUse[pregnancyStage];
-    // Générer un taux aléatoire entre min et max
-    return Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+  } else if (miscarriageReason === "nonViable") {
+    hcgRangesToUse = hcgRangesNonViable;
   } else {
-    return null; // Si le stade n'existe pas
+    if (numberOfBabies != 1) {
+      if (numberOfBabies === 2) {
+        hcgRangesToUse = hcgRangesForTwins;
+      } else if (numberOfBabies === 3) {
+        hcgRangesToUse = hcgRangesForTriplets;
+      } else if (numberOfBabies === 4) {
+        hcgRangesToUse = hcgRangesForQuadruplets;
+      }
+    } else {
+      hcgRangesToUse = hcgRanges;
+    }
   }
 }
+
+//* Afficher le temps de gestation en SA
+function updateGestationValue() {
+  switch (gestation) {
+    case "3-4":
+      gestation = "3 à 4 SA";
+      break;
+    case "4-5":
+      gestation = "4 à 5 SA";
+      break;
+    case "5-6":
+      gestation = "5 à 6 SA";
+      break;
+    case "6-8":
+      gestation = "6 à 8 SA";
+      break;
+    case "8-12":
+      gestation = "8 à 12 SA (3ème mois)";
+      break;
+    case "12-16":
+      gestation = "12 à 16 SA (4ème mois)";
+      break;
+    case "16-20":
+      gestation = "16 à 20 SA (5ème mois)";
+      break;
+    case "20-24":
+      gestation = "20 à 24 SA (6ème mois)";
+      break;
+    case "24-28":
+      gestation = "24 à 28 SA (7ème mois)";
+      break;
+    case "28-32":
+      gestation = "28 à 32 SA (8ème mois)";
+      break;
+    case "32-36":
+      gestation = "32 à 36 SA (9ème mois)";
+      break;
+    case "36-40":
+      gestation = "36 à 40 SA (fin de la grossesse)";
+      break;
+    default:
+      console.log(`Valeur de gestation inconnue : ${gestation}`);
+  }
+}
+
+//* Formater les nombres pour les rendre plus lisibles
+function formatNumberWithSpaces(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u202F");
+}
+
+//* Gérer l'activation et la désactivation du bouton
+function changeButtonState(selector, button) {
+  if (selector) {
+    selector.addEventListener("change", () => {
+      if (selector.value) {
+        button.disabled = false;
+        button.classList.remove("disabledButton");
+      } else {
+        button.disabled = true;
+        button.classList.add("disabledButton");
+      }
+    });
+  }
+}
+
+//* Générer un taux de βHCG aléatoire
+function generateRandomHcg(pregnancyStage) {
+  getDictionnary();
+
+  // Si le stade de grossesse est rendu aléatoire
+  if (pregnancyStage === "random") {
+    const allowedStages = ["3-4", "4-5", "5-6", "6-8"];
+    pregnancyStage = allowedStages[Math.floor(Math.random() * allowedStages.length)];
+  } else if (pregnancyStage === "randomDenial") {
+    const allowedStages = ["16-20", "20-24", "24-28", "28-32", "32-36", "36-40"];
+    pregnancyStage = allowedStages[Math.floor(Math.random() * allowedStages.length)];
+  } else if (pregnancyStage === "2ème trimestre") {
+    const allowedStages = ["16-20", "20-24"];
+    pregnancyStage = allowedStages[Math.floor(Math.random() * allowedStages.length)];
+  } else if (pregnancyStage === "3ème trimestre") {
+    const allowedStages = ["24-28", "28-32", "32-36", "36-40"];
+    pregnancyStage = allowedStages[Math.floor(Math.random() * allowedStages.length)];
+  } else if (pregnancyStage === "Accouchement") {
+    const allowedStages = ["36-40"];
+    pregnancyStage = allowedStages[Math.floor(Math.random() * allowedStages.length)];
+  }
+  // Récupérer et "convertir" le stade de grossesse
+  gestation = pregnancyStage;
+  updateGestationValue();
+
+  // Génère un taux dans les bornes du stade de grossesse correspondant dans le dictionnaire
+  if (hcgRangesToUse[pregnancyStage]) {
+    const range = hcgRangesToUse[pregnancyStage];
+    const hcgValue = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+    return formatNumberWithSpaces(hcgValue);
+  } else {
+    console.log(`Stade de grossesse invalide : ${pregnancyStage}`);
+    return null;
+  }
+}
+
+//* Générer une fausse couche
+function createMiscarriage(form) {
+  let reasonLabel = document.getElementById("reasonLabel");
+  if (!reasonLabel) {
+    reasonLabel = document.createElement("label");
+    reasonLabel.id = "reasonLabel";
+    reasonLabel.htmlFor = "miscarriageReasonSelect";
+    reasonLabel.textContent = "Quelle est la raison de la fausse couche ?";
+    form.appendChild(reasonLabel);
+  }
+
+  const reasonSelect = document.createElement("select");
+  reasonSelect.id = "miscarriageReasonSelect";
+  reasonSelect.name = "miscarriageReason";
+
+  // Ajouter une option par défaut désactivée
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Raison de la fausse couche";
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  reasonSelect.appendChild(defaultOption);
+
+  const reasonOptions = [
+    { value: "molar", text: "Grossesse molaire" },
+    { value: "ectopic", text: "Grossesse extra-utérine" },
+    { value: "nonViable", text: "Fœtus non viable" },
+  ];
+
+  reasonOptions.forEach((optionData) => {
+    const option = document.createElement("option");
+    option.value = optionData.value;
+    option.textContent = optionData.text;
+    reasonSelect.appendChild(option);
+  });
+
+  reasonSelect.addEventListener("change", (reasonEvent) => {
+    const selectedReason = reasonEvent.target.value;
+
+    // Supprimer les options précédentes de pregnancyStageSelect si elles existent
+    const existingPregnancyStage = document.getElementById("pregnancyStageSelect");
+    if (existingPregnancyStage) {
+      existingPregnancyStage.remove();
+    }
+    removeStageLabelIfExist();
+    // Ajouter les options selon la raison sélectionnée
+    if (
+      selectedReason === "molar" ||
+      selectedReason === "ectopic" ||
+      selectedReason === "nonViable"
+    ) {
+      createPregnancyStageField(form, selectedReason);
+      const pregnancyStageSelect = document.getElementById("pregnancyStageSelect");
+      // Activer le bouton lorsque le stage de grossesse est sélectionné
+      changeButtonState(pregnancyStageSelect, generateHcgButton);
+    }
+  });
+
+  form.appendChild(reasonSelect);
+}
+
+//* Eviter la duplication de label
+function removeStageLabelIfExist() {
+  const stageLabel = document.getElementById("pregnancyStageLabel");
+  if (stageLabel) {
+    stageLabel.remove();
+  }
+}
+
+//* Créer le sélecteur "stade de grossesse"
+function createPregnancyStageField(form, context = "general") {
+  const stageLabel = document.createElement("label");
+  stageLabel.htmlFor = "pregnancyStageSelect";
+  stageLabel.textContent = "À quel stade de grossesse est la patiente ?";
+  stageLabel.id = "pregnancyStageLabel";
+
+  const stageSelect = document.createElement("select");
+  stageSelect.id = "pregnancyStageSelect";
+  stageSelect.name = "pregnancyStage";
+
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Stade de la grossesse ?";
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  stageSelect.appendChild(defaultOption);
+
+  let stageOptions;
+  if (context === "molar" || context === "ectopic" || context === "nonViable") {
+    stageOptions = [
+      { value: "3-4", text: "3-4 semaines (env. 1 mois)" },
+      { value: "4-5", text: "4-5 semaines (1 à 1,5 mois)" },
+      { value: "5-6", text: "5-6 semaines (env. 1,5 mois)" },
+      { value: "6-8", text: "6-8 semaines (1,5 à 2 mois)" },
+      { value: "8-12", text: "8-12 semaines (2 à 3 mois)" },
+      { value: "12-16", text: "12-16 semaines (3 à 4 mois)" },
+      { value: "random", text: "Le hasard décide" },
+    ];
+  } else if (context === "pregnant") {
+    stageOptions = [
+      { value: "3-4", text: "3-4 semaines (env. 1 mois)" },
+      { value: "4-5", text: "4-5 semaines (1 à 1,5 mois)" },
+      { value: "5-6", text: "5-6 semaines (env. 1,5 mois)" },
+      { value: "6-8", text: "6-8 semaines (1,5 à 2 mois)" },
+      { value: "random", text: "Le hasard décide" },
+    ];
+  } else if (context === "denial") {
+    stageOptions = [
+      { value: "2ème trimestre", text: "2ème trimestre" },
+      { value: "3ème trimestre", text: "3ème trimestre" },
+      { value: "Accouchement", text: "Accouchement" },
+      { value: "randomDenial", text: "Le hasard décide" },
+    ];
+  }
+
+  stageOptions.forEach((optionData) => {
+    const option = document.createElement("option");
+    option.value = optionData.value;
+    option.textContent = optionData.text;
+    stageSelect.appendChild(option);
+  });
+
+  form.appendChild(stageLabel);
+  form.appendChild(stageSelect);
+}
+
 //* Générer un formulaire dynamique
 document.addEventListener("DOMContentLoaded", () => {
   const hcgContextSelect = document.getElementById("hcgContextSelect");
@@ -48,132 +298,42 @@ document.addEventListener("DOMContentLoaded", () => {
       // Ajouter une question pour "pregnancyStageSelect" uniquement si ce n'est pas une fausse couche
       if (selectedValue === "denial" || selectedValue === "pregnant") {
         addNumberOfBabiesSelector(extraForm);
-      }
-      if (selectedValue === "denial" || selectedValue === "pregnant") {
         createPregnancyStageField(extraForm, selectedValue);
       }
-
       // Si "miscarriage" est sélectionné
       if (selectedValue === "miscarriage") {
-        let reasonLabel = document.getElementById("reasonLabel");
-        if (!reasonLabel) {
-          reasonLabel = document.createElement("label");
-          reasonLabel.id = "reasonLabel";
-          reasonLabel.htmlFor = "miscarriageReasonSelect";
-          reasonLabel.textContent = "Quelle est la raison de la fausse couche ?";
-          extraForm.appendChild(reasonLabel);
-        }
-
-        const reasonSelect = document.createElement("select");
-        reasonSelect.id = "miscarriageReasonSelect";
-        reasonSelect.name = "miscarriageReason";
-
-        // Ajouter une option par défaut désactivée
-        const defaultOption = document.createElement("option");
-        defaultOption.value = "";
-        defaultOption.textContent = "Raison de la fausse couche";
-        defaultOption.selected = true;
-        defaultOption.disabled = true;
-        reasonSelect.appendChild(defaultOption);
-
-        const reasonOptions = [
-          { value: "molar", text: "Grossesse molaire" },
-          { value: "ectopic", text: "Grossesse extra-utérine" },
-          { value: "other", text: "Autre" },
-        ];
-
-        reasonOptions.forEach((optionData) => {
-          const option = document.createElement("option");
-          option.value = optionData.value;
-          option.textContent = optionData.text;
-          reasonSelect.appendChild(option);
-        });
-
-        reasonSelect.addEventListener("change", (reasonEvent) => {
-          const selectedReason = reasonEvent.target.value;
-
-          // Supprimer les options précédentes de pregnancyStageSelect si elles existent
-          const existingPregnancyStage = document.getElementById("pregnancyStageSelect");
-          if (existingPregnancyStage) {
-            existingPregnancyStage.remove();
-          }
-
-          // Ajouter les options selon la raison sélectionnée
-          if (selectedReason === "molar" || selectedReason === "ectopic") {
-            createPregnancyStageField(extraForm, selectedReason);
-          }
-        });
-
-        extraForm.appendChild(reasonSelect);
+        createMiscarriage(extraForm);
       }
-
-      // Insérer le formulaire dans le DOM
       hcgContextForm.insertAdjacentElement("afterend", extraForm);
+
+      const pregnancyStageSelect = document.getElementById("pregnancyStageSelect");
+      if (hcgContextSelect) {
+        hcgContextSelect.addEventListener("change", () => {
+          // Si une option est sélectionnée, activer le bouton
+          generateHcgButton.disabled = true;
+          generateHcgButton.classList.add("disabledButton");
+        });
+      }
+      changeButtonState(pregnancyStageSelect, generateHcgButton);
     }
   });
-
-  /**
-   * Crée le champ pregnancyStageSelect et l'ajoute au formulaire donné.
-   * @param {HTMLElement} form - Le formulaire où ajouter le champ.
-   * @param {string} context - Le contexte pour personnaliser les options (facultatif).
-   */
-  function createPregnancyStageField(form, context = "general") {
-    const stageLabel = document.createElement("label");
-    stageLabel.htmlFor = "pregnancyStageSelect";
-    stageLabel.textContent = "À quel stade de grossesse est la patiente ?";
-
-    const stageSelect = document.createElement("select");
-    stageSelect.id = "pregnancyStageSelect";
-    stageSelect.name = "pregnancyStage";
-
-    let stageOptions;
-    if (context === "molar" || context === "ectopic") {
-      stageOptions = [
-        { value: "3-4", text: "3-4 semaines (env. 1 mois)" },
-        { value: "4-5", text: "4-5 semaines (1 à 1,5 mois)" },
-        { value: "5-6", text: "5-6 semaines (env. 1,5 mois)" },
-        { value: "6-8", text: "6-8 semaines (1,5 à 2 mois)" },
-        { value: "8-12", text: "8-12 semaines (2 à 3 mois)" },
-        { value: "12-16", text: "12-16 semaines (3 à 4 mois)" },
-      ];
-    } else if (context === "pregnant") {
-      stageOptions = [
-        { value: "3-4", text: "3-4 semaines (env. 1 mois)" },
-        { value: "4-5", text: "4-5 semaines (1 à 1,5 mois)" },
-        { value: "5-6", text: "5-6 semaines (env. 1,5 mois)" },
-        { value: "6-8", text: "6-8 semaines (1,5 à 2 mois)" },
-        { value: "Le hasard décide", text: "Le hasard décide" },
-      ];
-    } else {
-      stageOptions = [
-        { value: "1er trimestre", text: "1er trimestre" },
-        { value: "2ème trimestre", text: "2ème trimestre" },
-        { value: "3ème trimestre", text: "3ème trimestre" },
-        { value: "Accouchement", text: "Accouchement" },
-        { value: "Le hasard décide", text: "Le hasard décide" },
-      ];
-    }
-
-    stageOptions.forEach((optionData) => {
-      const option = document.createElement("option");
-      option.value = optionData.value;
-      option.textContent = optionData.text;
-      stageSelect.appendChild(option);
-    });
-
-    form.appendChild(stageLabel);
-    form.appendChild(stageSelect);
-  }
 
   function addNumberOfBabiesSelector(form) {
     const label = document.createElement("label");
     label.htmlFor = "babyCountSelect";
-    label.textContent = "Combien de bébés sont attendus ?";
+    label.textContent = "Combien de bébé(s) ?";
     form.appendChild(label);
 
     const select = document.createElement("select");
     select.id = "babyCountSelect";
     select.name = "babyCount";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "Nombre de bébés...";
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    select.appendChild(defaultOption);
 
     const options = [
       { value: 1, text: "1" },
@@ -194,32 +354,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//*Générer le tableau dynamiquement
+//* Générer le tableau dynamiquement
 function createHcgTable(hcgResult) {
   const hcgResultDiv = document.getElementById("hcgResult");
   const miscarriageReasonSelect = document.getElementById("miscarriageReasonSelect");
-  const numberOfBabiesSelect = document.getElementById("babyCountSelect");
 
-  let numberOfBabies = "Non applicable";
   let caseDescription = "Non applicable";
-
-  if (numberOfBabiesSelect) {
-    if (numberOfBabiesSelect.value === "random") {
-      numberOfBabies = Math.floor(Math.random() * 4) + 1; // Générer un nombre entre 1 et 4
-    } else {
-      numberOfBabies = numberOfBabiesSelect.value;
-    }
-  }
 
   if (miscarriageReasonSelect && miscarriageReasonSelect.value === "ectopic") {
     caseDescription = caseDictionary.ectopic;
   } else if (miscarriageReasonSelect && miscarriageReasonSelect.value === "molar") {
     caseDescription = caseDictionary.molar;
+  } else if (miscarriageReasonSelect && miscarriageReasonSelect.value === "nonViable") {
+    caseDescription = caseDictionary.nonViable;
+    numberOfBabies = "Non applicable";
   } else if (numberOfBabies !== "Non applicable" && caseDictionary[numberOfBabies]) {
     caseDescription = caseDictionary[numberOfBabies];
   }
 
-  // Affichage du tableau
   hcgResultDiv.innerHTML = "";
   const hcgTableHTML = `
    <table id="hcgTable">
@@ -235,15 +387,23 @@ function createHcgTable(hcgResult) {
       <td>${hcgResult} UI/L</td>
     </tr>
     <tr>
-      <td class="tdTitle">Nombre de bébé(s)</td>
+      <td class="tdTitle">Nombre de bébé(s) *</td>
       <td>${numberOfBabies}</td>
     </tr>
     <tr>
-      <td class="tdTitle">Cas d'écho 1er trimestre</td>
+      <td class="tdTitle">Stade de la grossesse *</td>
+      <td>${gestation}</td>
+    </tr>
+    <tr>
+      <td class="tdTitle">N° de cas à transmettre aux gynécos</td>
       <td>${caseDescription}</td>
     </tr>
   </tbody>
-</table>`;
+</table>
+<p class="resultParagraph"><span class="important">*</span> Les données "nombre de bébé(s)" et "stade de grossesse" sont à titre purement
+          <span class="important">indicatif</span> ! <br />Seule l'échographie réalisée par un
+          gynécoloque fait foi. <br />Ne pas donner ces infos aux joueurs.
+        </p>`;
   hcgResultDiv.innerHTML += hcgTableHTML;
 }
 
@@ -251,14 +411,11 @@ generateHcgButton.addEventListener("click", () => {
   const pregnancyStageSelect = document.getElementById("pregnancyStageSelect");
   const selectedPregnancyStage = pregnancyStageSelect ? pregnancyStageSelect.value : null;
 
-  // Vérifier si un stade de grossesse est sélectionné
   if (selectedPregnancyStage) {
-    // Appeler la fonction pour générer le taux de βHCG
     const hcgResult = generateRandomHcg(selectedPregnancyStage);
-    // Afficher le tableau avec le taux généré
     createHcgTable(hcgResult);
   } else {
-    alert("Veuillez sélectionner un stade de grossesse.");
+    alert("Veuillez remplir tous les champs.");
   }
 });
 //? Générer un taux de βHCG <--
