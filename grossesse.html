@@ -17,7 +17,6 @@
       <h1>Analyses liées à la grossesse</h1>
     </header>
     <main>
-      <!-- Table des matières -->
       <nav>
         <h2>Table des matières</h2>
         <ul>
@@ -65,10 +64,21 @@
           </li>
         </ul>
       </nav>
-      <section class="container" id="kidneySection">
+      <section class="container" id="hcgSection">
         <h2>Test de grossesse</h2>
-        <p>Dosage de la βHCG</p>
-        <i class="fa-solid fa-person-digging"></i>
+        <form id="hcgContextForm">
+          <label for="hcgContextSelect">La joueuse veut : </label>
+          <select id="hcgContextSelect" name="hcgContext">
+            <option value="" selected disabled>La joueuse veut...</option>
+            <option value="pregnant">Être enceinte</option>
+            <option value="notPregnant">Ne pas être enceinte</option>
+            <option value="denial">Faire un déni de grossesse</option>
+            <option value="miscarriage">Faire une fausse couche</option>
+          </select>
+        </form>
+        <button id="generateHcgButton">Générer un taux de βHCG</button>
+        <i id="hcgClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="hcgResult"></div>
       </section>
       <section class="container" id="seroSection">
         <h2>Sérologies de grossesse</h2>
