@@ -1,0 +1,10 @@
+@import "../Utils/mixins";
+@import "../Utils/variables";
+
+#hcgSection {
+  form {
+    select {
+      width: 200px;
+    }
+  }
+}
