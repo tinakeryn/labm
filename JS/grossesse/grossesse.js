@@ -24,7 +24,6 @@ function getDictionnary() {
   const miscarriageReasonSelect = document.getElementById("miscarriageReasonSelect");
   const miscarriageReason = miscarriageReasonSelect ? miscarriageReasonSelect.value : null;
 
-  // Choisir le dictionnaire en fonction de la raison ou du nombre de bébés
   if (miscarriageReason === "molar") {
     hcgRangesToUse = hcgRangesMolar;
   } else if (miscarriageReason === "ectopic") {
@@ -32,16 +31,21 @@ function getDictionnary() {
   } else if (miscarriageReason === "nonViable") {
     hcgRangesToUse = hcgRangesNonViable;
   } else {
-    if (numberOfBabies != 1) {
-      if (numberOfBabies === 2) {
+    switch (numberOfBabies) {
+      case 1:
+        hcgRangesToUse = hcgRanges;
+        break;
+      case 2:
         hcgRangesToUse = hcgRangesForTwins;
-      } else if (numberOfBabies === 3) {
+        break;
+      case 3:
         hcgRangesToUse = hcgRangesForTriplets;
-      } else if (numberOfBabies === 4) {
+        break;
+      case 4:
         hcgRangesToUse = hcgRangesForQuadruplets;
-      }
-    } else {
-      hcgRangesToUse = hcgRanges;
+        break;
+      default:
+        hcgRangesToUse = hcgRanges;
     }
   }
 }
@@ -139,7 +143,9 @@ function generateRandomHcg(pregnancyStage) {
   if (hcgRangesToUse[pregnancyStage]) {
     const range = hcgRangesToUse[pregnancyStage];
     const hcgValue = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
-    return formatNumberWithSpaces(hcgValue);
+    const formattedHcg = formatNumberWithSpaces(hcgValue);
+
+    return formattedHcg;
   } else {
     console.log(`Stade de grossesse invalide : ${pregnancyStage}`);
     return null;
@@ -299,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selectedValue === "denial" || selectedValue === "pregnant") {
         addNumberOfBabiesSelector(extraForm);
         createPregnancyStageField(extraForm, selectedValue);
+        addRiskAcceptanceField(extraForm);
       }
       // Si "miscarriage" est sélectionné
       if (selectedValue === "miscarriage") {
@@ -358,8 +365,13 @@ document.addEventListener("DOMContentLoaded", () => {
 function createHcgTable(hcgResult) {
   const hcgResultDiv = document.getElementById("hcgResult");
   const miscarriageReasonSelect = document.getElementById("miscarriageReasonSelect");
+  const riskAcceptanceSelect = document.getElementById("riskAcceptance");
 
   let caseDescription = "Non applicable";
+  const riskCategory = determineRiskyCategory();
+  if (riskCategory) {
+    console.log(`La grossesse est classée comme: ${caseDictionary[riskCategory]}`);
+  }
 
   if (miscarriageReasonSelect && miscarriageReasonSelect.value === "ectopic") {
     caseDescription = caseDictionary.ectopic;
@@ -370,6 +382,10 @@ function createHcgTable(hcgResult) {
     numberOfBabies = "Non applicable";
   } else if (numberOfBabies !== "Non applicable" && caseDictionary[numberOfBabies]) {
     caseDescription = caseDictionary[numberOfBabies];
+  }
+
+  if (riskAcceptanceSelect && riskAcceptanceSelect.value === "yes") {
+    caseDescription = caseDictionary[riskCategory] || "Cas inconnu";
   }
 
   hcgResultDiv.innerHTML = "";
@@ -402,9 +418,75 @@ function createHcgTable(hcgResult) {
 </table>
 <p class="resultParagraph"><span class="important">*</span> Les données "nombre de bébé(s)" et "stade de grossesse" sont à titre purement
           <span class="important">indicatif</span> ! <br />Seule l'échographie réalisée par un
-          gynécoloque fait foi. <br />Ne pas donner ces infos aux joueurs.
+          gynécoloque fait foi. <br />Ne pas donner ces infos aux joueurs autres que gynéco !
         </p>`;
   hcgResultDiv.innerHTML += hcgTableHTML;
+}
+
+//* Générer le formulaire qui propose la grossesse à risque
+function addRiskAcceptanceField(form) {
+  const label = document.createElement("label");
+  label.htmlFor = "riskAcceptance";
+  label.textContent = "Acceptez-vous une grossesse à risque ?";
+
+  const select = document.createElement("select");
+  select.id = "riskAcceptance";
+  select.name = "riskAcceptance";
+
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Choisissez...";
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  select.appendChild(defaultOption);
+
+  const options = [
+    { value: "yes", text: "Oui" },
+    { value: "no", text: "Non" },
+  ];
+
+  options.forEach((opt) => {
+    const option = document.createElement("option");
+    option.value = opt.value;
+    option.textContent = opt.text;
+    select.appendChild(option);
+  });
+
+  form.appendChild(label);
+  form.appendChild(select);
+}
+
+//* Déterminer le type de grossesse à risque
+function determineRiskyCategory() {
+  console.log("Exécution de determineRiskyCategory()...");
+
+  const riskAcceptanceSelect = document.getElementById("riskAcceptance");
+
+  if (!riskAcceptanceSelect) {
+    console.log("Le sélecteur riskAcceptance n'existe pas.");
+    return null;
+  }
+
+  if (riskAcceptanceSelect.value !== "yes") {
+    console.log("L'utilisateur n'a pas accepté le risque.");
+    return null;
+  }
+
+  console.log(`Nombre de bébés détecté : ${numberOfBabies}`);
+
+  switch (numberOfBabies) {
+    case 1:
+      return "risky";
+    case 2:
+      return "riskyTwin";
+    case 3:
+      return "riskyTriplets";
+    case 4:
+      return "riskyQuadruplets";
+    default:
+      console.log("Nombre de bébés non valide.");
+      return null;
+  }
 }
 
 generateHcgButton.addEventListener("click", () => {
@@ -418,6 +500,7 @@ generateHcgButton.addEventListener("click", () => {
     alert("Veuillez remplir tous les champs.");
   }
 });
+
 //? Générer un taux de βHCG <--
 
 //? --> Générer un résultat HGPO aléatoire
@@ -605,8 +688,8 @@ document.getElementById("t21Close").addEventListener("click", function () {
 });
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser BHCG : mettre en place la génération du taux en fonction du nombre de bébés
-//TODO: Automatiser CMV
 //TODO: Automatiser Toxoplasmose
 //TODO: Automatiser Rubéole
+//TODO: Automatiser CMV
 //TODO: Automatiser DPNI
+//TODO: Automatiser BHCG : Prévoir IVG

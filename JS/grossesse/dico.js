@@ -86,12 +86,17 @@ const hcgRangesNonViable = {
 };
 
 const caseDictionary = {
-  1: "Cas 1, 2, 3, 5 ou 6",
-  2: "Cas 4",
-  3: "Cas 8",
-  4: "Cas 9",
-  ectopic: "Cas 7",
-  molar: "Cas 10",
+  1: "Cas 1.1, 2.1, 3.2, 5.2 ou 6.1",
+  2: "Cas 4.3, 4.4, 4.5",
+  3: "Cas 8.2, 8.4",
+  4: "Cas 9.1, 9.5",
+  ectopic: "Cas 7.1",
+  molar: "Cas 10.1",
   nonViable: "Cas 1.3, 1.4, 1.5, 2.2, 2.3, 6.2",
+  risky: "Cas 1.2, 1.3, 1.4, 1.5, 2.2, 2.3, 3.1, 5.1, 6.2, 7.1, 10.1",
+  riskyTwin: "Cas 4.1, 4.2",
+  riskyTriplets: "Cas 8.1, 8.3, 8.5",
+  riskyQuadruplets: "Cas 9.2, 9.3, 9.4",
 };
+
 //? Dictionnaires βHCG <--
