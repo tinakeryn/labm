@@ -1,4 +1,13 @@
+const hcgSection = document.getElementById("hcgSection");
+//? --> Réinitialiser les sections
+hcgReload.addEventListener("click", () => {
+  reloadContainer(hcgReload, hcgSection);
+});
+//? Réinitialiser les sections <--
+
 //? --> Générer un taux de βHCG
+// TODO: Ajouter la sélection aléatoire d'un cas quand il y a plusieurs cas possible
+// TODO: Ajouter la possibilité d'avoir une grossesse normale si "accepte les grossesses à risque"
 const generateHcgButton = document.getElementById("generateHcgButton");
 generateHcgButton.disabled = true;
 let numberOfBabies = "Non applicable";
@@ -48,6 +57,15 @@ function getDictionnary() {
         hcgRangesToUse = hcgRanges;
     }
   }
+}
+
+//* Sélectionner un cas au hasard
+function selectCase(category) {
+  // Extraire les cas et les transformer en tableau
+  let cases = category.replace(/ ou /g, ",").split(", ");
+
+  // Sélectionner un cas aléatoire
+  return cases[Math.floor(Math.random() * cases.length)];
 }
 
 //* Afficher le temps de gestation en SA
@@ -282,9 +300,11 @@ function createPregnancyStageField(form, context = "general") {
 document.addEventListener("DOMContentLoaded", () => {
   const hcgContextSelect = document.getElementById("hcgContextSelect");
   const hcgContextForm = document.getElementById("hcgContextForm");
+  let isPregnant = false;
 
   hcgContextSelect.addEventListener("change", (event) => {
     const selectedValue = event.target.value;
+    const pregnancyTest = document.getElementById("pregnancyTest");
 
     // Supprimer tout ancien formulaire déjà généré
     const existingForm = document.getElementById("extraForm");
@@ -292,19 +312,44 @@ document.addEventListener("DOMContentLoaded", () => {
       existingForm.remove();
     }
 
+    // Si le choix grossesse ou non est laissé au hasard :
+    if (selectedValue === "chance") {
+      // Déterminer aléatoirement si la patiente est enceinte ou non
+      isPregnant = Math.random() < 0.5; // 50% de chance
+
+      if (isPregnant) {
+        pregnancyTest.innerHTML = `<p>La patiente est <span class="important">enceinte</span> !<br>Veuillez continuer à remplir le formulaire pour obtenir le taux de βHCG.</p>`;
+        hcgContextSelect.remove();
+      } else {
+        pregnancyTest.innerHTML = `<p>La patiente <span class="important">n'est pas enceinte</span>, rendre le taux <span class="important">< 5 UI/L</span>.</p>`;
+        hcgContextForm.remove();
+        generateHcgButton.remove();
+      }
+    }
+
+    if (selectedValue === "notpregnant") {
+      pregnancyTest.innerHTML = `<p>
+            La joueuse ne souhaite pas être enceinte, rendre le taux
+            <span class="important"> < 5 UI/L</span>.
+          </p>`;
+      hcgContextForm.remove();
+      generateHcgButton.remove();
+    }
     // Si "pregnant", "denial" ou "miscarriage" est sélectionné, générer un nouveau formulaire
     if (
       selectedValue === "pregnant" ||
       selectedValue === "denial" ||
-      selectedValue === "miscarriage"
+      selectedValue === "miscarriage" ||
+      isPregnant
     ) {
       const extraForm = document.createElement("form");
       extraForm.id = "extraForm";
 
       // Ajouter une question pour "pregnancyStageSelect" uniquement si ce n'est pas une fausse couche
-      if (selectedValue === "denial" || selectedValue === "pregnant") {
+      if (selectedValue === "denial" || selectedValue === "pregnant" || isPregnant) {
         addNumberOfBabiesSelector(extraForm);
-        createPregnancyStageField(extraForm, selectedValue);
+        const pregnancyType = isPregnant ? "pregnant" : selectedValue;
+        createPregnancyStageField(extraForm, pregnancyType);
         addRiskAcceptanceField(extraForm);
       }
       // Si "miscarriage" est sélectionné
@@ -369,9 +414,6 @@ function createHcgTable(hcgResult) {
 
   let caseDescription = "Non applicable";
   const riskCategory = determineRiskyCategory();
-  if (riskCategory) {
-    console.log(`La grossesse est classée comme: ${caseDictionary[riskCategory]}`);
-  }
 
   if (miscarriageReasonSelect && miscarriageReasonSelect.value === "ectopic") {
     caseDescription = caseDictionary.ectopic;
@@ -385,8 +427,12 @@ function createHcgTable(hcgResult) {
   }
 
   if (riskAcceptanceSelect && riskAcceptanceSelect.value === "yes") {
-    caseDescription = caseDictionary[riskCategory] || "Cas inconnu";
+    caseDescription =
+      caseDictionary[riskCategory] + ", " + caseDictionary[numberOfBabies] || "Cas inconnu";
   }
+  console.log(caseDescription);
+
+  let randomCase = selectCase(caseDescription);
 
   hcgResultDiv.innerHTML = "";
   const hcgTableHTML = `
@@ -412,7 +458,7 @@ function createHcgTable(hcgResult) {
     </tr>
     <tr>
       <td class="tdTitle">N° de cas à transmettre aux gynécos</td>
-      <td>${caseDescription}</td>
+      <td>Cas n°${randomCase}</td>
     </tr>
   </tbody>
 </table>
@@ -458,22 +504,6 @@ function addRiskAcceptanceField(form) {
 
 //* Déterminer le type de grossesse à risque
 function determineRiskyCategory() {
-  console.log("Exécution de determineRiskyCategory()...");
-
-  const riskAcceptanceSelect = document.getElementById("riskAcceptance");
-
-  if (!riskAcceptanceSelect) {
-    console.log("Le sélecteur riskAcceptance n'existe pas.");
-    return null;
-  }
-
-  if (riskAcceptanceSelect.value !== "yes") {
-    console.log("L'utilisateur n'a pas accepté le risque.");
-    return null;
-  }
-
-  console.log(`Nombre de bébés détecté : ${numberOfBabies}`);
-
   switch (numberOfBabies) {
     case 1:
       return "risky";

@@ -66,6 +66,8 @@
       </nav>
       <section class="container" id="hcgSection">
         <h2>Test de grossesse</h2>
+        <p><i id="hcgReload" class="fa-solid fa-rotate-right reload"></i></p>
+        <div id="pregnancyTest"></div>
         <form id="hcgContextForm">
           <label for="hcgContextSelect">La joueuse veut : </label>
           <select id="hcgContextSelect" name="hcgContext">
@@ -73,16 +75,13 @@
             <option value="pregnant">Être enceinte</option>
             <option value="denial">Faire un déni de grossesse</option>
             <option value="miscarriage">Faire une fausse couche précoce</option>
+            <option value="chance">Laisser le hasard choisir</option>
+            <option value="notpregnant">Ne pas être enceinte</option>
           </select>
         </form>
         <button id="generateHcgButton" class="disabledButton">Générer un taux de βHCG</button>
         <i id="hcgClose" class="fa-solid fa-xmark hidden"></i>
-        <div id="hcgResult">
-          <p>
-            NB: Si la joueuse ne souhaite pas être enceinte, rendre le taux
-            <span class="important"> < 5 UI/L</span>.
-          </p>
-        </div>
+        <div id="hcgResult"></div>
       </section>
       <section class="container" id="seroSection">
         <h2>Sérologies de grossesse</h2>

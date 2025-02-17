@@ -55,3 +55,9 @@ function getRandomElement(dictionary) {
   return dictionary[randomKey];
 }
 //? Sélectionner un élément aléatoire d'un dictionnaire <--
+
+//? --> Recharger la section
+function reloadContainer(iconId, sectionId) {
+  location.reload();
+}
+//? Recharger la section <--

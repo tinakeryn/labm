@@ -52,6 +52,14 @@ main {
     h2 {
       margin: 0;
     }
+    p {
+      .reload {
+        &:hover {
+          cursor: pointer;
+          color: $quatre;
+        }
+      }
+    }
     .indexTitle {
       a {
         text-decoration: none;
