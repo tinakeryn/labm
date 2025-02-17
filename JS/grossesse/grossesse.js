@@ -6,8 +6,6 @@ hcgReload.addEventListener("click", () => {
 //? Réinitialiser les sections <--
 
 //? --> Générer un taux de βHCG
-// TODO: Ajouter la sélection aléatoire d'un cas quand il y a plusieurs cas possible
-// TODO: Ajouter la possibilité d'avoir une grossesse normale si "accepte les grossesses à risque"
 const generateHcgButton = document.getElementById("generateHcgButton");
 generateHcgButton.disabled = true;
 let numberOfBabies = "Non applicable";
