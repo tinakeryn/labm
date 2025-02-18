@@ -115,7 +115,6 @@ document.getElementById("bloodTypeClose").addEventListener("click", function () 
 //TODO: Automatiser EAL
 //TODO: Automatiser Créat et iono
 //TODO: Automatiser Bilan Hépatique
-//TODO: Automatiser Bilan thyroïdien
 //TODO: Automatiser Allergies
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines

@@ -718,5 +718,4 @@ document.getElementById("t21Close").addEventListener("click", function () {
 
 //TODO: Automatiser Toxoplasmose
 //TODO: Automatiser Rubéole
-//TODO: Automatiser CMV
 //TODO: Automatiser BHCG : Prévoir IVG
