@@ -19,46 +19,63 @@ function createNfsTable(nfsData) {
       <tbody>
         <tr>
           <td class="tdTitle">Hématies</td>
-          <td>${nfsData.hematies}</td>
+          <td>${nfsData.hematies} /mm³</td>
         </tr>
         <tr>
           <td class="tdTitle">Hémoglobine</td>
-          <td>${nfsData.hemoglobine}</td>
+          <td>${nfsData.hemoglobine} g/dL</td>
         </tr>
         <tr>
           <td class="tdTitle">Leucocytes</td>
-          <td>${nfsData.leuco}</td>
+          <td>${nfsData.leuco} /mm³</td>
         </tr>
         <tr>
           <td class="tdTitle">Plaquettes</td>
-          <td>${nfsData.plaquettes}</td>
+          <td>${nfsData.plaquettes} /mm³</td>
         </tr>
       </tbody>
     </table>`;
   nfsResultDiv.innerHTML += nfsTableHtml;
 }
+
 //* Génère la NFS en fonction du contexte au clic sur le bouton
 generateNfsButton.addEventListener("click", () => {
   const selectedContext = contextSelect.value;
+  const smoking = document.querySelector('input[name="tabac"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="alcool"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="drogue_douce"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="drogue_dure"]:checked') ? true : false;
+  const randomTobaccoNFS = applyFactor(getRandomElement(tobaccoNFS), smoking);
+  const randomalcoholNFS = applyFactor(getRandomElement(alcoholNFS), alcohol);
+  const randomSoftDrugNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
+  const randomHardDrugNFS = applyFactor(getRandomElement(hardDrugsNFS), onHardDrug);
+
   let randomNFS = "";
   if (selectedContext === "Normal") {
     randomNFS = getRandomElement(normalNFS);
-    createNfsTable(randomNFS);
   } else if (selectedContext === "Grossesse") {
     randomNFS = getRandomElement(pregnancyNFS);
-    createNfsTable(randomNFS);
   } else if (selectedContext === "Chimio") {
     randomNFS = getRandomElement(chemoNFS);
-    createNfsTable(randomNFS);
   } else if (selectedContext === "Saignement") {
     randomNFS = getRandomElement(bleedingNFS);
-    createNfsTable(randomNFS);
   } else {
     alert("Veuillez choisir un contexte !");
+    return;
   }
+
+  const moyenneNFS = calculerMoyenneSiObjets(
+    randomNFS,
+    randomTobaccoNFS,
+    randomalcoholNFS,
+    randomSoftDrugNFS,
+    randomHardDrugNFS
+  );
+
+  createNfsTable(moyenneNFS);
+
   showNextElement("generateNfsButton");
-  const nfsResultElement = document.getElementById("nfsResult");
-  nfsResultElement.classList.remove("hidden");
+  document.getElementById("nfsResult").classList.remove("hidden");
 });
 //? Générer NFS en fonction du contexte <--
 
@@ -119,3 +136,39 @@ document.getElementById("bloodTypeClose").addEventListener("click", function () 
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines
 //TODO: Automatiser Biochimie urinaire
+
+function calculateAverages(dictionnaires) {
+  const sums = {};
+  const counts = {};
+
+  // Parcourir chaque objet
+  for (const obj of dicts) {
+    for (const key in obj) {
+      // Initialiser les entries de sums et counts si elles n'existent pas
+      if (!sums[key]) {
+        sums[key] = 0;
+        counts[key] = 0;
+      }
+
+      // Ajouter la valeur au dictionnaire de sommes et incrémenter le compteur
+      sums[key] += obj[key];
+      counts[key] += 1;
+    }
+  }
+
+  // Calculer les moyennes avec le formatage désiré
+  const averages = {};
+  for (const key in sums) {
+    const average = sums[key] / counts[key];
+
+    if (key === "hemoglobine") {
+      // Formater pour garder un seul chiffre après la virgule
+      averages[key] = parseFloat(average.toFixed(1));
+    } else {
+      // Formater comme un entier pour hematies, leuco, et plaquettes
+      averages[key] = Math.round(average);
+    }
+  }
+
+  return averages;
+}
