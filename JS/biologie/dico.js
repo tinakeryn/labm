@@ -86,7 +86,6 @@ const chemoNFS = {
     plaquettes: 250000,
   },
 };
-
 //* Dictionnaire NFS en cas d'hémorragie
 const bleedingNFS = {
   "bleeding.1": {
@@ -120,7 +119,66 @@ const bleedingNFS = {
     plaquettes: 250000,
   },
 };
-
+//* Dictionnaire d'une NFS en cas d'infection
+const infectionNFS = {
+  "infection.1": {
+    hematies: 4500000,
+    hemoglobine: 13.0,
+    leuco: 12000,
+    plaquettes: 230000,
+  },
+  "infection.2": {
+    hematies: 4400000,
+    hemoglobine: 12.5,
+    leuco: 14000,
+    plaquettes: 220000,
+  },
+  "infection.3": {
+    hematies: 4600000,
+    hemoglobine: 13.2,
+    leuco: 11000,
+    plaquettes: 240000,
+  },
+  "infection.4": {
+    hematies: 4550000,
+    hemoglobine: 13.1,
+    leuco: 13000,
+    plaquettes: 225000,
+  },
+  "normal.reference": {
+    hematies: 4800000,
+    hemoglobine: 13.5,
+    leuco: 6500,
+    plaquettes: 250000,
+  },
+};
+//* Dictionnaire NFS en cas de consommation d'alcool
+const alcoholNFS = {
+  "alcohol.1": {
+    hematies: 4400000,
+    hemoglobine: 12.2,
+    leuco: 8500,
+    plaquettes: 210000,
+  },
+  "alcohol.2": {
+    hematies: 4300000,
+    hemoglobine: 12.0,
+    leuco: 8000,
+    plaquettes: 205000,
+  },
+  "alcohol.3": {
+    hematies: 4250000,
+    hemoglobine: 11.8,
+    leuco: 8700,
+    plaquettes: 215000,
+  },
+  "alcohol.4": {
+    hematies: 4200000,
+    hemoglobine: 11.5,
+    leuco: 9000,
+    plaquettes: 200000,
+  },
+};
 //* Dictionnaire NFS en cas de consommation de tabac
 const tobaccoNFS = {
   "tobacco.1": {
@@ -148,7 +206,6 @@ const tobaccoNFS = {
     plaquettes: 235000,
   },
 };
-
 //* Dictionnaire NFS en cas de consommation de drogue douce
 const softDrugsNFS = {
   "softDrugs.1": {
@@ -176,7 +233,6 @@ const softDrugsNFS = {
     plaquettes: 235000,
   },
 };
-
 //* Dictionnaire NFS en cas de consommation de drogue dure
 const hardDrugsNFS = {
   "hardDrugs.1": {
@@ -205,31 +261,196 @@ const hardDrugsNFS = {
   },
 };
 
-//* Dictionnaire NFS en cas de consommation d'alcool
-const alcoholNFS = {
-  "alcohol.1": {
-    hematies: 4400000,
-    hemoglobine: 12.2,
-    leuco: 8500,
-    plaquettes: 210000,
+//? Dictionnaires NFS <--
+
+//? --> Dictionnaire VS
+//* Dictionnaire VS normale
+const normalVS = {
+  "normal.1": {
+    vs: 10,
   },
-  "alcohol.2": {
-    hematies: 4300000,
-    hemoglobine: 12.0,
-    leuco: 8000,
-    plaquettes: 205000,
+  "normal.2": {
+    vs: 12,
   },
-  "alcohol.3": {
-    hematies: 4250000,
-    hemoglobine: 11.8,
-    leuco: 8700,
-    plaquettes: 215000,
+  "normal.3": {
+    vs: 9,
   },
-  "alcohol.4": {
-    hematies: 4200000,
-    hemoglobine: 11.5,
-    leuco: 9000,
-    plaquettes: 200000,
+  "normal.4": {
+    vs: 11,
+  },
+  "normal.5": {
+    vs: 8,
+  },
+  "normal.6": {
+    vs: 13,
   },
 };
-//? Dictionnaires NFS <--
+//* Dictionnaire VS pendant une grossesse
+const pregnancyVS = {
+  "pregnancy.1": {
+    vs: 20,
+  },
+  "pregnancy.2": {
+    vs: 25,
+  },
+  "pregnancy.3": {
+    vs: 30,
+  },
+  "pregnancy.4": {
+    vs: 28,
+  },
+  "pregnancy.5": {
+    vs: 22,
+  },
+  "pregnancy.6": {
+    vs: 27,
+  },
+};
+//* Dictionnaire VS en cas d'hémorragie
+const bleedingVS = {
+  "bleeding.1": {
+    vs: 18,
+  },
+  "bleeding.2": {
+    vs: 20,
+  },
+  "bleeding.3": {
+    vs: 22,
+  },
+  "bleeding.4": {
+    vs: 21,
+  },
+  "bleeding.5": {
+    vs: 19,
+  },
+  "bleeding.6": {
+    vs: 23,
+  },
+};
+//* Dictionnaire VS en cas de chimiothérapie
+const chemoVS = {
+  "chemo.1": {
+    vs: 25,
+  },
+  "chemo.2": {
+    vs: 27,
+  },
+  "chemo.3": {
+    vs: 30,
+  },
+  "chemo.4": {
+    vs: 28,
+  },
+  "chemo.5": {
+    vs: 31,
+  },
+  "chemo.6": {
+    vs: 26,
+  },
+};
+//* Dictionnaire VS en cas d'infection
+const infectionVS = {
+  "infection.1": {
+    vs: 40,
+  },
+  "infection.2": {
+    vs: 50,
+  },
+  "infection.3": {
+    vs: 45,
+  },
+  "infection.4": {
+    vs: 48,
+  },
+  "infection.5": {
+    vs: 42,
+  },
+  "infection.6": {
+    vs: 55,
+  },
+};
+//* Dictionnaire VS en cas de consommation d'alcool
+const alcoholVS = {
+  "alcohol.1": {
+    vs: 14,
+  },
+  "alcohol.2": {
+    vs: 16,
+  },
+  "alcohol.3": {
+    vs: 15,
+  },
+  "alcohol.4": {
+    vs: 17,
+  },
+  "alcohol.5": {
+    vs: 18,
+  },
+  "alcohol.6": {
+    vs: 19,
+  },
+};
+//* Dictionnaire VS en cas de consommation de tabac
+const tobaccoVS = {
+  "tobacco.1": {
+    vs: 15,
+  },
+  "tobacco.2": {
+    vs: 17,
+  },
+  "tobacco.3": {
+    vs: 16,
+  },
+  "tobacco.4": {
+    vs: 18,
+  },
+  "tobacco.5": {
+    vs: 14,
+  },
+  "tobacco.6": {
+    vs: 19,
+  },
+};
+//* Dictionnaire VS en cas de consommation de drogue douce
+const softDrugsVS = {
+  "softDrugs.1": {
+    vs: 18,
+  },
+  "softDrugs.2": {
+    vs: 20,
+  },
+  "softDrugs.3": {
+    vs: 19,
+  },
+  "softDrugs.4": {
+    vs: 21,
+  },
+  "softDrugs.5": {
+    vs: 17,
+  },
+  "softDrugs.6": {
+    vs: 22,
+  },
+};
+//* Dictionnaire VS en cas de consommation de drogue dure
+const hardDrugsVS = {
+  "hardDrugs.1": {
+    vs: 25,
+  },
+  "hardDrugs.2": {
+    vs: 28,
+  },
+  "hardDrugs.3": {
+    vs: 27,
+  },
+  "hardDrugs.4": {
+    vs: 30,
+  },
+  "hardDrugs.5": {
+    vs: 26,
+  },
+  "hardDrugs.6": {
+    vs: 29,
+  },
+};
+//? Dictionnaire VS <--

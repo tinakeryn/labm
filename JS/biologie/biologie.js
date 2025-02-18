@@ -1,6 +1,6 @@
 //? --> Générer NFS en fonction du contexte
 const generateNfsButton = document.getElementById("generateNfsButton");
-const contextSelect = document.getElementById("nfsContextSelect");
+const nfsContextSelect = document.getElementById("nfsContextSelect");
 
 //* Fonction pour créer dynamiquement un tableau
 function createNfsTable(nfsData) {
@@ -40,7 +40,7 @@ function createNfsTable(nfsData) {
 
 //* Génère la NFS en fonction du contexte au clic sur le bouton
 generateNfsButton.addEventListener("click", () => {
-  const selectedContext = contextSelect.value;
+  const selectedContext = nfsContextSelect.value;
   const smoking = document.querySelector('input[name="tabac"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="alcool"]:checked') ? true : false;
   const onSoftDrug = document.querySelector('input[name="drogue_douce"]:checked') ? true : false;
@@ -59,6 +59,8 @@ generateNfsButton.addEventListener("click", () => {
     randomNFS = getRandomElement(chemoNFS);
   } else if (selectedContext === "Saignement") {
     randomNFS = getRandomElement(bleedingNFS);
+  } else if (selectedContext === "Infection") {
+    randomNFS = getRandomElement(infectionNFS);
   } else {
     alert("Veuillez choisir un contexte !");
     return;

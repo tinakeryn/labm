@@ -32,7 +32,7 @@
               <a href="#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
             </li>
             <li>
-              <a href="#vs&crpSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
+              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
             </li>
             <li>
               <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
@@ -71,6 +71,54 @@
           </li>
         </ul>
       </nav>
+      <!-- <nav>
+        <h2>Table des matières</h2>
+        <ul>
+          <li>
+            <a href="index.html"><i class="fa-solid fa-reply"></i> Retour à l'accueil</a>
+          </li>
+          <li></li>
+          <li><i class="fa-solid fa-microscope icone"></i> Biologie générale :</li>
+          <ul>
+            <li>
+              <a href="#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
+            </li>
+            <li>
+              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
+            </li>
+            <li>
+              <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
+            </li>
+            <li>
+              <a href="#coagSection"><i class="fa-solid fa-caret-right"></i> Coagulation</a>
+            </li>
+            <li>
+              <a href="#diabeteSection"><i class="fa-solid fa-caret-right"></i> Diabète</a>
+            </li>
+            <li>
+              <a href="#ealSection"><i class="fa-solid fa-caret-right"></i> Bilan lipidique</a>
+            </li>
+            <li>
+              <a href="#kidneySection"><i class="fa-solid fa-caret-right"></i> Rein</a>
+            </li>
+            <li>
+              <a href="#liverSection"><i class="fa-solid fa-caret-right"></i> Foie</a>
+            </li>
+            <li>
+              <a href="#allergySection"><i class="fa-solid fa-caret-right"></i> Allergies</a>
+            </li>
+            <li>
+              <a href="#otherSection"><i class="fa-solid fa-caret-right"></i> Divers</a>
+            </li>
+          </ul>
+          <li>
+            <a href="/grossesse.html"><i class="fa-solid fa-person-pregnant"></i> Grossesse</a>
+          </li>
+          <li>
+            <a href="/microbiologie.html"><i class="fa-solid fa-virus-covid"></i> Microbiologie</a>
+          </li>
+        </ul>
+      </nav> -->
       <section class="container" id="nfsSection">
         <h2>Générer une NFS</h2>
         <form id="nfsContextForm">
@@ -83,8 +131,8 @@
             <option value="Infection">Infection</option>
           </select>
           <legend>Facteurs de consommation :</legend>
-          <label> <input type="checkbox" name="tabac" value="oui" /> Fume du tabac </label>
           <label> <input type="checkbox" name="alcool" value="oui" /> Consomme de l'alcool </label>
+          <label> <input type="checkbox" name="tabac" value="oui" /> Fume du tabac </label>
           <label>
             <input type="checkbox" name="drogue_douce" value="oui" /> Consomme drogue(s) douce(s)
           </label>
@@ -98,20 +146,31 @@
         <i id="nfsClose" class="fa-solid fa-xmark hidden"></i>
         <div id="nfsResult"></div>
       </section>
-      <section class="container" id="vs&crpSection">
-        <h2>Générer une VS et une CRP</h2>
+      <section class="container" id="vsSection">
+        <h2>Générer une VS</h2>
         <i class="fa-solid fa-person-digging"></i>
-        <!-- <form id="vs&crpContextForm">
-          <label for="vs&crpContextSelect">Sélectionnez un contexte :</label>
-          <select id="vs&crpContextSelect" name="vs&crpContext">
+        <!-- <form id="vsContextForm">
+          <label for="vsContextSelect">Sélectionnez un contexte :</label>
+          <select id="vsContextSelect" name="vsContext">
             <option value="Normal">Normal</option>
             <option value="Grossesse">Grossesse</option>
-            <option value="Infection bactérienne">Infection bactérienne</option>
-            <option value="Infection virale">Infection virale</option>
+            <option value="Chimio">Chimio</option>
+            <option value="Saignement">Saignement</option>
+            <option value="Infection">Infection</option>
           </select>
+          <legend>Facteurs de consommation :</legend>
+          <label> <input type="checkbox" name="alcool" value="oui" /> Consomme de l'alcool </label>
+          <label> <input type="checkbox" name="tabac" value="oui" /> Fume du tabac </label>
+          <label>
+            <input type="checkbox" name="drogue_douce" value="oui" /> Consomme drogue(s) douce(s)
+          </label>
+          <label>
+            <input type="checkbox" name="drogue_dure" value="oui" /> Consomme drogue(s)
+            dure(s)</label
+          >
         </form>
-        <button id="vs&crpButton">Générer une VS et une CRP</button>
-        <div id="vs&crpResult"></div> -->
+        <button id="vsButton">Générer une VS</button>
+        <div id="vsResult"></div> -->
       </section>
       <section class="container" id="bloodTypeSection">
         <h2>Générer un groupe sanguin</h2>
