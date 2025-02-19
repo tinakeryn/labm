@@ -44,7 +44,7 @@
               <a href="#ddimSection"><i class="fa-solid fa-caret-right"></i> D-Dimères</a>
             </li>
             <li>
-              <a href="#diabeteSection"><i class="fa-solid fa-caret-right"></i> Diabète</a>
+              <a href="#sugarSection"><i class="fa-solid fa-caret-right"></i>Glycémie et HbA1c</a>
             </li>
             <li>
               <a href="#ealSection"><i class="fa-solid fa-caret-right"></i> Bilan lipidique</a>
@@ -96,7 +96,7 @@
               <a href="#coagSection"><i class="fa-solid fa-caret-right"></i> Coagulation</a>
             </li>
             <li>
-              <a href="#diabeteSection"><i class="fa-solid fa-caret-right"></i> Diabète</a>
+              <a href="#sugarSection"><i class="fa-solid fa-caret-right"></i>Glycémie et HbA1c</a>
             </li>
             <li>
               <a href="#ealSection"><i class="fa-solid fa-caret-right"></i> Bilan lipidique</a>
@@ -247,9 +247,37 @@
         <i id="ddimClose" class="fa-solid fa-xmark hidden"></i>
         <div id="ddimResult"></div>
       </section>
-      <section class="container" id="diabeteSection">
+      <section class="container" id="sugarSection">
         <h2>Glycémie et HbA1C (diabète etc)</h2>
-        <i class="fa-solid fa-person-digging"></i>
+        <form id="sugarContextForm">
+          <label for="sugarContextSelect">Sélectionnez un contexte :</label>
+          <select id="sugarContextSelect" name="sugarContext">
+            <option value="Normal">Normal</option>
+            <option value="Chimio">Chimio</option>
+            <option value="Infection">Infection</option>
+          </select>
+          <legend>Facteurs médicaux :</legend>
+          <label>
+            <input type="checkbox" name="sugarGesta" value="oui" />Diabète gestationnel non
+            traité</label
+          >
+          <label> <input type="checkbox" name="sugarTreated" value="oui" />Diabète traité</label>
+          <label>
+            <input type="checkbox" name="sugarUntreated" value="oui" />Diabète non ou mal
+            traité</label
+          >
+          <legend>Facteurs de consommation :</legend>
+          <label>
+            <input type="checkbox" name="sugarAlcohol" value="oui" /> Consomme de l'alcool
+          </label>
+          <label>
+            <input type="checkbox" name="sugarHardDrugs" value="oui" /> Consomme drogue(s)
+            dure(s)</label
+          >
+        </form>
+        <button id="generateSugarButton">Générer Glycémie et HbA1c</button>
+        <i id="sugarClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="sugarResult"></div>
       </section>
       <section class="container" id="ealSection">
         <h2>Bilan lipidique</h2>

@@ -260,7 +260,6 @@ const hardDrugsNFS = {
     plaquettes: 175000,
   },
 };
-
 //? Dictionnaires NFS <--
 
 //? --> Dictionnaires VS
@@ -933,3 +932,250 @@ const hardDrugsDDim = {
   },
 };
 //? Dictionnaires DDIM <--
+
+//? --> Dictionnaires Glycémie et HbA1c
+//* Dictionnaire "sugar" normal
+const normalSugar = {
+  "normal.1": {
+    gly: 0.9,
+    hba1c: 5.2,
+  },
+  "normal.2": {
+    gly: 0.85,
+    hba1c: 5.4,
+  },
+  "normal.3": {
+    gly: 0.95,
+    hba1c: 5.3,
+  },
+  "normal.4": {
+    gly: 0.92,
+    hba1c: 5.1,
+  },
+  "normal.5": {
+    gly: 0.88,
+    hba1c: 5.0,
+  },
+  "normal.6": {
+    gly: 0.94,
+    hba1c: 5.5,
+  },
+};
+//* Dictionnaire "sugar" en cas de chimiothérapie
+const chemoSugar = {
+  "chemo.1": {
+    gly: 1.05,
+    hba1c: 5.8,
+  },
+  "chemo.2": {
+    gly: 1.1,
+    hba1c: 5.9,
+  },
+  "chemo.3": {
+    gly: 1.12,
+    hba1c: 6.0,
+  },
+  "chemo.4": {
+    gly: 1.08,
+    hba1c: 5.7,
+  },
+  "chemo.5": {
+    gly: 1.15,
+    hba1c: 6.1,
+  },
+  "chemo.6": {
+    gly: 1.06,
+    hba1c: 5.8,
+  },
+};
+//* Dictionnaire "sugar" en cas d'infection
+const infectionSugar = {
+  "infection.1": {
+    gly: 1.1,
+    hba1c: 6.0,
+  },
+  "infection.2": {
+    gly: 1.12,
+    hba1c: 5.9,
+  },
+  "infection.3": {
+    gly: 1.14,
+    hba1c: 6.1,
+  },
+  "infection.4": {
+    gly: 1.09,
+    hba1c: 5.8,
+  },
+  "infection.5": {
+    gly: 1.13,
+    hba1c: 6.0,
+  },
+  "infection.6": {
+    gly: 1.11,
+    hba1c: 5.8,
+  },
+};
+//* Dictionnaire "sugar" en cas de diabète gestationnel
+const gestaSugar = {
+  "gesta.1": {
+    gly: 1.2,
+    hba1c: 6.3,
+  },
+  "gesta.2": {
+    gly: 1.18,
+    hba1c: 6.2,
+  },
+  "gesta.3": {
+    gly: 1.22,
+    hba1c: 6.4,
+  },
+  "gesta.4": {
+    gly: 1.15,
+    hba1c: 6.1,
+  },
+  "gesta.5": {
+    gly: 1.25,
+    hba1c: 6.5,
+  },
+  "gesta.6": {
+    gly: 1.19,
+    hba1c: 6.2,
+  },
+};
+//* Dictionnaire "sugar" en cas de diabète traité
+const treatedSugar = {
+  "treated.1": {
+    gly: 1.0,
+    hba1c: 6.0,
+  },
+  "treated.2": {
+    gly: 1.05,
+    hba1c: 5.9,
+  },
+  "treated.3": {
+    gly: 1.02,
+    hba1c: 6.1,
+  },
+  "treated.4": {
+    gly: 1.03,
+    hba1c: 5.8,
+  },
+  "treated.5": {
+    gly: 1.04,
+    hba1c: 6.0,
+  },
+  "treated.6": {
+    gly: 1.01,
+    hba1c: 5.9,
+  },
+};
+//* Dictionnaire "sugar" en cas de diabète non ou mal traité
+const untreatedSugar = {
+  "untreated.1": {
+    gly: 1.4,
+    hba1c: 8.5,
+  },
+  "untreated.2": {
+    gly: 1.5,
+    hba1c: 9.0,
+  },
+  "untreated.3": {
+    gly: 1.6,
+    hba1c: 8.8,
+  },
+  "untreated.4": {
+    gly: 1.45,
+    hba1c: 9.2,
+  },
+  "untreated.5": {
+    gly: 1.55,
+    hba1c: 9.5,
+  },
+  "untreated.6": {
+    gly: 1.48,
+    hba1c: 8.7,
+  },
+};
+//* Dictionnaire "sugar" en cas d'insuffisance rénale
+const kidneySugar = {
+  "kidney.1": {
+    gly: 1.25,
+    hba1c: 7.5,
+  },
+  "kidney.2": {
+    gly: 1.3,
+    hba1c: 7.8,
+  },
+  "kidney.3": {
+    gly: 1.22,
+    hba1c: 7.4,
+  },
+  "kidney.4": {
+    gly: 1.28,
+    hba1c: 7.6,
+  },
+  "kidney.5": {
+    gly: 1.35,
+    hba1c: 7.9,
+  },
+  "kidney.6": {
+    gly: 1.27,
+    hba1c: 7.7,
+  },
+};
+//* Dictionnaire "sugar" en cas de consommation d'alcool
+const alcoholSugar = {
+  "alcohol.1": {
+    gly: 1.05,
+    hba1c: 6.2,
+  },
+  "alcohol.2": {
+    gly: 1.1,
+    hba1c: 6.5,
+  },
+  "alcohol.3": {
+    gly: 1.07,
+    hba1c: 6.3,
+  },
+  "alcohol.4": {
+    gly: 1.12,
+    hba1c: 6.7,
+  },
+  "alcohol.5": {
+    gly: 1.08,
+    hba1c: 6.4,
+  },
+  "alcohol.6": {
+    gly: 1.15,
+    hba1c: 6.8,
+  },
+};
+//* Dictionnaire "sugar" en cas de consommation de drogues dures
+const hardDrugsSugar = {
+  "hardDrugs.1": {
+    gly: 1.3,
+    hba1c: 8.0,
+  },
+  "hardDrugs.2": {
+    gly: 1.35,
+    hba1c: 8.5,
+  },
+  "hardDrugs.3": {
+    gly: 1.28,
+    hba1c: 8.2,
+  },
+  "hardDrugs.4": {
+    gly: 1.4,
+    hba1c: 8.7,
+  },
+  "hardDrugs.5": {
+    gly: 1.32,
+    hba1c: 8.3,
+  },
+  "hardDrugs.6": {
+    gly: 1.37,
+    hba1c: 8.6,
+  },
+};
+
+//? Dictionnaires Glycémie et HbA1c <--

@@ -132,12 +132,13 @@ function calculerMoyenneObjets(...objets) {
         // Arrondir à l'entier le plus proche
         moyenne = Math.round(moyenne / 1000) * 1000;
       }
-      // Arrondi spécifique pour la clé 'hemoglobine' à un chiffre après la virgule
-      if (clé === "hemoglobine") {
-        moyenne = Math.round(moyenne * 10) / 10;
+      // Arrondi spécifique à un chiffre après la virgule
+      if (clé === "hemoglobine" || clé === "hba1c") {
+        moyenne = (Math.round(moyenne * 10) / 10).toFixed(1);
       }
-      if (clé === "inr") {
-        moyenne = parseFloat((Math.round(moyenne * 100) / 100).toFixed(2));
+      // Arrondi spécifique à 2 chiffres après la virgule
+      if (clé === "inr" || clé === "gly") {
+        moyenne = (Math.round(moyenne * 100) / 100).toFixed(2);
       }
       moyenneObj[clé] = typeof moyenne === "number" ? moyenne.toLocaleString("fr-FR") : moyenne;
     }

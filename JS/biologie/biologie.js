@@ -333,12 +333,85 @@ generateDDimButton.addEventListener("click", () => {
 });
 //? Générer DDIM aléatoire <--
 
+//? --> Générer Glycémie à jeun et HbA1c
+const generateSugarButton = document.getElementById("generateSugarButton");
+
+//* Fonction pour créer dynamiquement un tableau VS
+function createSugarTable(sugarData) {
+  const sugarResultDiv = document.getElementById("sugarResult");
+
+  sugarResultDiv.innerHTML = "";
+
+  const sugarTableHtml = `
+    <table id="sugarTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Glycémie</td>
+          <td>${sugarData.gly} g/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">HbA1c</td>
+          <td>${sugarData.hba1c} %</td>
+        </tr>
+      </tbody>
+    </table>`;
+  sugarResultDiv.innerHTML += sugarTableHtml;
+}
+
+generateSugarButton.addEventListener("click", () => {
+  const selectedContext = sugarContextSelect.value;
+  const gesta = document.querySelector('input[name="sugarGesta"]:checked') ? true : false;
+  const treated = document.querySelector('input[name="sugarTreated"]:checked') ? true : false;
+  const untreated = document.querySelector('input[name="sugarUntreated"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="sugarAlcohol"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="sugarHardDrugs"]:checked') ? true : false;
+  const randomGestaSugar = applyFactor(getRandomElement(gestaSugar), gesta);
+  const randomTreatedSugar = applyFactor(getRandomElement(treatedSugar), treated);
+  const randomUntreatedSugar = applyFactor(getRandomElement(untreatedSugar), untreated);
+  const randomAlcoholSugar = applyFactor(getRandomElement(alcoholSugar), alcohol);
+  const randomHardDrugsSugar = applyFactor(getRandomElement(hardDrugsSugar), onHardDrug);
+
+  let randomSugar = "";
+  if (selectedContext === "Normal") {
+    randomSugar = getRandomElement(normalSugar);
+  } else if (selectedContext === "Chimio") {
+    randomSugar = getRandomElement(chemoSugar);
+  } else if (selectedContext === "Infection") {
+    randomSugar = getRandomElement(infectionSugar);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneSugar = calculerMoyenneSiObjets(
+    randomSugar,
+    randomGestaSugar,
+    randomTreatedSugar,
+    randomUntreatedSugar,
+    randomAlcoholSugar,
+    randomHardDrugsSugar
+  );
+
+  createSugarTable(moyenneSugar);
+
+  showNextElement("generateSugarButton");
+  document.getElementById("sugarResult").classList.remove("hidden");
+});
+//? Générer Glycémie à jeun et HbA1c <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
 scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 scrollToSection("generateCoagButton", "coagSection");
 scrollToSection("generateDDimButton", "ddimSection");
+scrollToSection("generateSugarButton", "sugarSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -357,9 +430,11 @@ document.getElementById("coagClose").addEventListener("click", function () {
 document.getElementById("ddimClose").addEventListener("click", function () {
   hideElements(["ddimClose", "ddimResult"]);
 });
+document.getElementById("sugarClose").addEventListener("click", function () {
+  hideElements(["sugarClose", "sugarResult"]);
+});
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser Coag
 //TODO: Automatiser Glycémie et HbA1C
 //TODO: Automatiser EAL
 //TODO: Automatiser Créat et iono
