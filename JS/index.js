@@ -137,7 +137,7 @@ function calculerMoyenneObjets(...objets) {
         moyenne = (Math.round(moyenne * 10) / 10).toFixed(1);
       }
       // Arrondi spécifique à 2 chiffres après la virgule
-      if (clé === "inr" || clé === "gly") {
+      if (clé === "inr" || clé === "gly" || clé === "choles" || clé === "trigly") {
         moyenne = (Math.round(moyenne * 100) / 100).toFixed(2);
       }
       moyenneObj[clé] = typeof moyenne === "number" ? moyenne.toLocaleString("fr-FR") : moyenne;

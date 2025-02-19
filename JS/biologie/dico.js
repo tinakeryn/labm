@@ -1177,5 +1177,249 @@ const hardDrugsSugar = {
     hba1c: 8.6,
   },
 };
-
 //? Dictionnaires Glycémie et HbA1c <--
+//* Dictionnaire EAL normal
+const normalEAL = {
+  "normal.1": {
+    choles: 1.8,
+    trigly: 1.0,
+  },
+  "normal.2": {
+    choles: 1.9,
+    trigly: 1.1,
+  },
+  "normal.3": {
+    choles: 2.0,
+    trigly: 0.9,
+  },
+  "normal.4": {
+    choles: 1.7,
+    trigly: 1.2,
+  },
+  "normal.5": {
+    choles: 1.85,
+    trigly: 1.0,
+  },
+  "normal.6": {
+    choles: 1.95,
+    trigly: 1.1,
+  },
+};
+//* Dictionnaire EAL en cas de grossesse
+const pregnancyEAL = {
+  "pregnancy.1": {
+    choles: 2.5,
+    trigly: 1.5,
+  },
+  "pregnancy.2": {
+    choles: 2.8,
+    trigly: 1.7,
+  },
+  "pregnancy.3": {
+    choles: 2.6,
+    trigly: 1.8,
+  },
+  "pregnancy.4": {
+    choles: 2.7,
+    trigly: 1.6,
+  },
+  "pregnancy.5": {
+    choles: 2.9,
+    trigly: 1.9,
+  },
+  "pregnancy.6": {
+    choles: 2.4,
+    trigly: 1.4,
+  },
+};
+//* Dictionnaire EAL en cas de diabète non traité
+const sugarEAL = {
+  "sugar.1": {
+    choles: 2.3,
+    trigly: 2.2,
+  },
+  "sugar.2": {
+    choles: 2.5,
+    trigly: 2.5,
+  },
+  "sugar.3": {
+    choles: 2.6,
+    trigly: 2.8,
+  },
+  "sugar.4": {
+    choles: 2.4,
+    trigly: 2.1,
+  },
+  "sugar.5": {
+    choles: 2.7,
+    trigly: 2.9,
+  },
+  "sugar.6": {
+    choles: 2.8,
+    trigly: 3.0,
+  },
+};
+//* Dictionnaire EAL en cas de TTT cholesterol
+const treatedEAL = {
+  "treated.1": {
+    choles: 1.8,
+    trigly: 1.2,
+  },
+  "treated.2": {
+    choles: 1.7,
+    trigly: 1.1,
+  },
+  "treated.3": {
+    choles: 1.9,
+    trigly: 1.3,
+  },
+  "treated.4": {
+    choles: 1.6,
+    trigly: 1.0,
+  },
+  "treated.5": {
+    choles: 1.5,
+    trigly: 1.1,
+  },
+  "treated.6": {
+    choles: 1.8,
+    trigly: 1.2,
+  },
+};
+//* Dictionnaire EAL en cas de malbouffe
+const foodEAL = {
+  "food.1": {
+    choles: 2.6,
+    trigly: 2.2,
+  },
+  "food.2": {
+    choles: 2.8,
+    trigly: 2.5,
+  },
+  "food.3": {
+    choles: 2.7,
+    trigly: 2.3,
+  },
+  "food.4": {
+    choles: 3.0,
+    trigly: 2.7,
+  },
+  "food.5": {
+    choles: 2.9,
+    trigly: 2.6,
+  },
+  "food.6": {
+    choles: 2.5,
+    trigly: 2.1,
+  },
+};
+//* Dictionnaire EAL en cas d'activité physique régulière
+const sportEAL = {
+  "sport.1": {
+    choles: 1.8, // Cholestérol total en g/L
+    trigly: 1.0, // Triglycérides en g/L
+  },
+  "sport.2": {
+    choles: 1.9,
+    trigly: 0.9,
+  },
+  "sport.3": {
+    choles: 1.7,
+    trigly: 1.1,
+  },
+  "sport.4": {
+    choles: 1.8,
+    trigly: 1.0,
+  },
+  "sport.5": {
+    choles: 1.9,
+    trigly: 1.1,
+  },
+  "sport.6": {
+    choles: 1.7,
+    trigly: 0.8,
+  },
+};
+//* Dictionnaire EAL en cas de sédentarité
+const sedentaryEAL = {
+  "sedentary.1": {
+    choles: 2.4,
+    trigly: 1.8,
+  },
+  "sedentary.2": {
+    choles: 2.5,
+    trigly: 1.9,
+  },
+  "sedentary.3": {
+    choles: 2.3,
+    trigly: 1.7,
+  },
+  "sedentary.4": {
+    choles: 2.6,
+    trigly: 2.0,
+  },
+  "sedentary.5": {
+    choles: 2.7,
+    trigly: 2.1,
+  },
+  "sedentary.6": {
+    choles: 2.5,
+    trigly: 1.8,
+  },
+};
+//* Dictionnaire EAL en cas de consommation d'alcool
+const alcoholEAL = {
+  "alcohol.1": {
+    choles: 2.3,
+    trigly: 2.0,
+  },
+  "alcohol.2": {
+    choles: 2.4,
+    trigly: 2.1,
+  },
+  "alcohol.3": {
+    choles: 2.5,
+    trigly: 2.3,
+  },
+  "alcohol.4": {
+    choles: 2.6,
+    trigly: 2.2,
+  },
+  "alcohol.5": {
+    choles: 2.4,
+    trigly: 2.4,
+  },
+  "alcohol.6": {
+    choles: 2.2,
+    trigly: 1.9,
+  },
+};
+//* Dictionnaire EAL en cas de consommation de tabac
+const tobaccoEAL = {
+  "tobacco.1": {
+    choles: 2.4,
+    trigly: 2.0,
+  },
+  "tobacco.2": {
+    choles: 2.3,
+    trigly: 1.8,
+  },
+  "tobacco.3": {
+    choles: 2.5,
+    trigly: 2.1,
+  },
+  "tobacco.4": {
+    choles: 2.6,
+    trigly: 2.3,
+  },
+  "tobacco.5": {
+    choles: 2.7,
+    trigly: 2.2,
+  },
+  "tobacco.6": {
+    choles: 2.2,
+    trigly: 1.9,
+  },
+};
+//? --> Dictionnaires EAL
+//? Dictionnaires EAL <--

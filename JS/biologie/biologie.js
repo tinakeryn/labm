@@ -83,6 +83,7 @@ generateNfsButton.addEventListener("click", () => {
 
 //? --> Générer VS en fonction du contexte
 const generateVSButton = document.getElementById("generateVSButton");
+const vsContextSelect = document.getElementById("vsContextSelect");
 
 //* Fonction pour créer dynamiquement un tableau VS
 function createVSTable(vsData) {
@@ -185,8 +186,9 @@ document.getElementById("generateBloodTypeButton").addEventListener("click", fun
 
 //? --> Générer TP/INR et TCA aléatoires
 const generateCoagButton = document.getElementById("generateCoagButton");
+const coagContextSelect = document.getElementById("coagContextSelect");
 
-//* Fonction pour créer dynamiquement un tableau VS
+//* Fonction pour créer dynamiquement un tableau Coag
 function createCoagTable(coagData) {
   const coagResultDiv = document.getElementById("coagResult");
 
@@ -257,8 +259,9 @@ generateCoagButton.addEventListener("click", () => {
 
 //? --> Générer DDIM aléatoire
 const generateDDimButton = document.getElementById("generateDDimButton");
+const ddimContextSelect = document.getElementById("ddimContextSelect");
 
-//* Fonction pour créer dynamiquement un tableau VS
+//* Fonction pour créer dynamiquement un tableau DDIM
 function createDDimTable(ddimData) {
   const ddimResultDiv = document.getElementById("ddimResult");
 
@@ -336,7 +339,7 @@ generateDDimButton.addEventListener("click", () => {
 //? --> Générer Glycémie à jeun et HbA1c
 const generateSugarButton = document.getElementById("generateSugarButton");
 
-//* Fonction pour créer dynamiquement un tableau VS
+//* Fonction pour créer dynamiquement un tableau Sugar
 function createSugarTable(sugarData) {
   const sugarResultDiv = document.getElementById("sugarResult");
 
@@ -405,6 +408,85 @@ generateSugarButton.addEventListener("click", () => {
 });
 //? Générer Glycémie à jeun et HbA1c <--
 
+//? --> Générer EAL
+const generateEALButton = document.getElementById("generateEALButton");
+const ealContextSelect = document.getElementById("ealContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau EAL
+function createEALTable(ealData) {
+  const ealResultDiv = document.getElementById("ealResult");
+
+  ealResultDiv.innerHTML = "";
+
+  const ealTableHtml = `
+    <table id="vsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Cholestérol total</td>
+          <td>${ealData.choles} g/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Triglycérides</td>
+          <td>${ealData.trigly} g/L</td>
+        </tr>
+
+      </tbody>
+    </table>`;
+  ealResultDiv.innerHTML += ealTableHtml;
+}
+
+generateEALButton.addEventListener("click", () => {
+  const selectedContext = ealContextSelect.value;
+  const sugar = document.querySelector('input[name="ealSugar"]:checked') ? true : false;
+  const treated = document.querySelector('input[name="ealTreated"]:checked') ? true : false;
+  const food = document.querySelector('input[name="ealFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="ealSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="ealSedentary"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="ealAlcohol"]:checked') ? true : false;
+  const tobacco = document.querySelector('input[name="ealTobacco"]:checked') ? true : false;
+
+  const randomSugarEAL = applyFactor(getRandomElement(sugarEAL), sugar);
+  const randomTreatedEAL = applyFactor(getRandomElement(treatedEAL), treated);
+  const randomFoodEAL = applyFactor(getRandomElement(foodEAL), food);
+  const randomSportEAL = applyFactor(getRandomElement(sportEAL), sport);
+  const randomSedentaryEAL = applyFactor(getRandomElement(sedentaryEAL), sedentary);
+  const randomAlcoholEAL = applyFactor(getRandomElement(alcoholEAL), alcohol);
+  const randomTobaccoEAL = applyFactor(getRandomElement(tobaccoEAL), tobacco);
+
+  let randomEAL = "";
+  if (selectedContext === "Normal") {
+    randomEAL = getRandomElement(normalEAL);
+  } else if (selectedContext === "Grossesse") {
+    randomEAL = getRandomElement(pregnancyEAL);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneEAL = calculerMoyenneSiObjets(
+    randomEAL,
+    randomSugarEAL,
+    randomTreatedEAL,
+    randomFoodEAL,
+    randomSportEAL,
+    randomSedentaryEAL,
+    randomAlcoholEAL,
+    randomTobaccoEAL
+  );
+
+  createEALTable(moyenneEAL);
+
+  showNextElement("generateEALButton");
+  document.getElementById("ealResult").classList.remove("hidden");
+});
+//? Générer EAL <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -412,6 +494,7 @@ scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 scrollToSection("generateCoagButton", "coagSection");
 scrollToSection("generateDDimButton", "ddimSection");
 scrollToSection("generateSugarButton", "sugarSection");
+scrollToSection("generateEALButton", "ealSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -433,9 +516,11 @@ document.getElementById("ddimClose").addEventListener("click", function () {
 document.getElementById("sugarClose").addEventListener("click", function () {
   hideElements(["sugarClose", "sugarResult"]);
 });
+document.getElementById("ealClose").addEventListener("click", function () {
+  hideElements(["ealClose", "ealResult"]);
+});
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser Glycémie et HbA1C
 //TODO: Automatiser EAL
 //TODO: Automatiser Créat et iono
 //TODO: Automatiser Bilan Hépatique
@@ -443,39 +528,3 @@ document.getElementById("sugarClose").addEventListener("click", function () {
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines
 //TODO: Automatiser Biochimie urinaire
-
-function calculateAverages(dictionnaires) {
-  const sums = {};
-  const counts = {};
-
-  // Parcourir chaque objet
-  for (const obj of dicts) {
-    for (const key in obj) {
-      // Initialiser les entries de sums et counts si elles n'existent pas
-      if (!sums[key]) {
-        sums[key] = 0;
-        counts[key] = 0;
-      }
-
-      // Ajouter la valeur au dictionnaire de sommes et incrémenter le compteur
-      sums[key] += obj[key];
-      counts[key] += 1;
-    }
-  }
-
-  // Calculer les moyennes avec le formatage désiré
-  const averages = {};
-  for (const key in sums) {
-    const average = sums[key] / counts[key];
-
-    if (key === "hemoglobine") {
-      // Formater pour garder un seul chiffre après la virgule
-      averages[key] = parseFloat(average.toFixed(1));
-    } else {
-      // Formater comme un entier pour hematies, leuco, et plaquettes
-      averages[key] = Math.round(average);
-    }
-  }
-
-  return averages;
-}

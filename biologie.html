@@ -256,6 +256,7 @@
             <option value="Chimio">Chimio</option>
             <option value="Infection">Infection</option>
           </select>
+          <!-- TODO: ajouter les facteurs médicaux pour diabète -->
           <legend>Facteurs médicaux :</legend>
           <label>
             <input type="checkbox" name="sugarGesta" value="oui" />Diabète gestationnel non
@@ -281,8 +282,34 @@
       </section>
       <section class="container" id="ealSection">
         <h2>Bilan lipidique</h2>
-        <p>Cholesterol et triglycérides</p>
-        <i class="fa-solid fa-person-digging"></i>
+        <form id="ealContextForm">
+          <label for="ealContextSelect">Sélectionnez un contexte :</label>
+          <select id="ealContextSelect" name="ealContext">
+            <option value="Normal">Normal</option>
+            <option value="Grossesse">Grossesse</option>
+          </select>
+          <legend>Facteurs médicaux :</legend>
+          <label>
+            <input type="checkbox" name="ealSugar" value="oui" />Diabète non ou mal traité
+          </label>
+          <label>
+            <input type="checkbox" name="ealTreated" value="oui" />Traitement pour le cholesterol
+          </label>
+          <legend>Facteurs liés au style de vie :</legend>
+          <label><input type="checkbox" name="ealFood" value="oui" />Mauvaise alimentation</label>
+          <label>
+            <input type="checkbox" name="ealSport" value="oui" />Activité physique régulière
+          </label>
+          <label><input type="checkbox" name="ealSedentary" value="oui" />Sédentarité</label>
+          <legend>Facteurs de consommation :</legend>
+          <label>
+            <input type="checkbox" name="ealAlcohol" value="oui" />Consomme de l'alcool
+          </label>
+          <label><input type="checkbox" name="ealTobacco" value="oui" />Fume du tabac </label>
+        </form>
+        <button id="generateEALButton">Générer un bilan lipidique</button>
+        <i id="ealClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="ealResult"></div>
       </section>
       <section class="container" id="kidneySection">
         <h2>Bilan rénal</h2>
