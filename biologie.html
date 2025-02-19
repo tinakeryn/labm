@@ -125,26 +125,30 @@
       <section class="container" id="nfsSection">
         <h2>Générer une NFS</h2>
         <form id="nfsContextForm">
-          <label for="nfsContextSelect">Sélectionnez un contexte :</label>
-          <select id="nfsContextSelect" name="nfsContext">
-            <option value="Normal">Normal</option>
-            <option value="Grossesse">Grossesse</option>
-            <option value="Chimio">Chimio</option>
-            <option value="Saignement">Saignement</option>
-            <option value="Infection">Infection</option>
-          </select>
-          <legend>Facteurs de consommation :</legend>
-          <label>
-            <input type="checkbox" name="nfsAlcohol" value="oui" /> Consomme de l'alcool
-          </label>
-          <label> <input type="checkbox" name="nfsTobacco" value="oui" /> Fume du tabac </label>
-          <label>
-            <input type="checkbox" name="nfsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
-          </label>
-          <label>
-            <input type="checkbox" name="nfsHardDrugs" value="oui" /> Consomme drogue(s)
-            dure(s)</label
-          >
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="nfsContextSelect" name="nfsContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Saignement">Saignement</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="nfsAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label> <input type="checkbox" name="nfsTobacco" value="oui" /> Fume du tabac </label>
+            <label>
+              <input type="checkbox" name="nfsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
+            </label>
+            <label>
+              <input type="checkbox" name="nfsHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
         </form>
         <button id="generateNfsButton">Générer une NFS</button>
         <i id="nfsClose" class="fa-solid fa-xmark hidden"></i>
@@ -153,26 +157,30 @@
       <section class="container" id="vsSection">
         <h2>Générer une VS</h2>
         <form id="vsContextForm">
-          <label for="vsContextSelect">Sélectionnez un contexte :</label>
-          <select id="vsContextSelect" name="vsContext">
-            <option value="Normal">Normal</option>
-            <option value="Grossesse">Grossesse</option>
-            <option value="Chimio">Chimio</option>
-            <option value="Saignement">Saignement</option>
-            <option value="Infection">Infection</option>
-          </select>
-          <legend>Facteurs de consommation :</legend>
-          <label>
-            <input type="checkbox" name="vsAlcohol" value="oui" /> Consomme de l'alcool
-          </label>
-          <label> <input type="checkbox" name="vsTobacco" value="oui" /> Fume du tabac </label>
-          <label>
-            <input type="checkbox" name="vsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
-          </label>
-          <label>
-            <input type="checkbox" name="vsHardDrugs" value="oui" /> Consomme drogue(s)
-            dure(s)</label
-          >
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="vsContextSelect" name="vsContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Saignement">Saignement</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="vsAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label> <input type="checkbox" name="vsTobacco" value="oui" /> Fume du tabac </label>
+            <label>
+              <input type="checkbox" name="vsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
+            </label>
+            <label>
+              <input type="checkbox" name="vsHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
         </form>
         <button id="generateVSButton">Générer une VS</button>
         <i id="vsClose" class="fa-solid fa-xmark hidden"></i>
@@ -188,22 +196,27 @@
       <section class="container" id="coagSection">
         <h2>Générer TP/INR et TCA</h2>
         <form id="coagContextForm">
-          <label for="coagContextSelect">Sélectionnez un contexte :</label>
-          <select id="coagContextSelect" name="coagContext">
-            <option value="Normal">Normal</option>
-            <option value="Grossesse">Grossesse</option>
-            <option value="Chimio">Chimio</option>
-            <option value="Infection">Infection</option>
-          </select>
-          <legend>Facteurs médicaux :</legend>
-          <label>
-            <input type="checkbox" name="coagAVK" value="oui" />Traitement par anticoagulant</label
-          >
-          <label>
-            <input type="checkbox" name="coagInjury" value="oui" />Blessure (arme blanche ou à
-            feu)</label
-          >
-          <label> <input type="checkbox" name="coagLiver" value="oui" />Problème hépatique</label>
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="coagContextSelect" name="coagContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="coagAVK" value="oui" />Traitement par
+              anticoagulant</label
+            >
+            <label>
+              <input type="checkbox" name="coagInjury" value="oui" />Blessure (arme blanche ou à
+              feu)</label
+            >
+            <label> <input type="checkbox" name="coagLiver" value="oui" />Problème hépatique</label>
+          </fieldset>
         </form>
         <button id="generateCoagButton">Générer TP/INR et TCA</button>
         <i id="coagClose" class="fa-solid fa-xmark hidden"></i>
@@ -212,36 +225,42 @@
       <section class="container" id="ddimSection">
         <h2>Générer D-Dimères</h2>
         <form id="ddimContextForm">
-          <label for="ddimContextSelect">Sélectionnez un contexte :</label>
-          <select id="ddimContextSelect" name="ddimContext">
-            <option value="Normal">Normal</option>
-            <option value="Grossesse">Grossesse</option>
-            <option value="Chimio">Chimio</option>
-            <option value="Saignement">Saignement</option>
-            <option value="Infection">Infection</option>
-          </select>
-          <legend>Facteurs médicaux :</legend>
-          <label>
-            <input type="checkbox" name="ddimThrombosis" value="oui" />Phlébite ou embolie
-            pulmonaire</label
-          >
-          <label> <input type="checkbox" name="ddimStroke" value="oui" />AVC</label>
-          <label>
-            <input type="checkbox" name="ddimInjury" value="oui" />Blessure au thorax (arme blanche
-            ou à feu)</label
-          >
-          <legend>Facteurs de consommation :</legend>
-          <label>
-            <input type="checkbox" name="ddimAlcohol" value="oui" /> Consomme de l'alcool
-          </label>
-          <label> <input type="checkbox" name="ddimTobacco" value="oui" /> Fume du tabac </label>
-          <label>
-            <input type="checkbox" name="ddimSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
-          </label>
-          <label>
-            <input type="checkbox" name="ddimHardDrugs" value="oui" /> Consomme drogue(s)
-            dure(s)</label
-          >
+          <fieldset>
+            <legend>Sélectionnez un contexte :</legend>
+            <select id="ddimContextSelect" name="ddimContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Saignement">Saignement</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="ddimThrombosis" value="oui" />Phlébite ou embolie
+              pulmonaire</label
+            >
+            <label> <input type="checkbox" name="ddimStroke" value="oui" />AVC</label>
+            <label>
+              <input type="checkbox" name="ddimInjury" value="oui" />Blessure au thorax (arme
+              blanche ou à feu)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="ddimAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label> <input type="checkbox" name="ddimTobacco" value="oui" /> Fume du tabac </label>
+            <label>
+              <input type="checkbox" name="ddimSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
+            </label>
+            <label>
+              <input type="checkbox" name="ddimHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
         </form>
         <button id="generateDDimButton">Générer des D-Dimères</button>
         <i id="ddimClose" class="fa-solid fa-xmark hidden"></i>
@@ -250,31 +269,47 @@
       <section class="container" id="sugarSection">
         <h2>Glycémie et HbA1C (diabète etc)</h2>
         <form id="sugarContextForm">
-          <label for="sugarContextSelect">Sélectionnez un contexte :</label>
-          <select id="sugarContextSelect" name="sugarContext">
-            <option value="Normal">Normal</option>
-            <option value="Chimio">Chimio</option>
-            <option value="Infection">Infection</option>
-          </select>
-          <!-- TODO: ajouter les facteurs médicaux pour diabète -->
-          <legend>Facteurs médicaux :</legend>
-          <label>
-            <input type="checkbox" name="sugarGesta" value="oui" />Diabète gestationnel non
-            traité</label
-          >
-          <label> <input type="checkbox" name="sugarTreated" value="oui" />Diabète traité</label>
-          <label>
-            <input type="checkbox" name="sugarUntreated" value="oui" />Diabète non ou mal
-            traité</label
-          >
-          <legend>Facteurs de consommation :</legend>
-          <label>
-            <input type="checkbox" name="sugarAlcohol" value="oui" /> Consomme de l'alcool
-          </label>
-          <label>
-            <input type="checkbox" name="sugarHardDrugs" value="oui" /> Consomme drogue(s)
-            dure(s)</label
-          >
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="sugarContextSelect" name="sugarContext">
+              <option value="Normal">Normal</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="sugarGesta" value="oui" />Diabète gestationnel non
+              traité</label
+            >
+            <label> <input type="checkbox" name="sugarTreated" value="oui" />Diabète traité</label>
+            <label>
+              <input type="checkbox" name="sugarUntreated" value="oui" />Diabète non ou mal
+              traité</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="sugarAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label>
+              <input type="checkbox" name="sugarHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label
+              ><input type="checkbox" name="sugarFood" value="oui" />Mauvaise alimentation</label
+            >
+            <label>
+              <input type="checkbox" name="sugarSport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="sugarSedentary" value="oui" />Sédentarité</label>
+          </fieldset>
         </form>
         <button id="generateSugarButton">Générer Glycémie et HbA1c</button>
         <i id="sugarClose" class="fa-solid fa-xmark hidden"></i>
@@ -283,29 +318,37 @@
       <section class="container" id="ealSection">
         <h2>Bilan lipidique</h2>
         <form id="ealContextForm">
-          <label for="ealContextSelect">Sélectionnez un contexte :</label>
-          <select id="ealContextSelect" name="ealContext">
-            <option value="Normal">Normal</option>
-            <option value="Grossesse">Grossesse</option>
-          </select>
-          <legend>Facteurs médicaux :</legend>
-          <label>
-            <input type="checkbox" name="ealSugar" value="oui" />Diabète non ou mal traité
-          </label>
-          <label>
-            <input type="checkbox" name="ealTreated" value="oui" />Traitement pour le cholesterol
-          </label>
-          <legend>Facteurs liés au style de vie :</legend>
-          <label><input type="checkbox" name="ealFood" value="oui" />Mauvaise alimentation</label>
-          <label>
-            <input type="checkbox" name="ealSport" value="oui" />Activité physique régulière
-          </label>
-          <label><input type="checkbox" name="ealSedentary" value="oui" />Sédentarité</label>
-          <legend>Facteurs de consommation :</legend>
-          <label>
-            <input type="checkbox" name="ealAlcohol" value="oui" />Consomme de l'alcool
-          </label>
-          <label><input type="checkbox" name="ealTobacco" value="oui" />Fume du tabac </label>
+          <fieldset>
+            <legend>Sélectionnez un contexte :</legend>
+            <select id="ealContextSelect" name="ealContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="ealSugar" value="oui" />Diabète non ou mal traité
+            </label>
+            <label>
+              <input type="checkbox" name="ealTreated" value="oui" />Traitement pour le cholesterol
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="ealAlcohol" value="oui" />Consomme de l'alcool
+            </label>
+            <label><input type="checkbox" name="ealTobacco" value="oui" />Fume du tabac </label>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label><input type="checkbox" name="ealFood" value="oui" />Mauvaise alimentation</label>
+            <label>
+              <input type="checkbox" name="ealSport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="ealSedentary" value="oui" />Sédentarité</label>
+          </fieldset>
         </form>
         <button id="generateEALButton">Générer un bilan lipidique</button>
         <i id="ealClose" class="fa-solid fa-xmark hidden"></i>

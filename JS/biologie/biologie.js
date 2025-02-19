@@ -374,11 +374,17 @@ generateSugarButton.addEventListener("click", () => {
   const untreated = document.querySelector('input[name="sugarUntreated"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="sugarAlcohol"]:checked') ? true : false;
   const onHardDrug = document.querySelector('input[name="sugarHardDrugs"]:checked') ? true : false;
+  const food = document.querySelector('input[name="sugarFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="sugarSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="sugarSedentary"]:checked') ? true : false;
   const randomGestaSugar = applyFactor(getRandomElement(gestaSugar), gesta);
   const randomTreatedSugar = applyFactor(getRandomElement(treatedSugar), treated);
   const randomUntreatedSugar = applyFactor(getRandomElement(untreatedSugar), untreated);
   const randomAlcoholSugar = applyFactor(getRandomElement(alcoholSugar), alcohol);
   const randomHardDrugsSugar = applyFactor(getRandomElement(hardDrugsSugar), onHardDrug);
+  const randomFoodSugar = applyFactor(getRandomElement(foodSugar), food);
+  const randomSportSugar = applyFactor(getRandomElement(sportSugar), sport);
+  const randomSedentarySugar = applyFactor(getRandomElement(sedentarySugar), sedentary);
 
   let randomSugar = "";
   if (selectedContext === "Normal") {
@@ -398,7 +404,10 @@ generateSugarButton.addEventListener("click", () => {
     randomTreatedSugar,
     randomUntreatedSugar,
     randomAlcoholSugar,
-    randomHardDrugsSugar
+    randomHardDrugsSugar,
+    randomFoodSugar,
+    randomSportSugar,
+    randomSedentarySugar
   );
 
   createSugarTable(moyenneSugar);
@@ -521,7 +530,6 @@ document.getElementById("ealClose").addEventListener("click", function () {
 });
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser EAL
 //TODO: Automatiser Créat et iono
 //TODO: Automatiser Bilan Hépatique
 //TODO: Automatiser Allergies

@@ -1069,6 +1069,87 @@ const treatedSugar = {
     hba1c: 5.9,
   },
 };
+//* Dictionnaire "sugar" en cas de malbouffe
+const foodSugar = {
+  "food.1": {
+    gly: 1.2,
+    hba1c: 6.5,
+  },
+  "food.2": {
+    gly: 1.25,
+    hba1c: 6.8,
+  },
+  "food.3": {
+    gly: 1.18,
+    hba1c: 6.6,
+  },
+  "food.4": {
+    gly: 1.22,
+    hba1c: 6.7,
+  },
+  "food.5": {
+    gly: 1.3,
+    hba1c: 7.0,
+  },
+  "food.6": {
+    gly: 1.15,
+    hba1c: 6.4,
+  },
+};
+//* Dictionnaire "sugar" en cas d'activité physique régulière
+const sportSugar = {
+  "sport.1": {
+    gly: 0.95,
+    hba1c: 5.4,
+  },
+  "sport.2": {
+    gly: 0.9,
+    hba1c: 5.2,
+  },
+  "sport.3": {
+    gly: 0.92,
+    hba1c: 5.3,
+  },
+  "sport.4": {
+    gly: 0.93,
+    hba1c: 5.5,
+  },
+  "sport.5": {
+    gly: 0.88,
+    hba1c: 5.1,
+  },
+  "sport.6": {
+    gly: 0.89,
+    hba1c: 5.2,
+  },
+};
+//* Dictionnaire "sugar" en cas de sédentarité
+const sedentarySugar = {
+  "sedentary.1": {
+    gly: 1.1,
+    hba1c: 6.0,
+  },
+  "sedentary.2": {
+    gly: 1.12,
+    hba1c: 6.2,
+  },
+  "sedentary.3": {
+    gly: 1.14,
+    hba1c: 6.1,
+  },
+  "sedentary.4": {
+    gly: 1.08,
+    hba1c: 5.9,
+  },
+  "sedentary.5": {
+    gly: 1.15,
+    hba1c: 6.3,
+  },
+  "sedentary.6": {
+    gly: 1.11,
+    hba1c: 6.0,
+  },
+};
 //* Dictionnaire "sugar" en cas de diabète non ou mal traité
 const untreatedSugar = {
   "untreated.1": {

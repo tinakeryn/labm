@@ -179,19 +179,75 @@ main {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       gap: 10px;
       padding-bottom: 20px;
-      input,
-      select {
-        -ms-flex-item-align: center;
-        align-self: center;
-        background-color: $un;
-        width: 100px;
-        text-align: center;
-      }
       select {
         &:hover {
           cursor: pointer;
+        }
+      }
+      fieldset {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        border: 1px solid $quatre;
+        -ms-flex-line-pack: start;
+        align-content: flex-start;
+        gap: 5px;
+        &:first-of-type {
+          width: 200px;
+        }
+        input,
+        select {
+          background-color: $un;
+          width: 150px;
+          text-align: center;
+          -ms-flex-item-align: center;
+          align-self: center;
+        }
+        legend {
+          color: $six;
+          text-align: center;
+        }
+        label {
+          input {
+            width: 30px;
+          }
+          input[type="checkbox"] {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    #ddimContextForm,
+    #sugarContextForm,
+    #ealContextForm {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      fieldset {
+        display: grid;
+        border: 1px solid $quatre;
+        -ms-flex-line-pack: start;
+        align-content: flex-start;
+        gap: 5px;
+        &:first-of-type {
+          grid-column: 1 / -1;
+          height: 50px;
+          width: 300px;
+          margin: 0 auto;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
         }
       }
     }
@@ -210,7 +266,7 @@ main {
         }
         th,
         .tdTitle {
-          color: $quatre;
+          color: $six;
         }
       }
       .resultParagraph {

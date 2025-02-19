@@ -1,8 +1,17 @@
 @import "../Utils/mixins";
 @import "../Utils/variables";
 
-#hcgSection {
+#hcgSection,
+#t21Section {
   form {
+    input,
+    select {
+      color: $texte;
+      background-color: $un;
+      text-align: center;
+      -ms-flex-item-align: center;
+      align-self: center;
+    }
     select {
       width: 200px;
     }
