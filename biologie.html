@@ -131,13 +131,15 @@
             <option value="Infection">Infection</option>
           </select>
           <legend>Facteurs de consommation :</legend>
-          <label> <input type="checkbox" name="alcool" value="oui" /> Consomme de l'alcool </label>
-          <label> <input type="checkbox" name="tabac" value="oui" /> Fume du tabac </label>
           <label>
-            <input type="checkbox" name="drogue_douce" value="oui" /> Consomme drogue(s) douce(s)
+            <input type="checkbox" name="nfsAlcohol" value="oui" /> Consomme de l'alcool
+          </label>
+          <label> <input type="checkbox" name="nfsTobacco" value="oui" /> Fume du tabac </label>
+          <label>
+            <input type="checkbox" name="nfsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
           </label>
           <label>
-            <input type="checkbox" name="drogue_dure" value="oui" /> Consomme drogue(s)
+            <input type="checkbox" name="nfsHardDrugs" value="oui" /> Consomme drogue(s)
             dure(s)</label
           >
         </form>
@@ -148,8 +150,8 @@
       </section>
       <section class="container" id="vsSection">
         <h2>Générer une VS</h2>
-        <i class="fa-solid fa-person-digging"></i>
-        <!-- <form id="vsContextForm">
+        <!-- <i class="fa-solid fa-person-digging"></i> -->
+        <form id="vsContextForm">
           <label for="vsContextSelect">Sélectionnez un contexte :</label>
           <select id="vsContextSelect" name="vsContext">
             <option value="Normal">Normal</option>
@@ -159,18 +161,21 @@
             <option value="Infection">Infection</option>
           </select>
           <legend>Facteurs de consommation :</legend>
-          <label> <input type="checkbox" name="alcool" value="oui" /> Consomme de l'alcool </label>
-          <label> <input type="checkbox" name="tabac" value="oui" /> Fume du tabac </label>
           <label>
-            <input type="checkbox" name="drogue_douce" value="oui" /> Consomme drogue(s) douce(s)
+            <input type="checkbox" name="vsAlcohol" value="oui" /> Consomme de l'alcool
+          </label>
+          <label> <input type="checkbox" name="vsTobacco" value="oui" /> Fume du tabac </label>
+          <label>
+            <input type="checkbox" name="vsSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
           </label>
           <label>
-            <input type="checkbox" name="drogue_dure" value="oui" /> Consomme drogue(s)
+            <input type="checkbox" name="vsHardDrugs" value="oui" /> Consomme drogue(s)
             dure(s)</label
           >
         </form>
-        <button id="vsButton">Générer une VS</button>
-        <div id="vsResult"></div> -->
+        <button id="generateVSButton">Générer une VS</button>
+        <i id="vsClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="vsResult"></div>
       </section>
       <section class="container" id="bloodTypeSection">
         <h2>Générer un groupe sanguin</h2>

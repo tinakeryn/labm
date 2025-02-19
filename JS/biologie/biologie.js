@@ -2,7 +2,7 @@
 const generateNfsButton = document.getElementById("generateNfsButton");
 const nfsContextSelect = document.getElementById("nfsContextSelect");
 
-//* Fonction pour créer dynamiquement un tableau
+//* Fonction pour créer dynamiquement un tableau NFS
 function createNfsTable(nfsData) {
   const nfsResultDiv = document.getElementById("nfsResult");
 
@@ -41,10 +41,10 @@ function createNfsTable(nfsData) {
 //* Génère la NFS en fonction du contexte au clic sur le bouton
 generateNfsButton.addEventListener("click", () => {
   const selectedContext = nfsContextSelect.value;
-  const smoking = document.querySelector('input[name="tabac"]:checked') ? true : false;
-  const alcohol = document.querySelector('input[name="alcool"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="drogue_douce"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="drogue_dure"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="nfsTobacco"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="nfsAlcohol"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="nfsSoftDrugs"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="nfsHardDrugs"]:checked') ? true : false;
   const randomTobaccoNFS = applyFactor(getRandomElement(tobaccoNFS), smoking);
   const randomalcoholNFS = applyFactor(getRandomElement(alcoholNFS), alcohol);
   const randomSoftDrugNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
@@ -81,6 +81,76 @@ generateNfsButton.addEventListener("click", () => {
 });
 //? Générer NFS en fonction du contexte <--
 
+//? --> Générer VS en fonction du contexte
+const generateVSButton = document.getElementById("generateVSButton");
+
+//* Fonction pour créer dynamiquement un tableau VS
+function createVSTable(vsData) {
+  const vsResultDiv = document.getElementById("vsResult");
+
+  vsResultDiv.innerHTML = "";
+
+  const vsTableHtml = `
+    <table id="vsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">VS</td>
+          <td>${vsData.vs} mm/h</td>
+        </tr>
+      </tbody>
+    </table>`;
+  vsResultDiv.innerHTML += vsTableHtml;
+}
+
+generateVSButton.addEventListener("click", () => {
+  console.log("coucouille !");
+  const selectedContext = vsContextSelect.value;
+  const smoking = document.querySelector('input[name="vsTobacco"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="vsAlcohol"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="vsSoftDrugs"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="vsHardDrugs"]:checked') ? true : false;
+  const randomTobaccoVS = applyFactor(getRandomElement(tobaccoVS), smoking);
+  const randomalcoholVS = applyFactor(getRandomElement(alcoholVS), alcohol);
+  const randomSoftDrugVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrug);
+  const randomHardDrugVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrug);
+
+  let randomVS = "";
+  if (selectedContext === "Normal") {
+    randomVS = getRandomElement(normalVS);
+  } else if (selectedContext === "Grossesse") {
+    randomVS = getRandomElement(pregnancyVS);
+  } else if (selectedContext === "Chimio") {
+    randomVS = getRandomElement(chemoVS);
+  } else if (selectedContext === "Saignement") {
+    randomVS = getRandomElement(bleedingVS);
+  } else if (selectedContext === "Infection") {
+    randomVS = getRandomElement(infectionVS);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneVS = calculerMoyenneSiObjets(
+    randomVS,
+    randomTobaccoVS,
+    randomalcoholVS,
+    randomSoftDrugVS,
+    randomHardDrugVS
+  );
+
+  createVSTable(moyenneVS);
+
+  showNextElement("generateVSButton");
+  document.getElementById("vsResult").classList.remove("hidden");
+});
+//? Générer VS en fonction du contexte <--
+
 //? --> Générer groupe sanguin aléatoire
 //* Statistiques de répartition des groupes sanguins
 const bloodTypes = [
@@ -116,6 +186,7 @@ document.getElementById("generateBloodTypeButton").addEventListener("click", fun
 
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
+scrollToSection("generateVSButton", "vsSection");
 scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 //? Afficher toute la section au clic sur le bouton <--
 
@@ -123,12 +194,14 @@ scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 document.getElementById("nfsClose").addEventListener("click", function () {
   hideElements(["nfsClose", "nfsResult"]);
 });
+document.getElementById("vsClose").addEventListener("click", function () {
+  hideElements(["vsClose", "vsResult"]);
+});
 document.getElementById("bloodTypeClose").addEventListener("click", function () {
   hideElements(["bloodTypeClose", "bloodTypeResult"]);
 });
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser VS/CRP
 //TODO: Automatiser Coag
 //TODO: Automatiser Glycémie et HbA1C
 //TODO: Automatiser EAL
