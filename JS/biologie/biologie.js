@@ -109,7 +109,6 @@ function createVSTable(vsData) {
 }
 
 generateVSButton.addEventListener("click", () => {
-  console.log("coucouille !");
   const selectedContext = vsContextSelect.value;
   const smoking = document.querySelector('input[name="vsTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="vsAlcohol"]:checked') ? true : false;
@@ -184,9 +183,88 @@ document.getElementById("generateBloodTypeButton").addEventListener("click", fun
 });
 //? Générer groupe sanguin aléatoire <--
 
+//? --> Générer DDIM aléatoire
+const generateDDimButton = document.getElementById("generateDDimButton");
+
+//* Fonction pour créer dynamiquement un tableau VS
+function createDDimTable(ddimData) {
+  const ddimResultDiv = document.getElementById("ddimResult");
+
+  ddimResultDiv.innerHTML = "";
+
+  const ddimTableHtml = `
+    <table id="vsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">VS</td>
+          <td>${ddimData.ddim} ng/mL</td>
+        </tr>
+      </tbody>
+    </table>`;
+  ddimResultDiv.innerHTML += ddimTableHtml;
+}
+
+generateDDimButton.addEventListener("click", () => {
+  const selectedContext = ddimContextSelect.value;
+  const thrombosis = document.querySelector('input[name="ddimThrombosis"]:checked') ? true : false;
+  const stroke = document.querySelector('input[name="ddimStroke"]:checked') ? true : false;
+  const injured = document.querySelector('input[name="ddimInjury"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="ddimTobacco"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="ddimsAlcohol"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="ddimSoftDrugs"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="ddimHardDrugs"]:checked') ? true : false;
+  const randomThrombosisDDim = applyFactor(getRandomElement(thrombosisDDim), thrombosis);
+  const randomStrokeDDim = applyFactor(getRandomElement(strokeDDim), stroke);
+  const randomInjuredDDim = applyFactor(getRandomElement(injuryDDim), injured);
+  const randomTobaccoDDim = applyFactor(getRandomElement(tobaccoDDim), smoking);
+  const randomalcoholDDim = applyFactor(getRandomElement(alcoholDDim), alcohol);
+  const randomSoftDrugDDim = applyFactor(getRandomElement(softDrugsDDim), onSoftDrug);
+  const randomHardDrugDDim = applyFactor(getRandomElement(hardDrugsDDim), onHardDrug);
+
+  let randomDDim = "";
+  if (selectedContext === "Normal") {
+    randomDDim = getRandomElement(normalDDim);
+  } else if (selectedContext === "Grossesse") {
+    randomDDim = getRandomElement(pregnancyDDim);
+  } else if (selectedContext === "Chimio") {
+    randomDDim = getRandomElement(chemoDDim);
+  } else if (selectedContext === "Saignement") {
+    randomDDim = getRandomElement(bleedingDDim);
+  } else if (selectedContext === "Infection") {
+    randomDDim = getRandomElement(infectionDDim);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneDDim = calculerMoyenneSiObjets(
+    randomDDim,
+    randomThrombosisDDim,
+    randomStrokeDDim,
+    randomInjuredDDim,
+    randomTobaccoDDim,
+    randomalcoholDDim,
+    randomSoftDrugDDim,
+    randomHardDrugDDim
+  );
+
+  createDDimTable(moyenneDDim);
+
+  showNextElement("generateDDimButton");
+  document.getElementById("ddimResult").classList.remove("hidden");
+});
+//? Générer DDIM aléatoire <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
+scrollToSection("generateDDimButton", "coagSection");
 scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 //? Afficher toute la section au clic sur le bouton <--
 
@@ -199,6 +277,9 @@ document.getElementById("vsClose").addEventListener("click", function () {
 });
 document.getElementById("bloodTypeClose").addEventListener("click", function () {
   hideElements(["bloodTypeClose", "bloodTypeResult"]);
+});
+document.getElementById("ddimClose").addEventListener("click", function () {
+  hideElements(["ddimClose", "ddimResult"]);
 });
 //? Masquer la section au clic sur la croix <--
 

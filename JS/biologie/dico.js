@@ -263,7 +263,7 @@ const hardDrugsNFS = {
 
 //? Dictionnaires NFS <--
 
-//? --> Dictionnaire VS
+//? --> Dictionnaires VS
 //* Dictionnaire VS normale
 const normalVS = {
   "normal.1": {
@@ -453,4 +453,259 @@ const hardDrugsVS = {
     vs: 29,
   },
 };
-//? Dictionnaire VS <--
+//? Dictionnaires VS <--
+
+//? --> Dictionnaires DDIM
+//* Dictionnaire DDIM normaux
+const normalDDim = {
+  "normal.1": {
+    ddim: 150,
+  },
+  "normal.2": {
+    ddim: 200,
+  },
+  "normal.3": {
+    ddim: 250,
+  },
+  "normal.4": {
+    ddim: 300,
+  },
+  "normal.5": {
+    ddim: 350,
+  },
+  "normal.6": {
+    ddim: 400,
+  },
+};
+//* Dictionnaire DDIM pendant une grossesse
+const pregnancyDDim = {
+  "pregnancy.1": {
+    ddim: 500,
+  },
+  "pregnancy.2": {
+    ddim: 600,
+  },
+  "pregnancy.3": {
+    ddim: 700,
+  },
+  "pregnancy.4": {
+    ddim: 800,
+  },
+  "pregnancy.5": {
+    ddim: 900,
+  },
+  "pregnancy.6": {
+    ddim: 1000,
+  },
+};
+//* Dictionnaire DDIM pendant une chimio
+const chemoDDim = {
+  "chemo.1": {
+    ddim: 450,
+  },
+  "chemo.2": {
+    ddim: 550,
+  },
+  "chemo.3": {
+    ddim: 650,
+  },
+  "chemo.4": {
+    ddim: 750,
+  },
+  "chemo.5": {
+    ddim: 850,
+  },
+  "chemo.6": {
+    ddim: 950,
+  },
+};
+//* Dictionnaire DDIM en cas d'hémorragie
+const bleedingDDim = {
+  "bleeding.1": {
+    ddim: 500,
+  },
+  "bleeding.2": {
+    ddim: 600,
+  },
+  "bleeding.3": {
+    ddim: 700,
+  },
+  "bleeding.4": {
+    ddim: 800,
+  },
+  "bleeding.5": {
+    ddim: 900,
+  },
+  "bleeding.6": {
+    ddim: 1000,
+  },
+};
+//* Dictionnaire DDIM en cas d'infection
+const infectionDDim = {
+  "infection.1": {
+    ddim: 500,
+  },
+  "infection.2": {
+    ddim: 450,
+  },
+  "infection.3": {
+    ddim: 650,
+  },
+  "infection.4": {
+    ddim: 850,
+  },
+  "infection.5": {
+    ddim: 300,
+  },
+  "infection.6": {
+    ddim: 1100,
+  },
+};
+//* Dictionnaire DDIM en cas de phlébite ou embolie pulmonaire
+const thrombosisDDim = {
+  "thrombosis.1": {
+    ddim: 1000,
+  },
+  "thrombosis.2": {
+    ddim: 1500,
+  },
+  "thrombosis.3": {
+    ddim: 2000,
+  },
+  "thrombosis.4": {
+    ddim: 2500,
+  },
+  "thrombosis.5": {
+    ddim: 3000,
+  },
+  "thrombosis.6": {
+    ddim: 3500,
+  },
+};
+//* Dictionnaire DDIM en cas d'AVC
+const strokeDDim = {
+  "stroke.1": {
+    ddim: 900,
+  },
+  "stroke.2": {
+    ddim: 1200,
+  },
+  "stroke.3": {
+    ddim: 1500,
+  },
+  "stroke.4": {
+    ddim: 1800,
+  },
+  "stroke.5": {
+    ddim: 2100,
+  },
+  "stroke.6": {
+    ddim: 2400,
+  },
+};
+//* Dictionnaire DDIM en cas de blessure au thorax
+const injuryDDim = {
+  "injury.1": {
+    ddim: 1000,
+  },
+  "injury.2": {
+    ddim: 1500,
+  },
+  "injury.3": {
+    ddim: 2000,
+  },
+  "injury.4": {
+    ddim: 2500,
+  },
+  "injury.5": {
+    ddim: 3000,
+  },
+  "injury.6": {
+    ddim: 3500,
+  },
+};
+//* Dictionnaire DDIM en cas de consommation d'alcool
+const alcoholDDim = {
+  "alcohol.1": {
+    ddim: 400,
+  },
+  "alcohol.2": {
+    ddim: 450,
+  },
+  "alcohol.3": {
+    ddim: 500,
+  },
+  "alcohol.4": {
+    ddim: 550,
+  },
+  "alcohol.5": {
+    ddim: 600,
+  },
+  "alcohol.6": {
+    ddim: 650,
+  },
+};
+//* Dictionnaire DDIM en cas de consommation de tabac
+const tobaccoDDim = {
+  "tobacco.1": {
+    ddim: 450,
+  },
+  "tobacco.2": {
+    ddim: 500,
+  },
+  "tobacco.3": {
+    ddim: 550,
+  },
+  "tobacco.4": {
+    ddim: 600,
+  },
+  "tobacco.5": {
+    ddim: 650,
+  },
+  "tobacco.6": {
+    ddim: 700,
+  },
+};
+//* Dictionnaire DDIM en cas de consommation de drogue douce
+const softDrugsDDim = {
+  "softDrugs.1": {
+    ddim: 400,
+  },
+  "softDrugs.2": {
+    ddim: 450,
+  },
+  "softDrugs.3": {
+    ddim: 500,
+  },
+  "softDrugs.4": {
+    ddim: 550,
+  },
+  "softDrugs.5": {
+    ddim: 600,
+  },
+  "softDrugs.6": {
+    ddim: 650,
+  },
+};
+//* Dictionnaire DDIM en cas de consommation de drogue dure
+const hardDrugsDDim = {
+  "hardDrugs.1": {
+    ddim: 550,
+  },
+  "hardDrugs.2": {
+    ddim: 600,
+  },
+  "hardDrugs.3": {
+    ddim: 650,
+  },
+  "hardDrugs.4": {
+    ddim: 700,
+  },
+  "hardDrugs.5": {
+    ddim: 750,
+  },
+  "hardDrugs.6": {
+    ddim: 800,
+  },
+};
+//? Dictionnaires DDIM <--

@@ -150,7 +150,6 @@
       </section>
       <section class="container" id="vsSection">
         <h2>Générer une VS</h2>
-        <!-- <i class="fa-solid fa-person-digging"></i> -->
         <form id="vsContextForm">
           <label for="vsContextSelect">Sélectionnez un contexte :</label>
           <select id="vsContextSelect" name="vsContext">
@@ -186,8 +185,44 @@
       </section>
       <section class="container" id="coagSection">
         <h2>Générer bilan de coagulation</h2>
-        <p>D-Dimères, TP et TCA</p>
+        <h3>Générer TP et TCA</h3>
         <i class="fa-solid fa-person-digging"></i>
+        <h3>Générer D-Dimères</h3>
+        <form id="ddimContextForm">
+          <label for="ddimContextSelect">Sélectionnez un contexte :</label>
+          <select id="ddimContextSelect" name="ddimContext">
+            <option value="Normal">Normal</option>
+            <option value="Grossesse">Grossesse</option>
+            <option value="Chimio">Chimio</option>
+            <option value="Saignement">Saignement</option>
+            <option value="Infection">Infection</option>
+          </select>
+          <legend>Facteurs médicaux :</legend>
+          <label>
+            <input type="checkbox" name="ddimThrombosis" value="oui" />Phlébite ou embolie
+            pulmonaire</label
+          >
+          <label> <input type="checkbox" name="ddimStroke" value="oui" />AVC</label>
+          <label>
+            <input type="checkbox" name="ddimInjury" value="oui" />Blessure au thorax (arme blanche
+            ou à feu)</label
+          >
+          <legend>Facteurs de consommation :</legend>
+          <label>
+            <input type="checkbox" name="ddimAlcohol" value="oui" /> Consomme de l'alcool
+          </label>
+          <label> <input type="checkbox" name="ddimTobacco" value="oui" /> Fume du tabac </label>
+          <label>
+            <input type="checkbox" name="ddimSoftDrugs" value="oui" /> Consomme drogue(s) douce(s)
+          </label>
+          <label>
+            <input type="checkbox" name="ddimHardDrugs" value="oui" /> Consomme drogue(s)
+            dure(s)</label
+          >
+        </form>
+        <button id="generateDDimButton">Générer des D-Dimères</button>
+        <i id="ddimClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="ddimResult"></div>
       </section>
       <section class="container" id="diabeteSection">
         <h2>Glycémie et HbA1C (diabète etc)</h2>
