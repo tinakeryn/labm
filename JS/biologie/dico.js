@@ -455,6 +455,230 @@ const hardDrugsVS = {
 };
 //? Dictionnaires VS <--
 
+//? --> Dictionnaires TP et TCA
+//* Dictionnaire TP/TCA normaux
+const normalCoag = {
+  "normal.1": {
+    tp: 90,
+    inr: 1.11,
+    tca: 30,
+  },
+  "normal.2": {
+    tp: 95,
+    inr: 1.05,
+    tca: 32,
+  },
+  "normal.3": {
+    tp: 100,
+    inr: 1,
+    tca: 28,
+  },
+  "normal.4": {
+    tp: 85,
+    inr: 1.18,
+    tca: 31,
+  },
+};
+//* Dictionnaire TP/TCA chez une femme enceinte
+const pregnancyCoag = {
+  "pregnancy.1": {
+    tp: 85,
+    inr: 1.18,
+    tca: 29,
+  },
+  "pregnancy.2": {
+    tp: 88,
+    inr: 1.14,
+    tca: 30,
+  },
+  "pregnancy.3": {
+    tp: 90,
+    inr: 1.11,
+    tca: 28,
+  },
+  "pregnancy.4": {
+    tp: 87,
+    inr: 1.15,
+    tca: 31,
+  },
+  "pregnancy.5": {
+    tp: 92,
+    inr: 1.09,
+    tca: 29,
+  },
+  "pregnancy.6": {
+    tp: 89,
+    inr: 1.12,
+    tca: 30,
+  },
+};
+//* Dictionnaire TP/TCA chez une personne sous chimiothérapie
+const chemoCoag = {
+  "chemo.1": {
+    tp: 92,
+    inr: 1.09,
+    tca: 30,
+  },
+  "chemo.2": {
+    tp: 90,
+    inr: 1.11,
+    tca: 32,
+  },
+  "chemo.3": {
+    tp: 88,
+    inr: 1.14,
+    tca: 31,
+  },
+  "chemo.4": {
+    tp: 91,
+    inr: 1.1,
+    tca: 29,
+  },
+  "chemo.5": {
+    tp: 87,
+    inr: 1.15,
+    tca: 33,
+  },
+  "chemo.6": {
+    tp: 89,
+    inr: 1.12,
+    tca: 30,
+  },
+};
+//* Dictionnaire TP/TCA chez une personne ayant une infection
+const infectionCoag = {
+  "infection.1": {
+    tp: 93,
+    inr: 1.08,
+    tca: 31,
+  },
+  "infection.2": {
+    tp: 90,
+    inr: 1.11,
+    tca: 33,
+  },
+  "infection.3": {
+    tp: 88,
+    inr: 1.14,
+    tca: 32,
+  },
+  "infection.4": {
+    tp: 92,
+    inr: 1.09,
+    tca: 30,
+  },
+  "infection.5": {
+    tp: 91,
+    inr: 1.1,
+    tca: 34,
+  },
+  "infection.6": {
+    tp: 89,
+    inr: 1.12,
+    tca: 31,
+  },
+};
+//* Dictionnaire TP/TCA chez une personne ayant un traitement anti-coagulant
+const avkCoag = {
+  "avk.1": {
+    tp: 40,
+    inr: 2.5,
+    tca: 45,
+  },
+  "avk.2": {
+    tp: 35,
+    inr: 2.86,
+    tca: 50,
+  },
+  "avk.3": {
+    tp: 30,
+    inr: 3.33,
+    tca: 48,
+  },
+  "avk.4": {
+    tp: 42,
+    inr: 2.38,
+    tca: 46,
+  },
+  "avk.5": {
+    tp: 38,
+    inr: 2.63,
+    tca: 49,
+  },
+  "avk.6": {
+    tp: 33,
+    inr: 3.03,
+    tca: 47,
+  },
+};
+//* Dictionnaire TP/TCA chez une personne ayant une blessure par arme (blanche ou à feu)
+const injuryCoag = {
+  "injury.1": {
+    tp: 80,
+    inr: 1.25,
+    tca: 36,
+  },
+  "injury.2": {
+    tp: 82,
+    inr: 1.22,
+    tca: 35,
+  },
+  "injury.3": {
+    tp: 78,
+    inr: 1.28,
+    tca: 37,
+  },
+  "injury.4": {
+    tp: 84,
+    inr: 1.19,
+    tca: 34,
+  },
+  "injury.5": {
+    tp: 76,
+    inr: 1.32,
+    tca: 38,
+  },
+  "injury.6": {
+    tp: 85,
+    inr: 1.15,
+    tca: 33,
+  },
+};
+//* Dictionnaire TP/TCA chez une personne ayant un trouble hépatique
+const liverCoag = {
+  "liver.1": {
+    tp: 55,
+    inr: 1.82,
+    tca: 42,
+  },
+  "liver.2": {
+    tp: 60,
+    inr: 1.67,
+    tca: 40,
+  },
+  "liver.3": {
+    tp: 50,
+    inr: 2.0,
+    tca: 45,
+  },
+  "liver.4": {
+    tp: 65,
+    inr: 1.54,
+    tca: 39,
+  },
+  "liver.5": {
+    tp: 58,
+    inr: 1.72,
+    tca: 43,
+  },
+  "liver.6": {
+    tp: 52,
+    inr: 1.92,
+    tca: 44,
+  },
+};
+//? Dictionnaires TP et TCA <--
+
 //? --> Dictionnaires DDIM
 //* Dictionnaire DDIM normaux
 const normalDDim = {

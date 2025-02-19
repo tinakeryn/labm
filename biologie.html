@@ -32,7 +32,7 @@
               <a href="#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
             </li>
             <li>
-              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
+              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS</a>
             </li>
             <li>
               <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
@@ -84,7 +84,7 @@
               <a href="#nfsSection"><i class="fa-solid fa-caret-right"></i> NFS</a>
             </li>
             <li>
-              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS & CRP</a>
+              <a href="#vsSection"><i class="fa-solid fa-caret-right"></i> VS</a>
             </li>
             <li>
               <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
@@ -185,8 +185,28 @@
       </section>
       <section class="container" id="coagSection">
         <h2>Générer bilan de coagulation</h2>
-        <h3>Générer TP et TCA</h3>
-        <i class="fa-solid fa-person-digging"></i>
+        <h3>Générer TP/INR et TCA</h3>
+        <form id="coagContextForm">
+          <label for="coagContextSelect">Sélectionnez un contexte :</label>
+          <select id="coagContextSelect" name="coagContext">
+            <option value="Normal">Normal</option>
+            <option value="Grossesse">Grossesse</option>
+            <option value="Chimio">Chimio</option>
+            <option value="Infection">Infection</option>
+          </select>
+          <legend>Facteurs médicaux :</legend>
+          <label>
+            <input type="checkbox" name="coagAVK" value="oui" />Traitement par anticoagulant</label
+          >
+          <label>
+            <input type="checkbox" name="coagInjury" value="oui" />Blessure (arme blanche ou à
+            feu)</label
+          >
+          <label> <input type="checkbox" name="coagLiver" value="oui" />Problème hépatique</label>
+        </form>
+        <button id="generateCoagButton">Générer TP/INR et TCA</button>
+        <i id="coagClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="coagResult"></div>
         <h3>Générer D-Dimères</h3>
         <form id="ddimContextForm">
           <label for="ddimContextSelect">Sélectionnez un contexte :</label>

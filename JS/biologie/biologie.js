@@ -183,6 +183,78 @@ document.getElementById("generateBloodTypeButton").addEventListener("click", fun
 });
 //? Générer groupe sanguin aléatoire <--
 
+//? --> Générer TP/INR et TCA aléatoires
+const generateCoagButton = document.getElementById("generateCoagButton");
+
+//* Fonction pour créer dynamiquement un tableau VS
+function createCoagTable(coagData) {
+  const coagResultDiv = document.getElementById("coagResult");
+
+  coagResultDiv.innerHTML = "";
+
+  const coagTableHtml = `
+    <table id="vsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">TP</td>
+          <td>${coagData.tp} %</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">INR</td>
+          <td>${coagData.inr} </td>
+        </tr>
+        <tr>
+          <td class="tdTitle">TCA</td>
+          <td>${coagData.tca} sec</td>
+        </tr>
+      </tbody>
+    </table>`;
+  coagResultDiv.innerHTML += coagTableHtml;
+}
+
+generateCoagButton.addEventListener("click", () => {
+  const selectedContext = coagContextSelect.value;
+  const avk = document.querySelector('input[name="coagAVK"]:checked') ? true : false;
+  const injured = document.querySelector('input[name="coagInjury"]:checked') ? true : false;
+  const liver = document.querySelector('input[name="coagLiver"]:checked') ? true : false;
+  const randomAVKCoag = applyFactor(getRandomElement(avkCoag), avk);
+  const randomInjuredCoag = applyFactor(getRandomElement(injuryCoag), injured);
+  const randomLiverCoag = applyFactor(getRandomElement(liverCoag), liver);
+
+  let randomCoag = "";
+  if (selectedContext === "Normal") {
+    randomCoag = getRandomElement(normalCoag);
+  } else if (selectedContext === "Grossesse") {
+    randomCoag = getRandomElement(pregnancyCoag);
+  } else if (selectedContext === "Chimio") {
+    randomCoag = getRandomElement(chemoCoag);
+  } else if (selectedContext === "Infection") {
+    randomCoag = getRandomElement(infectionCoag);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneCoag = calculerMoyenneSiObjets(
+    randomCoag,
+    randomAVKCoag,
+    randomInjuredCoag,
+    randomLiverCoag
+  );
+
+  createCoagTable(moyenneCoag);
+
+  showNextElement("generateCoagButton");
+  document.getElementById("coagResult").classList.remove("hidden");
+});
+//? Générer TP/INR et TCA aléatoires <--
+
 //? --> Générer DDIM aléatoire
 const generateDDimButton = document.getElementById("generateDDimButton");
 
@@ -264,8 +336,9 @@ generateDDimButton.addEventListener("click", () => {
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
-scrollToSection("generateDDimButton", "coagSection");
 scrollToSection("generateBloodTypeButton", "bloodTypeSection");
+scrollToSection("generateCoagButton", "coagSection");
+scrollToSection("generateDDimButton", "coagSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -277,6 +350,9 @@ document.getElementById("vsClose").addEventListener("click", function () {
 });
 document.getElementById("bloodTypeClose").addEventListener("click", function () {
   hideElements(["bloodTypeClose", "bloodTypeResult"]);
+});
+document.getElementById("coagClose").addEventListener("click", function () {
+  hideElements(["coagClose", "coagResult"]);
 });
 document.getElementById("ddimClose").addEventListener("click", function () {
   hideElements(["ddimClose", "ddimResult"]);

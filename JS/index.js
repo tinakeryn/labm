@@ -136,6 +136,9 @@ function calculerMoyenneObjets(...objets) {
       if (clé === "hemoglobine") {
         moyenne = Math.round(moyenne * 10) / 10;
       }
+      if (clé === "inr") {
+        moyenne = parseFloat((Math.round(moyenne * 100) / 100).toFixed(2));
+      }
       moyenneObj[clé] = typeof moyenne === "number" ? moyenne.toLocaleString("fr-FR") : moyenne;
     }
   }
