@@ -265,7 +265,7 @@ function createDDimTable(ddimData) {
   ddimResultDiv.innerHTML = "";
 
   const ddimTableHtml = `
-    <table id="vsTable">
+    <table id="ddimTable">
       <thead>
         <tr>
           <th>Élément</th>
@@ -274,7 +274,7 @@ function createDDimTable(ddimData) {
       </thead>
       <tbody>
         <tr>
-          <td class="tdTitle">VS</td>
+          <td class="tdTitle">D-Dimères</td>
           <td>${ddimData.ddim} ng/mL</td>
         </tr>
       </tbody>
@@ -338,7 +338,7 @@ scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
 scrollToSection("generateBloodTypeButton", "bloodTypeSection");
 scrollToSection("generateCoagButton", "coagSection");
-scrollToSection("generateDDimButton", "coagSection");
+scrollToSection("generateDDimButton", "ddimSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix

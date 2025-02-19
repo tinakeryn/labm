@@ -38,7 +38,10 @@
               <a href="#bloodTypeSection"><i class="fa-solid fa-caret-right"></i> Groupe sanguin</a>
             </li>
             <li>
-              <a href="#coagSection"><i class="fa-solid fa-caret-right"></i> Coagulation</a>
+              <a href="#coagSection"><i class="fa-solid fa-caret-right"></i> TP/INR et TCA</a>
+            </li>
+            <li>
+              <a href="#ddimSection"><i class="fa-solid fa-caret-right"></i> D-Dimères</a>
             </li>
             <li>
               <a href="#diabeteSection"><i class="fa-solid fa-caret-right"></i> Diabète</a>
@@ -143,7 +146,6 @@
             dure(s)</label
           >
         </form>
-
         <button id="generateNfsButton">Générer une NFS</button>
         <i id="nfsClose" class="fa-solid fa-xmark hidden"></i>
         <div id="nfsResult"></div>
@@ -184,8 +186,7 @@
         <div id="bloodTypeResult"></div>
       </section>
       <section class="container" id="coagSection">
-        <h2>Générer bilan de coagulation</h2>
-        <h3>Générer TP/INR et TCA</h3>
+        <h2>Générer TP/INR et TCA</h2>
         <form id="coagContextForm">
           <label for="coagContextSelect">Sélectionnez un contexte :</label>
           <select id="coagContextSelect" name="coagContext">
@@ -207,7 +208,9 @@
         <button id="generateCoagButton">Générer TP/INR et TCA</button>
         <i id="coagClose" class="fa-solid fa-xmark hidden"></i>
         <div id="coagResult"></div>
-        <h3>Générer D-Dimères</h3>
+      </section>
+      <section class="container" id="ddimSection">
+        <h2>Générer D-Dimères</h2>
         <form id="ddimContextForm">
           <label for="ddimContextSelect">Sélectionnez un contexte :</label>
           <select id="ddimContextSelect" name="ddimContext">
