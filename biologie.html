@@ -409,9 +409,63 @@
         <div id="kidneyResult"></div>
       </section>
       <section class="container" id="liverSection">
-        <h2>Bilan hépatique</h2>
-        <p>TGO, TGP, GGT et PAL</p>
-        <i class="fa-solid fa-person-digging"></i>
+        <h2>Générer un bilan hépatique</h2>
+        <form id="liverContextForm">
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="liverContextSelect" name="liverContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Infection">Infection</option>
+              <option value="Hépatite">Hépatite virale</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="liverGesta" value="oui" />Diabète gestationnel non
+              traité</label
+            >
+            <label>
+              <input type="checkbox" name="liverCholestase" value="oui" />Cholestase
+              gravidique</label
+            >
+            <label> <input type="checkbox" name="liverTreated" value="oui" />Diabète traité</label>
+            <label>
+              <input type="checkbox" name="liverUntreated" value="oui" />Diabète non ou mal
+              traité</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="liverAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label> <input type="checkbox" name="liverTobacco" value="oui" /> Fume du tabac </label>
+            <label>
+              <input type="checkbox" name="liverSoftDrugs" value="oui" /> Consomme drogue(s)
+              douce(s)
+            </label>
+            <label>
+              <input type="checkbox" name="liverHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label
+              ><input type="checkbox" name="liverFood" value="oui" />Mauvaise alimentation</label
+            >
+            <label>
+              <input type="checkbox" name="liverSport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="liverSedentary" value="oui" />Sédentarité</label>
+          </fieldset>
+        </form>
+        <button id="generateLiverButton">Générer un bilan hépatique</button>
+        <i id="liverClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="liverResult"></div>
       </section>
       <section class="container" id="otherSection">
         <h2>Divers</h2>

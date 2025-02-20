@@ -256,14 +256,16 @@ main .container form fieldset label input[type=checkbox] {
 main .container #ddimContextForm,
 main .container #sugarContextForm,
 main .container #ealContextForm,
-main .container #kidneyContextForm {
+main .container #kidneyContextForm,
+main .container #liverContextForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 main .container #ddimContextForm fieldset,
 main .container #sugarContextForm fieldset,
 main .container #ealContextForm fieldset,
-main .container #kidneyContextForm fieldset {
+main .container #kidneyContextForm fieldset,
+main .container #liverContextForm fieldset {
   display: grid;
   border: 1px solid #a3c1da;
   align-content: flex-start;
@@ -272,7 +274,8 @@ main .container #kidneyContextForm fieldset {
 main .container #ddimContextForm fieldset:first-of-type,
 main .container #sugarContextForm fieldset:first-of-type,
 main .container #ealContextForm fieldset:first-of-type,
-main .container #kidneyContextForm fieldset:first-of-type {
+main .container #kidneyContextForm fieldset:first-of-type,
+main .container #liverContextForm fieldset:first-of-type {
   grid-column: 1/-1;
   height: 50px;
   width: 300px;

@@ -133,7 +133,7 @@ function calculerMoyenneObjets(...objets) {
         moyenne = Math.round(moyenne / 1000) * 1000;
       }
       // Arrondi spécifique à l'entier le + proche
-      if (clé === "na") {
+      if (clé === "na" || clé === "tgo" || clé === "tgp" || clé === "ggt" || clé === "pal") {
         moyenne = Math.round(moyenne).toFixed(0);
       }
       // Arrondi spécifique à un chiffre après la virgule

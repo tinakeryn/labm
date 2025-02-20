@@ -2131,3 +2131,629 @@ const sedentaryKidney = {
   },
 };
 //? Dictionnaires Bilan rénal <--
+
+//? --> Dictionaires Bilan hépatique
+const normalLiver = {
+  "normal.1": {
+    tgo: 25,
+    tgp: 30,
+    ggt: 20,
+    pal: 70,
+  },
+  "normal.2": {
+    tgo: 28,
+    tgp: 32,
+    ggt: 18,
+    pal: 75,
+  },
+  "normal.3": {
+    tgo: 30,
+    tgp: 28,
+    ggt: 22,
+    pal: 80,
+  },
+  "normal.4": {
+    tgo: 20,
+    tgp: 24,
+    ggt: 25,
+    pal: 85,
+  },
+  "normal.5": {
+    tgo: 18,
+    tgp: 29,
+    ggt: 21,
+    pal: 65,
+  },
+  "normal.6": {
+    tgo: 22,
+    tgp: 27,
+    ggt: 19,
+    pal: 74,
+  },
+};
+//* Dictionnaire Bilan hépatique pendant la grossesse
+const pregnancyLiver = {
+  "pregnancy.1": {
+    tgo: 28,
+    tgp: 25,
+    ggt: 22,
+    pal: 90,
+  },
+  "pregnancy.2": {
+    tgo: 30,
+    tgp: 27,
+    ggt: 20,
+    pal: 95,
+  },
+  "pregnancy.3": {
+    tgo: 25,
+    tgp: 24,
+    ggt: 21,
+    pal: 88,
+  },
+  "pregnancy.4": {
+    tgo: 26,
+    tgp: 26,
+    ggt: 23,
+    pal: 92,
+  },
+  "pregnancy.5": {
+    tgo: 29,
+    tgp: 28,
+    ggt: 19,
+    pal: 90,
+  },
+  "pregnancy.6": {
+    tgo: 27,
+    tgp: 25,
+    ggt: 22,
+    pal: 93,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de chimiothérapie
+const chemoLiver = {
+  "chemo.1": {
+    tgo: 60,
+    tgp: 65,
+    ggt: 55,
+    pal: 130,
+  },
+  "chemo.2": {
+    tgo: 70,
+    tgp: 72,
+    ggt: 60,
+    pal: 135,
+  },
+  "chemo.3": {
+    tgo: 65,
+    tgp: 68,
+    ggt: 58,
+    pal: 128,
+  },
+  "chemo.4": {
+    tgo: 75,
+    tgp: 70,
+    ggt: 62,
+    pal: 140,
+  },
+  "chemo.5": {
+    tgo: 68,
+    tgp: 65,
+    ggt: 57,
+    pal: 132,
+  },
+  "chemo.6": {
+    tgo: 74,
+    tgp: 73,
+    ggt: 61,
+    pal: 138,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas d'infection virale
+const infectionLiver = {
+  "infection.1": {
+    tgo: 45,
+    tgp: 50,
+    ggt: 30,
+    pal: 100,
+  },
+  "infection.2": {
+    tgo: 40,
+    tgp: 52,
+    ggt: 28,
+    pal: 97,
+  },
+  "infection.3": {
+    tgo: 48,
+    tgp: 55,
+    ggt: 32,
+    pal: 105,
+  },
+  "infection.4": {
+    tgo: 42,
+    tgp: 54,
+    ggt: 31,
+    pal: 102,
+  },
+  "infection.5": {
+    tgo: 46,
+    tgp: 53,
+    ggt: 29,
+    pal: 99,
+  },
+  "infection.6": {
+    tgo: 44,
+    tgp: 51,
+    ggt: 30,
+    pal: 101,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas d'hépatite connue
+const hepatitisLiver = {
+  "hepatitis.1": {
+    tgo: 200,
+    tgp: 250,
+    ggt: 65,
+    pal: 160,
+  },
+  "hepatitis.2": {
+    tgo: 180,
+    tgp: 230,
+    ggt: 70,
+    pal: 155,
+  },
+  "hepatitis.3": {
+    tgo: 220,
+    tgp: 275,
+    ggt: 68,
+    pal: 162,
+  },
+  "hepatitis.4": {
+    tgo: 190,
+    tgp: 240,
+    ggt: 72,
+    pal: 158,
+  },
+  "hepatitis.5": {
+    tgo: 210,
+    tgp: 260,
+    ggt: 66,
+    pal: 165,
+  },
+  "hepatitis.6": {
+    tgo: 195,
+    tgp: 245,
+    ggt: 69,
+    pal: 160,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de consommation d'alcool
+const alcoholLiver = {
+  "alcohol.1": {
+    tgo: 90,
+    tgp: 70,
+    ggt: 120,
+    pal: 140,
+  },
+  "alcohol.2": {
+    tgo: 95,
+    tgp: 75,
+    ggt: 130,
+    pal: 145,
+  },
+  "alcohol.3": {
+    tgo: 88,
+    tgp: 72,
+    ggt: 115,
+    pal: 138,
+  },
+  "alcohol.4": {
+    tgo: 92,
+    tgp: 70,
+    ggt: 125,
+    pal: 142,
+  },
+  "alcohol.5": {
+    tgo: 85,
+    tgp: 68,
+    ggt: 118,
+    pal: 136,
+  },
+  "alcohol.6": {
+    tgo: 94,
+    tgp: 74,
+    ggt: 122,
+    pal: 143,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de consommation de tabac
+const tobaccoLiver = {
+  "tobacco.1": {
+    tgo: 35,
+    tgp: 30,
+    ggt: 40,
+    pal: 95,
+  },
+  "tobacco.2": {
+    tgo: 37,
+    tgp: 32,
+    ggt: 42,
+    pal: 98,
+  },
+  "tobacco.3": {
+    tgo: 34,
+    tgp: 31,
+    ggt: 38,
+    pal: 100,
+  },
+  "tobacco.4": {
+    tgo: 36,
+    tgp: 29,
+    ggt: 39,
+    pal: 97,
+  },
+  "tobacco.5": {
+    tgo: 33,
+    tgp: 28,
+    ggt: 41,
+    pal: 99,
+  },
+  "tobacco.6": {
+    tgo: 35,
+    tgp: 30,
+    ggt: 37,
+    pal: 96,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de consommation de drogues douces
+const softDrugsLiver = {
+  "softDrugs.1": {
+    tgo: 34,
+    tgp: 29,
+    ggt: 35,
+    pal: 100,
+  },
+  "softDrugs.2": {
+    tgo: 32,
+    tgp: 28,
+    ggt: 34,
+    pal: 98,
+  },
+  "softDrugs.3": {
+    tgo: 35,
+    tgp: 30,
+    ggt: 36,
+    pal: 97,
+  },
+  "softDrugs.4": {
+    tgo: 33,
+    tgp: 29,
+    ggt: 35,
+    pal: 99,
+  },
+  "softDrugs.5": {
+    tgo: 31,
+    tgp: 27,
+    ggt: 33,
+    pal: 96,
+  },
+  "softDrugs.6": {
+    tgo: 34,
+    tgp: 28,
+    ggt: 37,
+    pal: 100,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de consommation de drogues dures
+const hardDrugsLiver = {
+  "hardDrugs.1": {
+    tgo: 150,
+    tgp: 170,
+    ggt: 90,
+    pal: 160,
+  },
+  "hardDrugs.2": {
+    tgo: 140,
+    tgp: 160,
+    ggt: 85,
+    pal: 150,
+  },
+  "hardDrugs.3": {
+    tgo: 155,
+    tgp: 175,
+    ggt: 95,
+    pal: 165,
+  },
+  "hardDrugs.4": {
+    tgo: 145,
+    tgp: 168,
+    ggt: 88,
+    pal: 158,
+  },
+  "hardDrugs.5": {
+    tgo: 160,
+    tgp: 180,
+    ggt: 92,
+    pal: 170,
+  },
+  "hardDrugs.6": {
+    tgo: 148,
+    tgp: 173,
+    ggt: 90,
+    pal: 162,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de diabète gestationnel non traité
+const gestaLiver = {
+  "gesta.1": {
+    tgo: 50,
+    tgp: 55,
+    ggt: 45,
+    pal: 120,
+  },
+  "gesta.2": {
+    tgo: 52,
+    tgp: 58,
+    ggt: 42,
+    pal: 115,
+  },
+  "gesta.3": {
+    tgo: 49,
+    tgp: 55,
+    ggt: 44,
+    pal: 122,
+  },
+  "gesta.4": {
+    tgo: 51,
+    tgp: 57,
+    ggt: 43,
+    pal: 118,
+  },
+  "gesta.5": {
+    tgo: 48,
+    tgp: 54,
+    ggt: 46,
+    pal: 121,
+  },
+  "gesta.6": {
+    tgo: 50,
+    tgp: 56,
+    ggt: 45,
+    pal: 119,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de cholestase gravidique
+const cholestaseLiver = {
+  "cholestase.1": {
+    tgo: 45,
+    tgp: 50,
+    ggt: 85,
+    pal: 160,
+  },
+  "cholestase.2": {
+    tgo: 48,
+    tgp: 52,
+    ggt: 90,
+    pal: 165,
+  },
+  "cholestase.3": {
+    tgo: 46,
+    tgp: 49,
+    ggt: 87,
+    pal: 158,
+  },
+  "cholestase.4": {
+    tgo: 47,
+    tgp: 51,
+    ggt: 89,
+    pal: 162,
+  },
+  "cholestase.5": {
+    tgo: 44,
+    tgp: 48,
+    ggt: 88,
+    pal: 159,
+  },
+  "cholestase.6": {
+    tgo: 45,
+    tgp: 50,
+    ggt: 91,
+    pal: 161,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de diabète traité
+const treatedLiver = {
+  "treated.1": {
+    tgo: 28,
+    tgp: 26,
+    ggt: 35,
+    pal: 100,
+  },
+  "treated.2": {
+    tgo: 30,
+    tgp: 28,
+    ggt: 32,
+    pal: 98,
+  },
+  "treated.3": {
+    tgo: 27,
+    tgp: 25,
+    ggt: 34,
+    pal: 101,
+  },
+  "treated.4": {
+    tgo: 29,
+    tgp: 27,
+    ggt: 36,
+    pal: 97,
+  },
+  "treated.5": {
+    tgo: 26,
+    tgp: 24,
+    ggt: 33,
+    pal: 99,
+  },
+  "treated.6": {
+    tgo: 28,
+    tgp: 26,
+    ggt: 31,
+    pal: 102,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de diabète non traité
+const untreatedLiver = {
+  "untreated.1": {
+    tgo: 60,
+    tgp: 65,
+    ggt: 75,
+    pal: 130,
+  },
+  "untreated.2": {
+    tgo: 58,
+    tgp: 70,
+    ggt: 78,
+    pal: 125,
+  },
+  "untreated.3": {
+    tgo: 62,
+    tgp: 68,
+    ggt: 80,
+    pal: 135,
+  },
+  "untreated.4": {
+    tgo: 61,
+    tgp: 66,
+    ggt: 77,
+    pal: 128,
+  },
+  "untreated.5": {
+    tgo: 59,
+    tgp: 67,
+    ggt: 76,
+    pal: 132,
+  },
+  "untreated.6": {
+    tgo: 63,
+    tgp: 69,
+    ggt: 79,
+    pal: 134,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de malbouffe
+const foodLiver = {
+  "food.1": {
+    tgo: 55,
+    tgp: 60,
+    ggt: 50,
+    pal: 115,
+  },
+  "food.2": {
+    tgo: 53,
+    tgp: 62,
+    ggt: 52,
+    pal: 118,
+  },
+  "food.3": {
+    tgo: 58,
+    tgp: 64,
+    ggt: 54,
+    pal: 120,
+  },
+  "food.4": {
+    tgo: 56,
+    tgp: 61,
+    ggt: 53,
+    pal: 117,
+  },
+  "food.5": {
+    tgo: 54,
+    tgp: 63,
+    ggt: 51,
+    pal: 119,
+  },
+  "food.6": {
+    tgo: 57,
+    tgp: 65,
+    ggt: 50,
+    pal: 116,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas d'activité physique régulière
+const sportLiver = {
+  "sport.1": {
+    tgo: 25,
+    tgp: 22,
+    ggt: 28,
+    pal: 85,
+  },
+  "sport.2": {
+    tgo: 26,
+    tgp: 24,
+    ggt: 30,
+    pal: 87,
+  },
+  "sport.3": {
+    tgo: 24,
+    tgp: 23,
+    ggt: 29,
+    pal: 88,
+  },
+  "sport.4": {
+    tgo: 27,
+    tgp: 25,
+    ggt: 27,
+    pal: 86,
+  },
+  "sport.5": {
+    tgo: 23,
+    tgp: 22,
+    ggt: 28,
+    pal: 84,
+  },
+  "sport.6": {
+    tgo: 25,
+    tgp: 24,
+    ggt: 26,
+    pal: 89,
+  },
+};
+//* Dictionnaire Bilan hépatique en cas de sédentarité
+const sedentaryLiver = {
+  "sedentary.1": {
+    tgo: 45,
+    tgp: 50,
+    ggt: 53,
+    pal: 120,
+  },
+  "sedentary.2": {
+    tgo: 43,
+    tgp: 52,
+    ggt: 50,
+    pal: 115,
+  },
+  "sedentary.3": {
+    tgo: 46,
+    tgp: 54,
+    ggt: 55,
+    pal: 119,
+  },
+  "sedentary.4": {
+    tgo: 44,
+    tgp: 51,
+    ggt: 52,
+    pal: 117,
+  },
+  "sedentary.5": {
+    tgo: 47,
+    tgp: 53,
+    ggt: 54,
+    pal: 121,
+  },
+  "sedentary.6": {
+    tgo: 45,
+    tgp: 50,
+    ggt: 51,
+    pal: 118,
+  },
+};
+//? Dictionaires Bilan hépatique <--

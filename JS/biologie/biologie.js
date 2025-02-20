@@ -195,7 +195,7 @@ function createCoagTable(coagData) {
   coagResultDiv.innerHTML = "";
 
   const coagTableHtml = `
-    <table id="vsTable">
+    <table id="coagTable">
       <thead>
         <tr>
           <th>Élément</th>
@@ -428,7 +428,7 @@ function createEALTable(ealData) {
   ealResultDiv.innerHTML = "";
 
   const ealTableHtml = `
-    <table id="vsTable">
+    <table id="ealTable">
       <thead>
         <tr>
           <th>Élément</th>
@@ -507,7 +507,7 @@ function createKidneyTable(kidneyData) {
   kidneyResultDiv.innerHTML = "";
 
   const kidneyTableHtml = `
-    <table id="vsTable">
+    <table id="kidneyTable">
       <thead>
         <tr>
           <th>Élément</th>
@@ -598,6 +598,110 @@ generateKidneyButton.addEventListener("click", () => {
 });
 //? Générer bilan rénal <--
 
+//? --> Générer bilan hépatique
+const generateLiverButton = document.getElementById("generateLiverButton");
+const liverContextSelect = document.getElementById("liverContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau EAL
+function createLiverTable(liverData) {
+  const liverResultDiv = document.getElementById("liverResult");
+
+  liverResultDiv.innerHTML = "";
+
+  const liverTableHtml = `
+    <table id="liverTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">TGO</td>
+          <td>${liverData.tgo} UI/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">TGP</td>
+          <td>${liverData.tgp} UI/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">GGT</td>
+          <td>${liverData.ggt} UI/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">PAL</td>
+          <td>${liverData.pal} UI/L</td>
+        </tr>
+      </tbody>
+    </table>`;
+  liverResultDiv.innerHTML += liverTableHtml;
+}
+
+generateLiverButton.addEventListener("click", () => {
+  const selectedContext = liverContextSelect.value;
+  const alcohol = document.querySelector('input[name="liverAlcohol"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="liverTobacco"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="liverSoftDrugs"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="liverHardDrugs"]:checked') ? true : false;
+  const gesta = document.querySelector('input[name="liverGesta"]:checked') ? true : false;
+  const cholestase = document.querySelector('input[name="liverCholestase"]:checked') ? true : false;
+  const treated = document.querySelector('input[name="liverTreated"]:checked') ? true : false;
+  const untreated = document.querySelector('input[name="liverUntreated"]:checked') ? true : false;
+  const food = document.querySelector('input[name="liverFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="liverSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="liverSedentary"]:checked') ? true : false;
+
+  const randomalcoholLiver = applyFactor(getRandomElement(alcoholLiver), alcohol);
+  const randomTobaccoLiver = applyFactor(getRandomElement(tobaccoLiver), smoking);
+  const randomSoftDrugLiver = applyFactor(getRandomElement(softDrugsLiver), onSoftDrug);
+  const randomHardDrugLiver = applyFactor(getRandomElement(hardDrugsLiver), onHardDrug);
+  const randomGestaLiver = applyFactor(getRandomElement(gestaLiver), gesta);
+  const randomCholestaseLiver = applyFactor(getRandomElement(cholestaseLiver), cholestase);
+  const randomTreatedLiver = applyFactor(getRandomElement(treatedLiver), treated);
+  const randomUntreatedLiver = applyFactor(getRandomElement(untreatedLiver), untreated);
+  const randomFoodLiver = applyFactor(getRandomElement(foodLiver), food);
+  const randomSportLiver = applyFactor(getRandomElement(sportLiver), sport);
+  const randomSedentaryLiver = applyFactor(getRandomElement(sedentaryLiver), sedentary);
+
+  let randomLiver = "";
+  if (selectedContext === "Normal") {
+    randomLiver = getRandomElement(normalLiver);
+  } else if (selectedContext === "Grossesse") {
+    randomLiver = getRandomElement(pregnancyLiver);
+  } else if (selectedContext === "Chimio") {
+    randomLiver = getRandomElement(chemoLiver);
+  } else if (selectedContext === "Infection") {
+    randomLiver = getRandomElement(infectionLiver);
+  } else if (selectedContext === "Hépatite") {
+    randomLiver = getRandomElement(hepatitisLiver);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneLiver = calculerMoyenneSiObjets(
+    randomLiver,
+    randomalcoholLiver,
+    randomTobaccoLiver,
+    randomSoftDrugLiver,
+    randomHardDrugLiver,
+    randomGestaLiver,
+    randomCholestaseLiver,
+    randomTreatedLiver,
+    randomUntreatedLiver,
+    randomFoodLiver,
+    randomSportLiver,
+    randomSedentaryLiver
+  );
+
+  createLiverTable(moyenneLiver);
+
+  showNextElement("generateLiverButton");
+  document.getElementById("liverResult").classList.remove("hidden");
+});
+//? Générer bilan hépatique <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -607,6 +711,7 @@ scrollToSection("generateDDimButton", "ddimSection");
 scrollToSection("generateSugarButton", "sugarSection");
 scrollToSection("generateEALButton", "ealSection");
 scrollToSection("generateKidneyButton", "kidneySection");
+scrollToSection("generateLiverButton", "liverSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -634,10 +739,14 @@ document.getElementById("ealClose").addEventListener("click", function () {
 document.getElementById("kidneyClose").addEventListener("click", function () {
   hideElements(["kidneyClose", "kidneyResult"]);
 });
+document.getElementById("liverClose").addEventListener("click", function () {
+  hideElements(["liverClose", "liverResult"]);
+});
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser Créat et iono
 //TODO: Automatiser Bilan Hépatique
+//TODO: ajouter l'impact de la cholestase gravidique sur la coag, la glycémie et l'EAl
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines
 //TODO: Automatiser Biochimie urinaire
+//TODO: Ajouter et automatiser les acides biliaires en cas de cholestase gravidique (page grossesse)
