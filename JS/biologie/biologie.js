@@ -496,6 +496,108 @@ generateEALButton.addEventListener("click", () => {
 });
 //? Générer EAL <--
 
+//? --> Générer bilan rénal
+const generateKidneyButton = document.getElementById("generateKidneyButton");
+const kidneyContextSelect = document.getElementById("kidneyContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau EAL
+function createKidneyTable(kidneyData) {
+  const kidneyResultDiv = document.getElementById("kidneyResult");
+
+  kidneyResultDiv.innerHTML = "";
+
+  const kidneyTableHtml = `
+    <table id="vsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Créatinine</td>
+          <td>${kidneyData.creat} mg/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Sodium</td>
+          <td>${kidneyData.na} mmol/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Potassium</td>
+          <td>${kidneyData.k} mmol/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Chlore</td>
+          <td>${kidneyData.cl} mmol/L</td>
+        </tr>
+      </tbody>
+    </table>`;
+  kidneyResultDiv.innerHTML += kidneyTableHtml;
+}
+
+generateKidneyButton.addEventListener("click", () => {
+  const selectedContext = kidneyContextSelect.value;
+  const gesta = document.querySelector('input[name="kidneyGesta"]:checked') ? true : false;
+  const treated = document.querySelector('input[name="kidneyTreated"]:checked') ? true : false;
+  const untreated = document.querySelector('input[name="kidneyUntreated"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="kidneyAlcohol"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="kidneyTobacco"]:checked') ? true : false;
+  const onSoftDrug = document.querySelector('input[name="kidneySoftDrugs"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="kidneyHardDrugs"]:checked') ? true : false;
+  const food = document.querySelector('input[name="kidneyFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="kidneySport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="kidneySedentary"]:checked') ? true : false;
+  const randomGestaKidney = applyFactor(getRandomElement(gestaKidney), gesta);
+  const randomTreatedKidney = applyFactor(getRandomElement(treatedKidney), treated);
+  const randomUntreatedKidney = applyFactor(getRandomElement(untreatedKidney), untreated);
+  const randomalcoholKidney = applyFactor(getRandomElement(alcoholKidney), alcohol);
+  const randomTobaccoKidney = applyFactor(getRandomElement(tobaccoKidney), smoking);
+  const randomSoftDrugKidney = applyFactor(getRandomElement(softDrugsKidney), onSoftDrug);
+  const randomHardDrugKidney = applyFactor(getRandomElement(hardDrugsKidney), onHardDrug);
+  const randomFoodKidney = applyFactor(getRandomElement(foodKidney), food);
+  const randomSportKidney = applyFactor(getRandomElement(sportKidney), sport);
+  const randomSedentaryKidney = applyFactor(getRandomElement(sedentaryKidney), sedentary);
+
+  let randomKidney = "";
+  if (selectedContext === "Normal") {
+    randomKidney = getRandomElement(normalKidney);
+  } else if (selectedContext === "Insuffisance Rénale") {
+    randomKidney = getRandomElement(insufKidney);
+  } else if (selectedContext === "Grossesse") {
+    randomKidney = getRandomElement(pregnancyKidney);
+  } else if (selectedContext === "Chimio") {
+    randomKidney = getRandomElement(chemoKidney);
+  } else if (selectedContext === "Saignement") {
+    randomKidney = getRandomElement(bleedingKidney);
+  } else if (selectedContext === "Infection") {
+    randomKidney = getRandomElement(infectionKidney);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneKidney = calculerMoyenneSiObjets(
+    randomKidney,
+    randomGestaKidney,
+    randomTreatedKidney,
+    randomUntreatedKidney,
+    randomalcoholKidney,
+    randomTobaccoKidney,
+    randomSoftDrugKidney,
+    randomHardDrugKidney,
+    randomFoodKidney,
+    randomSportKidney,
+    randomSedentaryKidney
+  );
+
+  createKidneyTable(moyenneKidney);
+
+  showNextElement("generateKidneyButton");
+  document.getElementById("kidneyResult").classList.remove("hidden");
+});
+//? Générer bilan rénal <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -504,6 +606,7 @@ scrollToSection("generateCoagButton", "coagSection");
 scrollToSection("generateDDimButton", "ddimSection");
 scrollToSection("generateSugarButton", "sugarSection");
 scrollToSection("generateEALButton", "ealSection");
+scrollToSection("generateKidneyButton", "kidneySection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -528,11 +631,13 @@ document.getElementById("sugarClose").addEventListener("click", function () {
 document.getElementById("ealClose").addEventListener("click", function () {
   hideElements(["ealClose", "ealResult"]);
 });
+document.getElementById("kidneyClose").addEventListener("click", function () {
+  hideElements(["kidneyClose", "kidneyResult"]);
+});
 //? Masquer la section au clic sur la croix <--
 
 //TODO: Automatiser Créat et iono
 //TODO: Automatiser Bilan Hépatique
-//TODO: Automatiser Allergies
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines
 //TODO: Automatiser Biochimie urinaire

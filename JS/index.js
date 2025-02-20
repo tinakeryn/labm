@@ -132,8 +132,12 @@ function calculerMoyenneObjets(...objets) {
         // Arrondir à l'entier le plus proche
         moyenne = Math.round(moyenne / 1000) * 1000;
       }
+      // Arrondi spécifique à l'entier le + proche
+      if (clé === "na") {
+        moyenne = Math.round(moyenne).toFixed(0);
+      }
       // Arrondi spécifique à un chiffre après la virgule
-      if (clé === "hemoglobine" || clé === "hba1c") {
+      if (clé === "hemoglobine" || clé === "hba1c" || clé === "creat" || clé === "k") {
         moyenne = (Math.round(moyenne * 10) / 10).toFixed(1);
       }
       // Arrondi spécifique à 2 chiffres après la virgule

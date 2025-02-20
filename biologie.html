@@ -56,9 +56,6 @@
               <a href="#liverSection"><i class="fa-solid fa-caret-right"></i> Foie</a>
             </li>
             <li>
-              <a href="#allergySection"><i class="fa-solid fa-caret-right"></i> Allergies</a>
-            </li>
-            <li>
               <a href="#otherSection"><i class="fa-solid fa-caret-right"></i> Divers</a>
             </li>
           </ul>
@@ -277,7 +274,6 @@
               <option value="Infection">Infection</option>
             </select>
           </fieldset>
-
           <fieldset>
             <legend>Facteurs médicaux</legend>
             <label>
@@ -355,18 +351,66 @@
         <div id="ealResult"></div>
       </section>
       <section class="container" id="kidneySection">
-        <h2>Bilan rénal</h2>
-        <p>Créatinine et ionogramme sanguin</p>
-        <i class="fa-solid fa-person-digging"></i>
+        <h2>Générer un bilan rénal</h2>
+        <form id="kidneyContextForm">
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="kidneyContextSelect" name="kidneyContext">
+              <option value="Normal">Normal</option>
+              <option value="Insuffisance Rénale">Insuffisance rénale</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+              <option value="Saignement">Saignement</option>
+              <option value="Infection">Infection</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="kidneyGesta" value="oui" />Diabète gestationnel non
+              traité</label
+            >
+            <label> <input type="checkbox" name="kidneyTreated" value="oui" />Diabète traité</label>
+            <label>
+              <input type="checkbox" name="kidneyUntreated" value="oui" />Diabète non ou mal
+              traité</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="kidneyAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label>
+              <input type="checkbox" name="kidneyTobacco" value="oui" /> Fume du tabac
+            </label>
+            <label>
+              <input type="checkbox" name="kidneySoftDrugs" value="oui" /> Consomme drogue(s)
+              douce(s)
+            </label>
+            <label>
+              <input type="checkbox" name="kidneyHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label
+              ><input type="checkbox" name="kidneyFood" value="oui" />Mauvaise alimentation</label
+            >
+            <label>
+              <input type="checkbox" name="kidneySport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="kidneySedentary" value="oui" />Sédentarité</label>
+          </fieldset>
+        </form>
+        <button id="generateKidneyButton">Générer un bilan rénal</button>
+        <i id="kidneyClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="kidneyResult"></div>
       </section>
       <section class="container" id="liverSection">
         <h2>Bilan hépatique</h2>
         <p>TGO, TGP, GGT et PAL</p>
-        <i class="fa-solid fa-person-digging"></i>
-      </section>
-      <section class="container" id="allergySection">
-        <h2>Allergies</h2>
-        <p>Pneumallergènes, Trophallergènes</p>
         <i class="fa-solid fa-person-digging"></i>
       </section>
       <section class="container" id="otherSection">

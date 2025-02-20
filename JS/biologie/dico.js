@@ -1259,6 +1259,7 @@ const hardDrugsSugar = {
   },
 };
 //? Dictionnaires Glycémie et HbA1c <--
+//? --> Dictionnaires EAL
 //* Dictionnaire EAL normal
 const normalEAL = {
   "normal.1": {
@@ -1502,5 +1503,631 @@ const tobaccoEAL = {
     trigly: 1.9,
   },
 };
-//? --> Dictionnaires EAL
 //? Dictionnaires EAL <--
+
+//? --> Dictionnaires Bilan rénal
+//* Dictionnaire Bilan rénal normal
+const normalKidney = {
+  "normal.1": {
+    creat: 1.0,
+    na: 140,
+    k: 4.2,
+    cl: 105,
+  },
+  "normal.2": {
+    creat: 0.8,
+    na: 138,
+    k: 3.8,
+    cl: 103,
+  },
+  "normal.3": {
+    creat: 1.1,
+    na: 144,
+    k: 4.5,
+    cl: 107,
+  },
+  "normal.4": {
+    creat: 0.9,
+    na: 142,
+    k: 4.0,
+    cl: 108,
+  },
+  "normal.5": {
+    creat: 1.2,
+    na: 136,
+    k: 3.6,
+    cl: 104,
+  },
+  "normal.6": {
+    creat: 0.7,
+    na: 146,
+    k: 4.8,
+    cl: 101,
+  },
+};
+//* Dictionnaire Bilan rénal en cas d'insuffisance rénale
+const insufKidney = {
+  "insuf.1": {
+    creat: 3.5,
+    na: 130,
+    k: 5.5,
+    cl: 95,
+  },
+  "insuf.2": {
+    creat: 4.2,
+    na: 133,
+    k: 6.0,
+    cl: 97,
+  },
+  "insuf.3": {
+    creat: 2.8,
+    na: 128,
+    k: 5.8,
+    cl: 92,
+  },
+  "insuf.4": {
+    creat: 3.1,
+    na: 135,
+    k: 5.3,
+    cl: 99,
+  },
+  "insuf.5": {
+    creat: 4.8,
+    na: 132,
+    k: 6.2,
+    cl: 94,
+  },
+  "insuf.6": {
+    creat: 5.0,
+    na: 129,
+    k: 5.7,
+    cl: 98,
+  },
+};
+//* Dictionnaire Bilan rénal pendant la grossesse
+const pregnancyKidney = {
+  "pregnancy.1": {
+    creat: 0.6,
+    na: 138,
+    k: 4.0,
+    cl: 104,
+  },
+  "pregnancy.2": {
+    creat: 0.7,
+    na: 140,
+    k: 3.9,
+    cl: 106,
+  },
+  "pregnancy.3": {
+    creat: 0.5,
+    na: 137,
+    k: 4.2,
+    cl: 102,
+  },
+  "pregnancy.4": {
+    creat: 0.8,
+    na: 139,
+    k: 4.1,
+    cl: 105,
+  },
+  "pregnancy.5": {
+    creat: 0.6,
+    na: 141,
+    k: 3.7,
+    cl: 103,
+  },
+  "pregnancy.6": {
+    creat: 0.75,
+    na: 136,
+    k: 4.0,
+    cl: 107,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de chimiothérapie
+const chemoKidney = {
+  "chemo.1": {
+    creat: 2.0,
+    na: 135,
+    k: 5.3,
+    cl: 100,
+  },
+  "chemo.2": {
+    creat: 1.8,
+    na: 133,
+    k: 5.5,
+    cl: 99,
+  },
+  "chemo.3": {
+    creat: 2.5,
+    na: 137,
+    k: 5.0,
+    cl: 101,
+  },
+  "chemo.4": {
+    creat: 1.9,
+    na: 134,
+    k: 5.7,
+    cl: 98,
+  },
+  "chemo.5": {
+    creat: 2.2,
+    na: 132,
+    k: 5.1,
+    cl: 100,
+  },
+  "chemo.6": {
+    creat: 2.8,
+    na: 136,
+    k: 5.6,
+    cl: 97,
+  },
+};
+//* Dictionnaire Bilan rénal en cas d'hémorragie
+const bleedingKidney = {
+  "bleeding.1": {
+    creat: 1.4,
+    na: 130,
+    k: 4.5,
+    cl: 95,
+  },
+  "bleeding.2": {
+    creat: 1.7,
+    na: 134,
+    k: 4.3,
+    cl: 97,
+  },
+  "bleeding.3": {
+    creat: 1.5,
+    na: 129,
+    k: 4.7,
+    cl: 96,
+  },
+  "bleeding.4": {
+    creat: 1.6,
+    na: 132,
+    k: 4.0,
+    cl: 94,
+  },
+  "bleeding.5": {
+    creat: 1.3,
+    na: 131,
+    k: 4.4,
+    cl: 93,
+  },
+  "bleeding.6": {
+    creat: 1.8,
+    na: 128,
+    k: 4.6,
+    cl: 98,
+  },
+};
+//* Dictionnaire Bilan rénal en cas d'infection
+const infectionKidney = {
+  "infection.1": {
+    creat: 1.3,
+    na: 134,
+    k: 4.9,
+    cl: 100,
+  },
+  "infection.2": {
+    creat: 1.5,
+    na: 132,
+    k: 5.0,
+    cl: 99,
+  },
+  "infection.3": {
+    creat: 1.4,
+    na: 133,
+    k: 4.7,
+    cl: 101,
+  },
+  "infection.4": {
+    creat: 1.6,
+    na: 135,
+    k: 5.1,
+    cl: 98,
+  },
+  "infection.5": {
+    creat: 1.2,
+    na: 130,
+    k: 4.5,
+    cl: 97,
+  },
+  "infection.6": {
+    creat: 1.7,
+    na: 131,
+    k: 5.3,
+    cl: 99,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de consommation d'alcool
+const alcoholKidney = {
+  "alcohol.1": {
+    creat: 1.1,
+    na: 135,
+    k: 4.4,
+    cl: 101,
+  },
+  "alcohol.2": {
+    creat: 1.2,
+    na: 134,
+    k: 4.5,
+    cl: 100,
+  },
+  "alcohol.3": {
+    creat: 1.3,
+    na: 136,
+    k: 4.2,
+    cl: 102,
+  },
+  "alcohol.4": {
+    creat: 1.4,
+    na: 133,
+    k: 4.6,
+    cl: 99,
+  },
+  "alcohol.5": {
+    creat: 1.2,
+    na: 137,
+    k: 4.0,
+    cl: 103,
+  },
+  "alcohol.6": {
+    creat: 1.1,
+    na: 138,
+    k: 4.3,
+    cl: 104,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de consommation de tabac
+const tobaccoKidney = {
+  "tobacco.1": {
+    creat: 1.0,
+    na: 138,
+    k: 4.1,
+    cl: 103,
+  },
+  "tobacco.2": {
+    creat: 1.1,
+    na: 137,
+    k: 4.0,
+    cl: 102,
+  },
+  "tobacco.3": {
+    creat: 1.2,
+    na: 139,
+    k: 4.2,
+    cl: 104,
+  },
+  "tobacco.4": {
+    creat: 1.1,
+    na: 140,
+    k: 4.3,
+    cl: 105,
+  },
+  "tobacco.5": {
+    creat: 1.0,
+    na: 138,
+    k: 3.9,
+    cl: 101,
+  },
+  "tobacco.6": {
+    creat: 1.1,
+    na: 136,
+    k: 4.1,
+    cl: 103,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de consommation de drogues douces
+const softDrugsKidney = {
+  "softDrugs.1": {
+    creat: 1.0,
+    na: 139,
+    k: 4.2,
+    cl: 105,
+  },
+  "softDrugs.2": {
+    creat: 0.9,
+    na: 138,
+    k: 4.0,
+    cl: 102,
+  },
+  "softDrugs.3": {
+    creat: 1.1,
+    na: 140,
+    k: 4.1,
+    cl: 103,
+  },
+  "softDrugs.4": {
+    creat: 1.0,
+    na: 137,
+    k: 4.3,
+    cl: 104,
+  },
+  "softDrugs.5": {
+    creat: 0.9,
+    na: 136,
+    k: 4.4,
+    cl: 106,
+  },
+  "softDrugs.6": {
+    creat: 1.1,
+    na: 139,
+    k: 3.9,
+    cl: 101,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de consommation de drogues dures
+const hardDrugsKidney = {
+  "hardDrugs.1": {
+    creat: 2.5,
+    na: 130,
+    k: 5.8,
+    cl: 96,
+  },
+  "hardDrugs.2": {
+    creat: 3.0,
+    na: 132,
+    k: 5.5,
+    cl: 98,
+  },
+  "hardDrugs.3": {
+    creat: 2.8,
+    na: 129,
+    k: 6.0,
+    cl: 95,
+  },
+  "hardDrugs.4": {
+    creat: 3.2,
+    na: 131,
+    k: 5.7,
+    cl: 100,
+  },
+  "hardDrugs.5": {
+    creat: 2.6,
+    na: 128,
+    k: 5.9,
+    cl: 97,
+  },
+  "hardDrugs.6": {
+    creat: 3.1,
+    na: 133,
+    k: 6.2,
+    cl: 99,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de diabète gestationnel non traité
+const gestaKidney = {
+  "gesta.1": {
+    creat: 1.0,
+    na: 134,
+    k: 5.0,
+    cl: 103,
+  },
+  "gesta.2": {
+    creat: 1.2,
+    na: 132,
+    k: 4.9,
+    cl: 102,
+  },
+  "gesta.3": {
+    creat: 1.1,
+    na: 133,
+    k: 5.1,
+    cl: 101,
+  },
+  "gesta.4": {
+    creat: 0.9,
+    na: 135,
+    k: 4.8,
+    cl: 104,
+  },
+  "gesta.5": {
+    creat: 1.0,
+    na: 131,
+    k: 5.2,
+    cl: 100,
+  },
+  "gesta.6": {
+    creat: 1.3,
+    na: 133,
+    k: 5.0,
+    cl: 99,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de diabète traité
+const treatedKidney = {
+  "treated.1": {
+    creat: 0.9,
+    na: 138,
+    k: 4.3,
+    cl: 104,
+  },
+  "treated.2": {
+    creat: 1.0,
+    na: 137,
+    k: 4.1,
+    cl: 102,
+  },
+  "treated.3": {
+    creat: 1.1,
+    na: 136,
+    k: 4.4,
+    cl: 103,
+  },
+  "treated.4": {
+    creat: 0.8,
+    na: 139,
+    k: 4.0,
+    cl: 105,
+  },
+  "treated.5": {
+    creat: 1.0,
+    na: 140,
+    k: 4.2,
+    cl: 106,
+  },
+  "treated.6": {
+    creat: 0.9,
+    na: 138,
+    k: 4.1,
+    cl: 104,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de diabète non traité
+const untreatedKidney = {
+  "untreated.1": {
+    creat: 1.8,
+    na: 130,
+    k: 5.5,
+    cl: 98,
+  },
+  "untreated.2": {
+    creat: 2.0,
+    na: 132,
+    k: 5.7,
+    cl: 97,
+  },
+  "untreated.3": {
+    creat: 1.9,
+    na: 131,
+    k: 5.3,
+    cl: 100,
+  },
+  "untreated.4": {
+    creat: 2.2,
+    na: 129,
+    k: 5.6,
+    cl: 96,
+  },
+  "untreated.5": {
+    creat: 1.7,
+    na: 133,
+    k: 5.4,
+    cl: 99,
+  },
+  "untreated.6": {
+    creat: 1.8,
+    na: 130,
+    k: 5.8,
+    cl: 95,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de malbouffe
+const foodKidney = {
+  "food.1": {
+    creat: 1.3,
+    na: 142,
+    k: 4.8,
+    cl: 107,
+  },
+  "food.2": {
+    creat: 1.4,
+    na: 145,
+    k: 4.5,
+    cl: 108,
+  },
+  "food.3": {
+    creat: 1.2,
+    na: 144,
+    k: 4.7,
+    cl: 106,
+  },
+  "food.4": {
+    creat: 1.5,
+    na: 140,
+    k: 5.0,
+    cl: 105,
+  },
+  "food.5": {
+    creat: 1.3,
+    na: 143,
+    k: 4.9,
+    cl: 104,
+  },
+  "food.6": {
+    creat: 1.4,
+    na: 141,
+    k: 4.6,
+    cl: 107,
+  },
+};
+//* Dictionnaire Bilan rénal en cas d'activité physique régulière
+const sportKidney = {
+  "sport.1": {
+    creat: 1.0,
+    na: 140,
+    k: 4.4,
+    cl: 104,
+  },
+  "sport.2": {
+    creat: 1.1,
+    na: 138,
+    k: 4.5,
+    cl: 103,
+  },
+  "sport.3": {
+    creat: 1.2,
+    na: 139,
+    k: 4.3,
+    cl: 105,
+  },
+  "sport.4": {
+    creat: 0.9,
+    na: 141,
+    k: 4.2,
+    cl: 102,
+  },
+  "sport.5": {
+    creat: 1.0,
+    na: 137,
+    k: 4.6,
+    cl: 106,
+  },
+  "sport.6": {
+    creat: 1.1,
+    na: 140,
+    k: 4.4,
+    cl: 104,
+  },
+};
+//* Dictionnaire Bilan rénal en cas de sédentarité
+const sedentaryKidney = {
+  "sedentary.1": {
+    creat: 1.2,
+    na: 139,
+    k: 4.2,
+    cl: 104,
+  },
+  "sedentary.2": {
+    creat: 1.3,
+    na: 140,
+    k: 4.0,
+    cl: 103,
+  },
+  "sedentary.3": {
+    creat: 1.1,
+    na: 138,
+    k: 4.1,
+    cl: 105,
+  },
+  "sedentary.4": {
+    creat: 1.4,
+    na: 137,
+    k: 4.3,
+    cl: 102,
+  },
+  "sedentary.5": {
+    creat: 1.2,
+    na: 136,
+    k: 4.4,
+    cl: 106,
+  },
+  "sedentary.6": {
+    creat: 1.3,
+    na: 139,
+    k: 4.2,
+    cl: 104,
+  },
+};
+//? Dictionnaires Bilan rénal <--
