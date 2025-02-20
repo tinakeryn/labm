@@ -2757,3 +2757,591 @@ const sedentaryLiver = {
   },
 };
 //? Dictionaires Bilan hépatique <--
+
+//? --> Dictionnaires Chimie urinaire
+//* Dictionnaire chimie urinaire normale
+const normalUrine = {
+  "normal.1": {
+    ucr: 1.5, // mmol/L
+    una: 140, // mmol/L
+    uk: 40, // mmol/L
+    up: 0.1, // g/L
+    ug: 0.01, // g/L
+  },
+  "normal.2": {
+    ucr: 1.8, // mmol/L
+    una: 160,
+    uk: 50,
+    up: 0.05,
+    ug: 0.02, // g/L
+  },
+  "normal.3": {
+    ucr: 1.2, // mmol/L
+    una: 120,
+    uk: 45,
+    up: 0.08,
+    ug: 0.01, // g/L
+  },
+  "normal.4": {
+    ucr: 1.9, // mmol/L
+    una: 150,
+    uk: 55,
+    up: 0.1,
+    ug: 0.03, // g/L
+  },
+  "normal.5": {
+    ucr: 2.0, // mmol/L
+    una: 145,
+    uk: 60,
+    up: 0.09,
+    ug: 0.02, // g/L
+  },
+  "normal.6": {
+    ucr: 1.7, // mmol/L
+    una: 130,
+    uk: 47,
+    up: 0.07,
+    ug: 0.04, // g/L
+  },
+};
+//* Dictionnaire chimie urinaire en cas de grossesse
+const pregnancyUrine = {
+  "pregnancy.1": {
+    ucr: 1.3, // mmol/L
+    una: 135, // mmol/L
+    uk: 42, // mmol/L
+    up: 0.15, // g/L
+    ug: 0.02, // g/L
+  },
+  "pregnancy.2": {
+    ucr: 1.1,
+    una: 138,
+    uk: 44,
+    up: 0.12,
+    ug: 0.03,
+  },
+  "pregnancy.3": {
+    ucr: 1.4,
+    una: 132,
+    uk: 43,
+    up: 0.1,
+    ug: 0.03,
+  },
+  "pregnancy.4": {
+    ucr: 1.2,
+    una: 140,
+    uk: 41,
+    up: 0.14,
+    ug: 0.01,
+  },
+  "pregnancy.5": {
+    ucr: 1.5,
+    una: 136,
+    uk: 45,
+    up: 0.13,
+    ug: 0.02,
+  },
+  "pregnancy.6": {
+    ucr: 1.0,
+    una: 137,
+    uk: 40,
+    up: 0.11,
+    ug: 0.01,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de chimio
+const chemoUrine = {
+  "chemo.1": {
+    ucr: 1.0, // mmol/L
+    una: 130, // mmol/L
+    uk: 60, // mmol/L
+    up: 0.2, // g/L
+    ug: 0.04, // g/L
+  },
+  "chemo.2": {
+    ucr: 0.9,
+    una: 128,
+    uk: 62,
+    up: 0.18,
+    ug: 0.05,
+  },
+  "chemo.3": {
+    ucr: 1.1,
+    una: 135,
+    uk: 58,
+    up: 0.22,
+    ug: 0.03,
+  },
+  "chemo.4": {
+    ucr: 0.8,
+    una: 133,
+    uk: 65,
+    up: 0.25,
+    ug: 0.02,
+  },
+  "chemo.5": {
+    ucr: 1.2,
+    una: 129,
+    uk: 63,
+    up: 0.19,
+    ug: 0.01,
+  },
+  "chemo.6": {
+    ucr: 1.0,
+    una: 131,
+    uk: 60,
+    up: 0.21,
+    ug: 0.04,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de consommation d'alcool
+const alcoholUrine = {
+  "alcohol.1": {
+    ucr: 1.0, // mmol/L
+    una: 142, // mmol/L
+    uk: 45, // mmol/L
+    up: 0.12, // g/L
+    ug: 0.01, // g/L
+  },
+  "alcohol.2": {
+    ucr: 0.9,
+    una: 140,
+    uk: 48,
+    up: 0.1,
+    ug: 0.02,
+  },
+  "alcohol.3": {
+    ucr: 1.1,
+    una: 138,
+    uk: 46,
+    up: 0.08,
+    ug: 0.02,
+  },
+  "alcohol.4": {
+    ucr: 0.8,
+    una: 145,
+    uk: 50,
+    up: 0.11,
+    ug: 0.01,
+  },
+  "alcohol.5": {
+    ucr: 1.2,
+    una: 135,
+    uk: 44,
+    up: 0.09,
+    ug: 0.03,
+  },
+  "alcohol.6": {
+    ucr: 1.0,
+    una: 139,
+    uk: 47,
+    up: 0.07,
+    ug: 0.06,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de consommation de drogues dures
+const hardDrugsUrine = {
+  "hardDrugs.1": {
+    ucr: 0.8, // mmol/L
+    una: 132, // mmol/L
+    uk: 70, // mmol/L
+    up: 0.3, // g/L
+    ug: 0.05, // g/L
+  },
+  "hardDrugs.2": {
+    ucr: 0.7,
+    una: 130,
+    uk: 75,
+    up: 0.28,
+    ug: 0.06,
+  },
+  "hardDrugs.3": {
+    ucr: 1.0,
+    una: 135,
+    uk: 72,
+    up: 0.32,
+    ug: 0.04,
+  },
+  "hardDrugs.4": {
+    ucr: 0.9,
+    una: 134,
+    uk: 74,
+    up: 0.29,
+    ug: 0.05,
+  },
+  "hardDrugs.5": {
+    ucr: 0.6,
+    una: 131,
+    uk: 68,
+    up: 0.35,
+    ug: 0.07,
+  },
+  "hardDrugs.6": {
+    ucr: 1.1,
+    una: 133,
+    uk: 73,
+    up: 0.31,
+    ug: 0.03,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de diabète gestationnel non traité
+const gestaUrine = {
+  "gesta.1": {
+    ucr: 1.2, // mmol/L
+    una: 130, // mmol/L
+    uk: 40, // mmol/L
+    up: 0.15, // g/L
+    ug: 0.2, // g/L
+  },
+  "gesta.2": {
+    ucr: 1.1,
+    una: 128,
+    uk: 42,
+    up: 0.18,
+    ug: 0.25,
+  },
+  "gesta.3": {
+    ucr: 1.3,
+    una: 132,
+    uk: 39,
+    up: 0.2,
+    ug: 0.22,
+  },
+  "gesta.4": {
+    ucr: 1.0,
+    una: 129,
+    uk: 41,
+    up: 0.17,
+    ug: 0.24,
+  },
+  "gesta.5": {
+    ucr: 1.4,
+    una: 131,
+    uk: 38,
+    up: 0.16,
+    ug: 0.21,
+  },
+  "gesta.6": {
+    ucr: 1.2,
+    una: 130,
+    uk: 40,
+    up: 0.19,
+    ug: 0.23,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de diabète traité
+const treatedUrine = {
+  "treated.1": {
+    ucr: 1.4, // mmol/L
+    una: 138, // mmol/L
+    uk: 44, // mmol/L
+    up: 0.1, // g/L
+    ug: 0.02, // g/L
+  },
+  "treated.2": {
+    ucr: 1.3,
+    una: 140,
+    uk: 42,
+    up: 0.09,
+    ug: 0.01,
+  },
+  "treated.3": {
+    ucr: 1.5,
+    una: 137,
+    uk: 45,
+    up: 0.08,
+    ug: 0.03,
+  },
+  "treated.4": {
+    ucr: 1.2,
+    una: 139,
+    uk: 43,
+    up: 0.11,
+    ug: 0.01,
+  },
+  "treated.5": {
+    ucr: 1.4,
+    una: 136,
+    uk: 46,
+    up: 0.1,
+    ug: 0.05,
+  },
+  "treated.6": {
+    ucr: 1.3,
+    una: 140,
+    uk: 44,
+    up: 0.09,
+    ug: 0.02,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de diabète non traité
+const untreatedUrine = {
+  "untreated.1": {
+    ucr: 1.0, // mmol/L
+    una: 125, // mmol/L
+    uk: 50, // mmol/L
+    up: 0.25, // g/L
+    ug: 0.3, // g/L
+  },
+  "untreated.2": {
+    ucr: 0.9,
+    una: 128,
+    uk: 48,
+    up: 0.22,
+    ug: 0.28,
+  },
+  "untreated.3": {
+    ucr: 1.1,
+    una: 130,
+    uk: 52,
+    up: 0.3,
+    ug: 0.35,
+  },
+  "untreated.4": {
+    ucr: 0.8,
+    una: 122,
+    uk: 49,
+    up: 0.28,
+    ug: 0.32,
+  },
+  "untreated.5": {
+    ucr: 1.0,
+    una: 126,
+    uk: 51,
+    up: 0.27,
+    ug: 0.29,
+  },
+  "untreated.6": {
+    ucr: 1.2,
+    una: 124,
+    uk: 50,
+    up: 0.26,
+    ug: 0.31,
+  },
+};
+//* Dictionnaire chimie urinaire en cas d'insuffisance rénale
+const insufUrine = {
+  "insuf.1": {
+    ucr: 0.5, // mmol/L
+    una: 110, // mmol/L
+    uk: 25, // mmol/L
+    up: 0.4, // g/L
+    ug: 0.02, // g/L
+  },
+  "insuf.2": {
+    ucr: 0.4,
+    una: 115,
+    uk: 28,
+    up: 0.45,
+    ug: 0.02,
+  },
+  "insuf.3": {
+    ucr: 0.6,
+    una: 105,
+    uk: 30,
+    up: 0.35,
+    ug: 0.01,
+  },
+  "insuf.4": {
+    ucr: 0.5,
+    una: 112,
+    uk: 29,
+    up: 0.38,
+    ug: 0.02,
+  },
+  "insuf.5": {
+    ucr: 0.7,
+    una: 108,
+    uk: 27,
+    up: 0.42,
+    ug: 0.05,
+  },
+  "insuf.6": {
+    ucr: 0.5,
+    una: 110,
+    uk: 26,
+    up: 0.4,
+    ug: 0.06,
+  },
+};
+//* Dictionnaire chimie urinaire en cas d'infection urinaire
+const infectionUrine = {
+  "infection.1": {
+    ucr: 1.0, // mmol/L
+    una: 120, // mmol/L
+    uk: 38, // mmol/L
+    up: 0.2, // g/L
+    ug: 0.01,
+  },
+  "infection.2": {
+    ucr: 0.9,
+    una: 118,
+    uk: 36,
+    up: 0.25,
+    ug: 0.02,
+  },
+  "infection.3": {
+    ucr: 1.2,
+    una: 125,
+    uk: 39,
+    up: 0.15,
+    ug: 0.02,
+  },
+  "infection.4": {
+    ucr: 1.1,
+    una: 122,
+    uk: 37,
+    up: 0.3,
+    ug: 0.05,
+  },
+  "infection.5": {
+    ucr: 1.0,
+    una: 119,
+    uk: 38,
+    up: 0.22,
+    ug: 0.01,
+  },
+  "infection.6": {
+    ucr: 1.3,
+    una: 124,
+    uk: 40,
+    up: 0.18,
+    ug: 0.06,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de malbouffe
+const foodUrine = {
+  "food.1": {
+    ucr: 1.5, // mmol/L
+    una: 150, // mmol/L
+    uk: 35, // mmol/L
+    up: 0.1, // g/L
+    ug: 0.05, // g/L
+  },
+  "food.2": {
+    ucr: 1.3,
+    una: 155,
+    uk: 32,
+    up: 0.12,
+    ug: 0.04,
+  },
+  "food.3": {
+    ucr: 1.6,
+    una: 148,
+    uk: 34,
+    up: 0.09,
+    ug: 0.03,
+  },
+  "food.4": {
+    ucr: 1.4,
+    una: 160,
+    uk: 33,
+    up: 0.11,
+    ug: 0.06,
+  },
+  "food.5": {
+    ucr: 1.5,
+    una: 152,
+    uk: 31,
+    up: 0.13,
+    ug: 0.05,
+  },
+  "food.6": {
+    ucr: 1.2,
+    una: 145,
+    uk: 36,
+    up: 0.08,
+    ug: 0.02,
+  },
+};
+//* Dictionnaire chimie urinaire en cas d'activité physique régulière
+const sportUrine = {
+  "sport.1": {
+    ucr: 1.8, // mmol/L
+    una: 140, // mmol/L
+    uk: 50, // mmol/L
+    up: 0.08, // g/L
+    ug: 0.01, // g/L
+  },
+  "sport.2": {
+    ucr: 1.9,
+    una: 142,
+    uk: 48,
+    up: 0.1,
+    ug: 0.02,
+  },
+  "sport.3": {
+    ucr: 1.7,
+    una: 138,
+    uk: 52,
+    up: 0.09,
+    ug: 0.01,
+  },
+  "sport.4": {
+    ucr: 2.0,
+    una: 141,
+    uk: 51,
+    up: 0.07,
+    ug: 0.03,
+  },
+  "sport.5": {
+    ucr: 1.8,
+    una: 139,
+    uk: 49,
+    up: 0.06,
+    ug: 0.04,
+  },
+  "sport.6": {
+    ucr: 1.6,
+    una: 140,
+    uk: 53,
+    up: 0.05,
+    ug: 0.05,
+  },
+};
+//* Dictionnaire chimie urinaire en cas de sédentarité
+const sedentaryUrine = {
+  "sedentary.1": {
+    ucr: 1.2, // mmol/L
+    una: 135, // mmol/L
+    uk: 34, // mmol/L
+    up: 0.15, // g/L
+    ug: 0.01, // g/L
+  },
+  "sedentary.2": {
+    ucr: 1.1,
+    una: 138,
+    uk: 32,
+    up: 0.14,
+    ug: 0.02,
+  },
+  "sedentary.3": {
+    ucr: 1.3,
+    una: 137,
+    uk: 33,
+    up: 0.1,
+    ug: 0.01,
+  },
+  "sedentary.4": {
+    ucr: 1.0,
+    una: 136,
+    uk: 35,
+    up: 0.13,
+    ug: 0.04,
+  },
+  "sedentary.5": {
+    ucr: 1.2,
+    una: 134,
+    uk: 31,
+    up: 0.12,
+    ug: 0.05,
+  },
+  "sedentary.6": {
+    ucr: 1.1,
+    una: 135,
+    uk: 34,
+    up: 0.11,
+    ug: 0.06,
+  },
+};
+//? Dictionnaires Chimie urinaire <--

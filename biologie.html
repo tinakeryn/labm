@@ -44,7 +44,7 @@
               <a href="#ddimSection"><i class="fa-solid fa-caret-right"></i> D-Dimères</a>
             </li>
             <li>
-              <a href="#sugarSection"><i class="fa-solid fa-caret-right"></i>Glycémie et HbA1c</a>
+              <a href="#sugarSection"><i class="fa-solid fa-caret-right"></i> Glycémie et HbA1c</a>
             </li>
             <li>
               <a href="#ealSection"><i class="fa-solid fa-caret-right"></i> Bilan lipidique</a>
@@ -54,6 +54,9 @@
             </li>
             <li>
               <a href="#liverSection"><i class="fa-solid fa-caret-right"></i> Foie</a>
+            </li>
+            <li>
+              <a href="#urineSection"><i class="fa-solid fa-caret-right"></i> Urines</a>
             </li>
             <li>
               <a href="#otherSection"><i class="fa-solid fa-caret-right"></i> Divers</a>
@@ -466,6 +469,60 @@
         <button id="generateLiverButton">Générer un bilan hépatique</button>
         <i id="liverClose" class="fa-solid fa-xmark hidden"></i>
         <div id="liverResult"></div>
+      </section>
+      <section class="container" id="urineSection">
+        <h2>Générer une chimie urinaire</h2>
+        <form id="urineContextForm">
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="urineContextSelect" name="urineContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="urineGesta" value="oui" />Diabète gestationnel non
+              traité</label
+            >
+            <label> <input type="checkbox" name="urineTreated" value="oui" />Diabète traité</label>
+            <label>
+              <input type="checkbox" name="urineUntreated" value="oui" />Diabète non ou mal
+              traité</label
+            >
+            <label>
+              <input type="checkbox" name="urineInsuf" value="oui" />Insuffisance rénale</label
+            >
+            <label>
+              <input type="checkbox" name="urineInfection" value="oui" />Infection urinaire</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label>
+              <input type="checkbox" name="urineAlcohol" value="oui" /> Consomme de l'alcool
+            </label>
+            <label>
+              <input type="checkbox" name="urineHardDrugs" value="oui" /> Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label
+              ><input type="checkbox" name="urineFood" value="oui" />Mauvaise alimentation</label
+            >
+            <label>
+              <input type="checkbox" name="urineSport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="urineSedentary" value="oui" />Sédentarité</label>
+          </fieldset>
+        </form>
+        <button id="generateUrineButton">Générer la chimie urinaire</button>
+        <i id="urineClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="urineResult"></div>
       </section>
       <section class="container" id="otherSection">
         <h2>Divers</h2>

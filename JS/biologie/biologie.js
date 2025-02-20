@@ -45,6 +45,7 @@ generateNfsButton.addEventListener("click", () => {
   const alcohol = document.querySelector('input[name="nfsAlcohol"]:checked') ? true : false;
   const onSoftDrug = document.querySelector('input[name="nfsSoftDrugs"]:checked') ? true : false;
   const onHardDrug = document.querySelector('input[name="nfsHardDrugs"]:checked') ? true : false;
+
   const randomTobaccoNFS = applyFactor(getRandomElement(tobaccoNFS), smoking);
   const randomalcoholNFS = applyFactor(getRandomElement(alcoholNFS), alcohol);
   const randomSoftDrugNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
@@ -115,6 +116,7 @@ generateVSButton.addEventListener("click", () => {
   const alcohol = document.querySelector('input[name="vsAlcohol"]:checked') ? true : false;
   const onSoftDrug = document.querySelector('input[name="vsSoftDrugs"]:checked') ? true : false;
   const onHardDrug = document.querySelector('input[name="vsHardDrugs"]:checked') ? true : false;
+
   const randomTobaccoVS = applyFactor(getRandomElement(tobaccoVS), smoking);
   const randomalcoholVS = applyFactor(getRandomElement(alcoholVS), alcohol);
   const randomSoftDrugVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrug);
@@ -225,6 +227,7 @@ generateCoagButton.addEventListener("click", () => {
   const avk = document.querySelector('input[name="coagAVK"]:checked') ? true : false;
   const injured = document.querySelector('input[name="coagInjury"]:checked') ? true : false;
   const liver = document.querySelector('input[name="coagLiver"]:checked') ? true : false;
+
   const randomAVKCoag = applyFactor(getRandomElement(avkCoag), avk);
   const randomInjuredCoag = applyFactor(getRandomElement(injuryCoag), injured);
   const randomLiverCoag = applyFactor(getRandomElement(liverCoag), liver);
@@ -294,6 +297,7 @@ generateDDimButton.addEventListener("click", () => {
   const alcohol = document.querySelector('input[name="ddimsAlcohol"]:checked') ? true : false;
   const onSoftDrug = document.querySelector('input[name="ddimSoftDrugs"]:checked') ? true : false;
   const onHardDrug = document.querySelector('input[name="ddimHardDrugs"]:checked') ? true : false;
+
   const randomThrombosisDDim = applyFactor(getRandomElement(thrombosisDDim), thrombosis);
   const randomStrokeDDim = applyFactor(getRandomElement(strokeDDim), stroke);
   const randomInjuredDDim = applyFactor(getRandomElement(injuryDDim), injured);
@@ -377,6 +381,7 @@ generateSugarButton.addEventListener("click", () => {
   const food = document.querySelector('input[name="sugarFood"]:checked') ? true : false;
   const sport = document.querySelector('input[name="sugarSport"]:checked') ? true : false;
   const sedentary = document.querySelector('input[name="sugarSedentary"]:checked') ? true : false;
+
   const randomGestaSugar = applyFactor(getRandomElement(gestaSugar), gesta);
   const randomTreatedSugar = applyFactor(getRandomElement(treatedSugar), treated);
   const randomUntreatedSugar = applyFactor(getRandomElement(untreatedSugar), untreated);
@@ -500,7 +505,7 @@ generateEALButton.addEventListener("click", () => {
 const generateKidneyButton = document.getElementById("generateKidneyButton");
 const kidneyContextSelect = document.getElementById("kidneyContextSelect");
 
-//* Fonction pour créer dynamiquement un tableau EAL
+//* Fonction pour créer dynamiquement un tableau Bilan rénal
 function createKidneyTable(kidneyData) {
   const kidneyResultDiv = document.getElementById("kidneyResult");
 
@@ -548,6 +553,7 @@ generateKidneyButton.addEventListener("click", () => {
   const food = document.querySelector('input[name="kidneyFood"]:checked') ? true : false;
   const sport = document.querySelector('input[name="kidneySport"]:checked') ? true : false;
   const sedentary = document.querySelector('input[name="kidneySedentary"]:checked') ? true : false;
+
   const randomGestaKidney = applyFactor(getRandomElement(gestaKidney), gesta);
   const randomTreatedKidney = applyFactor(getRandomElement(treatedKidney), treated);
   const randomUntreatedKidney = applyFactor(getRandomElement(untreatedKidney), untreated);
@@ -602,7 +608,7 @@ generateKidneyButton.addEventListener("click", () => {
 const generateLiverButton = document.getElementById("generateLiverButton");
 const liverContextSelect = document.getElementById("liverContextSelect");
 
-//* Fonction pour créer dynamiquement un tableau EAL
+//* Fonction pour créer dynamiquement un tableau Bilan hépatique
 function createLiverTable(liverData) {
   const liverResultDiv = document.getElementById("liverResult");
 
@@ -702,6 +708,111 @@ generateLiverButton.addEventListener("click", () => {
 });
 //? Générer bilan hépatique <--
 
+//? --> Générer chimie urinaire
+const generateUrineButton = document.getElementById("generateUrineButton");
+const urineContextSelect = document.getElementById("urineContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau Chimie urinaire
+function createUrineTable(urineData) {
+  const urineResultDiv = document.getElementById("urineResult");
+
+  urineResultDiv.innerHTML = "";
+
+  const urineTableHtml = `
+    <table id="urineTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Créatininurie</td>
+          <td>${urineData.ucr} mmol/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Sodium urinaire</td>
+          <td>${urineData.na} mmol/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Potassium urinaire</td>
+          <td>${urineData.uk} mmol/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Protéinurie</td>
+          <td>${urineData.up} g/L</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Glycosurie</td>
+          <td>${urineData.ug} g/L</td>
+        </tr>
+      </tbody>
+    </table>`;
+  urineResultDiv.innerHTML += urineTableHtml;
+}
+
+generateUrineButton.addEventListener("click", () => {
+  const selectedContext = urineContextSelect.value;
+  const alcohol = document.querySelector('input[name="urineAlcohol"]:checked') ? true : false;
+  const onHardDrug = document.querySelector('input[name="urineHardDrugs"]:checked') ? true : false;
+  const gesta = document.querySelector('input[name="urineGesta"]:checked') ? true : false;
+  const treated = document.querySelector('input[name="urineTreated"]:checked') ? true : false;
+  const untreated = document.querySelector('input[name="urineUntreated"]:checked') ? true : false;
+  const insufUrine = document.querySelector('input[name="insufUrine"]:checked') ? true : false;
+  const infectionUrine = document.querySelector('input[name="infectionUrine"]:checked')
+    ? true
+    : false;
+  const food = document.querySelector('input[name="urineFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="urineSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="urineSedentary"]:checked') ? true : false;
+
+  const randomalcoholUrine = applyFactor(getRandomElement(alcoholUrine), alcohol);
+  const randomHardDrugUrine = applyFactor(getRandomElement(hardDrugsUrine), onHardDrug);
+  const randomGestaUrine = applyFactor(getRandomElement(gestaUrine), gesta);
+  const randomTreatedUrine = applyFactor(getRandomElement(treatedUrine), treated);
+  const randomUntreatedUrine = applyFactor(getRandomElement(untreatedUrine), untreated);
+  const randomInsufUrine = applyFactor(getRandomElement(insufUrine), insufUrine);
+  const randomFoodUrine = applyFactor(getRandomElement(foodUrine), food);
+  const randomSportUrine = applyFactor(getRandomElement(sportUrine), sport);
+  const randomSedentaryUrine = applyFactor(getRandomElement(sedentaryUrine), sedentary);
+
+  let randomUrine = "";
+  if (selectedContext === "Normal") {
+    randomUrine = getRandomElement(normalUrine);
+  } else if (selectedContext === "Grossesse") {
+    randomUrine = getRandomElement(pregnancyUrine);
+  } else if (selectedContext === "Chimio") {
+    randomUrine = getRandomElement(chemoUrine);
+  } else if (selectedContext === "Infection") {
+    randomUrine = getRandomElement(infectionUrine);
+  } else if (selectedContext === "Hépatite") {
+    randomUrine = getRandomElement(hepatitisUrine);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneUrine = calculerMoyenneSiObjets(
+    randomUrine,
+    randomalcoholUrine,
+    randomHardDrugUrine,
+    randomGestaUrine,
+    randomTreatedUrine,
+    randomUntreatedUrine,
+    randomInsufUrine,
+    randomFoodUrine,
+    randomSportUrine,
+    randomSedentaryUrine
+  );
+
+  createUrineTable(moyenneUrine);
+
+  showNextElement("generateUrineButton");
+  document.getElementById("urineResult").classList.remove("hidden");
+});
+//? Générer chimie urinaire <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -712,6 +823,7 @@ scrollToSection("generateSugarButton", "sugarSection");
 scrollToSection("generateEALButton", "ealSection");
 scrollToSection("generateKidneyButton", "kidneySection");
 scrollToSection("generateLiverButton", "liverSection");
+scrollToSection("generateUrineButton", "urineSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -742,11 +854,10 @@ document.getElementById("kidneyClose").addEventListener("click", function () {
 document.getElementById("liverClose").addEventListener("click", function () {
   hideElements(["liverClose", "liverResult"]);
 });
+document.getElementById("urineClose").addEventListener("click", function () {
+  hideElements(["urineClose", "urineResult"]);
+});
 //? Masquer la section au clic sur la croix <--
 
-//TODO: Automatiser Bilan Hépatique
-//TODO: ajouter l'impact de la cholestase gravidique sur la coag, la glycémie et l'EAl
 //TODO: Automatiser Troponine
 //TODO: Automatiser Vitamines
-//TODO: Automatiser Biochimie urinaire
-//TODO: Ajouter et automatiser les acides biliaires en cas de cholestase gravidique (page grossesse)

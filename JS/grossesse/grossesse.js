@@ -716,6 +716,7 @@ document.getElementById("t21Close").addEventListener("click", function () {
 });
 //? Masquer la section au clic sur la croix <--
 
+//TODO: Ajouter et automatiser les acides biliaires en cas de cholestase gravidique
 //TODO: Automatiser Toxoplasmose
 //TODO: Automatiser Rubéole
 //TODO: Automatiser BHCG : Prévoir IVG
