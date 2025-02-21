@@ -2,262 +2,547 @@
 //* Dictionnaire NFS normale
 const normalNFS = {
   "normal.1": {
-    hematies: 5000000,
-    hemoglobine: 15.0,
-    leuco: 7000,
+    hematies: 4900000,
+    hemoglobine: 14.0,
+    leuco: 6500,
     plaquettes: 250000,
   },
   "normal.2": {
-    hematies: 4700000,
-    hemoglobine: 14.5,
-    leuco: 6500,
-    plaquettes: 280000,
+    hematies: 4800000,
+    hemoglobine: 13.8,
+    leuco: 6400,
+    plaquettes: 255000,
   },
   "normal.3": {
-    hematies: 5200000,
-    hemoglobine: 16.0,
-    leuco: 5500,
-    plaquettes: 320000,
+    hematies: 5000000,
+    hemoglobine: 14.2,
+    leuco: 6600,
+    plaquettes: 260000,
   },
   "normal.4": {
+    hematies: 4950000,
+    hemoglobine: 13.9,
+    leuco: 6300,
+    plaquettes: 245000,
+  },
+  "normal.5": {
+    hematies: 4850000,
+    hemoglobine: 14.1,
+    leuco: 6700,
+    plaquettes: 248000,
+  },
+  "normal.6": {
     hematies: 5100000,
-    hemoglobine: 15.8,
-    leuco: 8000,
-    plaquettes: 230000,
+    hemoglobine: 14.5,
+    leuco: 6550,
+    plaquettes: 252000,
   },
 };
 //* Dictionnaire NFS pendant une grossesse
 const pregnancyNFS = {
   "pregnancy.1": {
     hematies: 4200000,
-    hemoglobine: 12.5,
-    leuco: 9000,
-    plaquettes: 200000,
+    hemoglobine: 12.0,
+    leuco: 8000,
+    plaquettes: 230000,
   },
   "pregnancy.2": {
-    hematies: 4500000,
-    hemoglobine: 13.0,
-    leuco: 10000,
-    plaquettes: 210000,
+    hematies: 4100000,
+    hemoglobine: 11.8,
+    leuco: 8200,
+    plaquettes: 225000,
   },
   "pregnancy.3": {
     hematies: 4300000,
-    hemoglobine: 11.8,
-    leuco: 8500,
-    plaquettes: 190000,
+    hemoglobine: 12.2,
+    leuco: 8100,
+    plaquettes: 235000,
   },
   "pregnancy.4": {
-    hematies: 4600000,
-    hemoglobine: 12.7,
-    leuco: 9500,
+    hematies: 4150000,
+    hemoglobine: 11.9,
+    leuco: 7900,
+    plaquettes: 228000,
+  },
+  "pregnancy.5": {
+    hematies: 4250000,
+    hemoglobine: 12.1,
+    leuco: 8350,
     plaquettes: 220000,
+  },
+  "pregnancy.6": {
+    hematies: 4200000,
+    hemoglobine: 11.7,
+    leuco: 8050,
+    plaquettes: 215000,
   },
 };
 //* Dictionnaire NFS pendant une chimiothérapie
 const chemoNFS = {
   "chemo.1": {
-    hematies: 3800000,
+    hematies: 3500000,
     hemoglobine: 10.0,
-    leuco: 3500,
-    plaquettes: 120000,
+    leuco: 3000,
+    plaquettes: 150000,
   },
   "chemo.2": {
-    hematies: 3500000,
+    hematies: 3400000,
     hemoglobine: 9.5,
-    leuco: 4000,
-    plaquettes: 100000,
-  },
-  "chemo.3": {
-    hematies: 3900000,
-    hemoglobine: 10.2,
-    leuco: 3200,
-    plaquettes: 110000,
-  },
-  "chemo.4": {
-    hematies: 3600000,
-    hemoglobine: 9.8,
-    leuco: 2800,
-    plaquettes: 90000,
-  },
-  "chemo.normal": {
-    hematies: 4800000,
-    hemoglobine: 13.5,
-    leuco: 6500,
-    plaquettes: 250000,
-  },
-};
-//* Dictionnaire NFS en cas d'hémorragie
-const bleedingNFS = {
-  "bleeding.1": {
-    hematies: 3200000,
-    hemoglobine: 8.0,
-    leuco: 7000,
+    leuco: 2500,
     plaquettes: 140000,
   },
-  "bleeding.2": {
-    hematies: 3500000,
+  "chemo.3": {
+    hematies: 3300000,
     hemoglobine: 9.0,
-    leuco: 6800,
+    leuco: 2000,
     plaquettes: 130000,
   },
-  "bleeding.3": {
-    hematies: 3000000,
-    hemoglobine: 7.5,
-    leuco: 7500,
-    plaquettes: 125000,
+  "chemo.4": {
+    hematies: 3200000,
+    hemoglobine: 8.5,
+    leuco: 3000,
+    plaquettes: 120000,
   },
-  "bleeding.4": {
+  "chemo.5": {
+    hematies: 3100000,
+    hemoglobine: 8.0,
+    leuco: 1500,
+    plaquettes: 110000,
+  },
+  "chemo.6": {
+    hematies: 3000000,
+    hemoglobine: 7.8,
+    leuco: 1000,
+    plaquettes: 100000,
+  },
+};
+//* Dictionnaire NFS en cas d'hémorragie (ulcère à l'estomac par exemple)
+const bleedingNFS = {
+  "bleeding.1": {
     hematies: 3400000,
     hemoglobine: 8.5,
     leuco: 7200,
-    plaquettes: 145000,
+    plaquettes: 135000,
   },
-  "normal.reference": {
-    hematies: 4800000,
-    hemoglobine: 13.5,
-    leuco: 6500,
-    plaquettes: 250000,
+  "bleeding.2": {
+    hematies: 3300000,
+    hemoglobine: 8.0,
+    leuco: 7100,
+    plaquettes: 132000,
+  },
+  "bleeding.3": {
+    hematies: 3200000,
+    hemoglobine: 7.8,
+    leuco: 7300,
+    plaquettes: 130000,
+  },
+  "bleeding.4": {
+    hematies: 3100000,
+    hemoglobine: 7.5,
+    leuco: 7400,
+    plaquettes: 128000,
+  },
+  "bleeding.5": {
+    hematies: 3000000,
+    hemoglobine: 7.2,
+    leuco: 7500,
+    plaquettes: 126000,
+  },
+  "bleeding.6": {
+    hematies: 2900000,
+    hemoglobine: 7.0,
+    leuco: 7600,
+    plaquettes: 125000,
   },
 };
 //* Dictionnaire d'une NFS en cas d'infection
 const infectionNFS = {
   "infection.1": {
-    hematies: 4500000,
-    hemoglobine: 13.0,
+    hematies: 4700000,
+    hemoglobine: 13.5,
     leuco: 12000,
     plaquettes: 230000,
   },
   "infection.2": {
-    hematies: 4400000,
-    hemoglobine: 12.5,
-    leuco: 14000,
+    hematies: 4600000,
+    hemoglobine: 13.2,
+    leuco: 15000,
     plaquettes: 220000,
   },
   "infection.3": {
-    hematies: 4600000,
-    hemoglobine: 13.2,
-    leuco: 11000,
-    plaquettes: 240000,
-  },
-  "infection.4": {
     hematies: 4550000,
-    hemoglobine: 13.1,
-    leuco: 13000,
+    hemoglobine: 13.0,
+    leuco: 14000,
     plaquettes: 225000,
   },
-  "normal.reference": {
+  "infection.4": {
     hematies: 4800000,
-    hemoglobine: 13.5,
-    leuco: 6500,
-    plaquettes: 250000,
+    hemoglobine: 13.6,
+    leuco: 13000,
+    plaquettes: 240000,
+  },
+  "infection.5": {
+    hematies: 4750000,
+    hemoglobine: 13.4,
+    leuco: 12500,
+    plaquettes: 235000,
+  },
+  "infection.6": {
+    hematies: 4650000,
+    hemoglobine: 13.1,
+    leuco: 13500,
+    plaquettes: 228000,
+  },
+};
+//* Dictionnaire NFS en cas de troubles hépatiques
+const liverNFS = {
+  "liver.1": {
+    hematies: 4200000,
+    hemoglobine: 12.0,
+    leuco: 7000,
+    plaquettes: 180000,
+  },
+  "liver.2": {
+    hematies: 4100000,
+    hemoglobine: 11.5,
+    leuco: 7500,
+    plaquettes: 170000,
+  },
+  "liver.3": {
+    hematies: 4000000,
+    hemoglobine: 11.0,
+    leuco: 7200,
+    plaquettes: 160000,
+  },
+  "liver.4": {
+    hematies: 3900000,
+    hemoglobine: 10.5,
+    leuco: 7800,
+    plaquettes: 150000,
+  },
+  "liver.5": {
+    hematies: 3800000,
+    hemoglobine: 10.0,
+    leuco: 8000,
+    plaquettes: 140000,
+  },
+  "liver.6": {
+    hematies: 3700000,
+    hemoglobine: 9.5,
+    leuco: 8200,
+    plaquettes: 130000,
+  },
+};
+//* Dictionnaire NFS en cas de blessure par arme (blanche ou à feu)
+const injuryNFS = {
+  "injury.1": {
+    hematies: 3500000,
+    hemoglobine: 10.0,
+    leuco: 14000,
+    plaquettes: 220000,
+  },
+  "injury.2": {
+    hematies: 3300000,
+    hemoglobine: 9.5,
+    leuco: 14500,
+    plaquettes: 210000,
+  },
+  "injury.3": {
+    hematies: 3100000,
+    hemoglobine: 9.0,
+    leuco: 15000,
+    plaquettes: 200000,
+  },
+  "injury.4": {
+    hematies: 3400000,
+    hemoglobine: 9.8,
+    leuco: 14800,
+    plaquettes: 205000,
+  },
+  "injury.5": {
+    hematies: 3000000,
+    hemoglobine: 8.5,
+    leuco: 15500,
+    plaquettes: 195000,
+  },
+  "injury.6": {
+    hematies: 2950000,
+    hemoglobine: 8.0,
+    leuco: 16000,
+    plaquettes: 190000,
+  },
+};
+//* Dictionnaire NFS en cas d'insuffisance rénale'
+const insufNFS = {
+  "insuf.1": {
+    hematies: 3900000,
+    hemoglobine: 11.0,
+    leuco: 7000,
+    plaquettes: 180000,
+  },
+  "insuf.2": {
+    hematies: 3800000,
+    hemoglobine: 10.5,
+    leuco: 7200,
+    plaquettes: 170000,
+  },
+  "insuf.3": {
+    hematies: 3700000,
+    hemoglobine: 10.0,
+    leuco: 7300,
+    plaquettes: 160000,
+  },
+  "insuf.4": {
+    hematies: 3600000,
+    hemoglobine: 9.5,
+    leuco: 7500,
+    plaquettes: 155000,
+  },
+  "insuf.5": {
+    hematies: 3500000,
+    hemoglobine: 9.0,
+    leuco: 7700,
+    plaquettes: 150000,
+  },
+  "insuf.6": {
+    hematies: 3400000,
+    hemoglobine: 8.5,
+    leuco: 7900,
+    plaquettes: 140000,
+  },
+};
+//* Dictionnaire NFS en cas de crise cardiaque
+const infarctNFS = {
+  "infarct.1": {
+    hematies: 4700000,
+    hemoglobine: 13.2,
+    leuco: 12000,
+    plaquettes: 240000,
+  },
+  "infarct.2": {
+    hematies: 4650000,
+    hemoglobine: 13.0,
+    leuco: 12500,
+    plaquettes: 235000,
+  },
+  "infarct.3": {
+    hematies: 4600000,
+    hemoglobine: 12.8,
+    leuco: 13000,
+    plaquettes: 230000,
+  },
+  "infarct.4": {
+    hematies: 4550000,
+    hemoglobine: 12.5,
+    leuco: 13500,
+    plaquettes: 225000,
+  },
+  "infarct.5": {
+    hematies: 4500000,
+    hemoglobine: 12.2,
+    leuco: 14000,
+    plaquettes: 220000,
+  },
+  "infarct.6": {
+    hematies: 4450000,
+    hemoglobine: 12.0,
+    leuco: 14500,
+    plaquettes: 215000,
+  },
+};
+//* Dictionnaire NFS en cas de leucémie
+const leukemiaNFS = {
+  "leukemia.1": {
+    hematies: 2500000,
+    hemoglobine: 8.0,
+    leuco: 50000,
+    plaquettes: 80000,
+  },
+  "leukemia.2": {
+    hematies: 3000000,
+    hemoglobine: 9.0,
+    leuco: 70000,
+    plaquettes: 90000,
+  },
+  "leukemia.3": {
+    hematies: 2800000,
+    hemoglobine: 8.5,
+    leuco: 60000,
+    plaquettes: 75000,
+  },
+  "leukemia.4": {
+    hematies: 2600000,
+    hemoglobine: 7.5,
+    leuco: 55000,
+    plaquettes: 85000,
+  },
+  "leukemia.5": {
+    hematies: 2700000,
+    hemoglobine: 8.2,
+    leuco: 65000,
+    plaquettes: 92000,
+  },
+  "leukemia.6": {
+    hematies: 2900000,
+    hemoglobine: 8.8,
+    leuco: 71000,
+    plaquettes: 81000,
   },
 };
 //* Dictionnaire NFS en cas de consommation d'alcool
 const alcoholNFS = {
   "alcohol.1": {
-    hematies: 4400000,
-    hemoglobine: 12.2,
-    leuco: 8500,
-    plaquettes: 210000,
+    hematies: 4200000,
+    hemoglobine: 11.8,
+    leuco: 6000,
+    plaquettes: 150000,
   },
   "alcohol.2": {
-    hematies: 4300000,
-    hemoglobine: 12.0,
-    leuco: 8000,
-    plaquettes: 205000,
+    hematies: 4100000,
+    hemoglobine: 11.5,
+    leuco: 6200,
+    plaquettes: 140000,
   },
   "alcohol.3": {
-    hematies: 4250000,
-    hemoglobine: 11.8,
-    leuco: 8700,
-    plaquettes: 215000,
+    hematies: 4300000,
+    hemoglobine: 12.0,
+    leuco: 5900,
+    plaquettes: 145000,
   },
   "alcohol.4": {
-    hematies: 4200000,
-    hemoglobine: 11.5,
-    leuco: 9000,
-    plaquettes: 200000,
+    hematies: 4150000,
+    hemoglobine: 11.7,
+    leuco: 6100,
+    plaquettes: 135000,
+  },
+  "alcohol.5": {
+    hematies: 4250000,
+    hemoglobine: 11.9,
+    leuco: 6050,
+    plaquettes: 130000,
+  },
+  "alcohol.6": {
+    hematies: 4000000,
+    hemoglobine: 11.3,
+    leuco: 6000,
+    plaquettes: 125000,
   },
 };
 //* Dictionnaire NFS en cas de consommation de tabac
 const tobaccoNFS = {
   "tobacco.1": {
-    hematies: 5200000,
-    hemoglobine: 15.0,
+    hematies: 5100000,
+    hemoglobine: 15.8,
     leuco: 8500,
-    plaquettes: 230000,
+    plaquettes: 240000,
   },
   "tobacco.2": {
     hematies: 5000000,
-    hemoglobine: 14.5,
-    leuco: 9000,
-    plaquettes: 220000,
+    hemoglobine: 15.5,
+    leuco: 8800,
+    plaquettes: 235000,
   },
   "tobacco.3": {
-    hematies: 5100000,
-    hemoglobine: 15.2,
-    leuco: 8800,
-    plaquettes: 240000,
+    hematies: 4950000,
+    hemoglobine: 15.3,
+    leuco: 8700,
+    plaquettes: 245000,
   },
   "tobacco.4": {
-    hematies: 5300000,
-    hemoglobine: 15.5,
-    leuco: 9200,
-    plaquettes: 235000,
+    hematies: 5050000,
+    hemoglobine: 15.6,
+    leuco: 8600,
+    plaquettes: 250000,
+  },
+  "tobacco.5": {
+    hematies: 4900000,
+    hemoglobine: 15.1,
+    leuco: 9000,
+    plaquettes: 238000,
+  },
+  "tobacco.6": {
+    hematies: 5150000,
+    hemoglobine: 16.0,
+    leuco: 8800,
+    plaquettes: 232000,
   },
 };
 //* Dictionnaire NFS en cas de consommation de drogue douce
 const softDrugsNFS = {
   "softDrugs.1": {
     hematies: 4700000,
-    hemoglobine: 13.2,
-    leuco: 6800,
+    hemoglobine: 13.8,
+    leuco: 7000,
     plaquettes: 240000,
   },
   "softDrugs.2": {
-    hematies: 4600000,
-    hemoglobine: 13.0,
+    hematies: 4750000,
+    hemoglobine: 14.0,
     leuco: 7200,
-    plaquettes: 230000,
-  },
-  "softDrugs.3": {
-    hematies: 4800000,
-    hemoglobine: 13.5,
-    leuco: 7000,
     plaquettes: 245000,
   },
+  "softDrugs.3": {
+    hematies: 4650000,
+    hemoglobine: 13.7,
+    leuco: 7100,
+    plaquettes: 238000,
+  },
   "softDrugs.4": {
-    hematies: 4500000,
-    hemoglobine: 12.8,
-    leuco: 7500,
+    hematies: 4800000,
+    hemoglobine: 14.1,
+    leuco: 6950,
+    plaquettes: 250000,
+  },
+  "softDrugs.5": {
+    hematies: 4600000,
+    hemoglobine: 13.5,
+    leuco: 7300,
     plaquettes: 235000,
+  },
+  "softDrugs.6": {
+    hematies: 4850000,
+    hemoglobine: 14.2,
+    leuco: 7050,
+    plaquettes: 242000,
   },
 };
 //* Dictionnaire NFS en cas de consommation de drogue dure
 const hardDrugsNFS = {
   "hardDrugs.1": {
-    hematies: 4200000,
-    hemoglobine: 11.5,
-    leuco: 9000,
-    plaquettes: 200000,
+    hematies: 3800000,
+    hemoglobine: 11.0,
+    leuco: 12000,
+    plaquettes: 150000,
   },
   "hardDrugs.2": {
-    hematies: 4000000,
-    hemoglobine: 11.0,
-    leuco: 10500,
-    plaquettes: 180000,
+    hematies: 3700000,
+    hemoglobine: 10.8,
+    leuco: 13000,
+    plaquettes: 140000,
   },
   "hardDrugs.3": {
-    hematies: 4100000,
-    hemoglobine: 11.2,
-    leuco: 9500,
-    plaquettes: 190000,
+    hematies: 3600000,
+    hemoglobine: 10.5,
+    leuco: 11000,
+    plaquettes: 135000,
   },
   "hardDrugs.4": {
-    hematies: 3900000,
-    hemoglobine: 10.8,
-    leuco: 11000,
-    plaquettes: 175000,
+    hematies: 3550000,
+    hemoglobine: 10.2,
+    leuco: 12500,
+    plaquettes: 130000,
+  },
+  "hardDrugs.5": {
+    hematies: 3650000,
+    hemoglobine: 10.7,
+    leuco: 11500,
+    plaquettes: 145000,
+  },
+  "hardDrugs.6": {
+    hematies: 3750000,
+    hemoglobine: 10.9,
+    leuco: 13500,
+    plaquettes: 138000,
   },
 };
 //? Dictionnaires NFS <--

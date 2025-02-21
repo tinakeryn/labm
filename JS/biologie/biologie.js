@@ -41,15 +41,27 @@ function createNfsTable(nfsData) {
 //* Génère la NFS en fonction du contexte au clic sur le bouton
 generateNfsButton.addEventListener("click", () => {
   const selectedContext = nfsContextSelect.value;
+  const injury = document.querySelector('input[name="nfsInjury"]:checked') ? true : false;
+  const liver = document.querySelector('input[name="nfsLiver"]:checked') ? true : false;
+  const bleedingNFS = document.querySelector('input[name="nfsBleeding"]:checked') ? true : false;
+  const nfsLeukemia = document.querySelector('input[name="nfsLeukemia"]:checked') ? true : false;
+  const nfsInsuf = document.querySelector('input[name="nfsInsuf"]:checked') ? true : false;
+  const nfsInfarct = document.querySelector('input[name="nfsInfarct"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="nfsTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="nfsAlcohol"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="nfsSoftDrugs"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="nfsHardDrugs"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="nfsSoftDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="nfsHardDrugs"]:checked') ? true : false;
 
+  const randomInjuryNFS = applyFactor(getRandomElement(injuryNFS), injury);
+  const randomLiverNFS = applyFactor(getRandomElement(liverNFS), liver);
+  const randomBleedingNFS = applyFactor(getRandomElement(bleedingNFS), bleedingNFS);
+  const randomLeukemiaNFS = applyFactor(getRandomElement(leukemiaNFS), nfsLeukemia);
+  const randomInsufNFS = applyFactor(getRandomElement(insufNFS), nfsInsuf);
+  const randomInfarctNFS = applyFactor(getRandomElement(infarctNFS), nfsInfarct);
   const randomTobaccoNFS = applyFactor(getRandomElement(tobaccoNFS), smoking);
   const randomalcoholNFS = applyFactor(getRandomElement(alcoholNFS), alcohol);
-  const randomSoftDrugsNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
-  const randomHardDrugsNFS = applyFactor(getRandomElement(hardDrugsNFS), onHardDrug);
+  const randomSoftDrugsNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrugs);
+  const randomHardDrugsNFS = applyFactor(getRandomElement(hardDrugsNFS), onHardDrugs);
 
   let randomNFS = "";
   if (selectedContext === "Normal") {
@@ -58,8 +70,6 @@ generateNfsButton.addEventListener("click", () => {
     randomNFS = getRandomElement(pregnancyNFS);
   } else if (selectedContext === "Chimio") {
     randomNFS = getRandomElement(chemoNFS);
-  } else if (selectedContext === "Saignement") {
-    randomNFS = getRandomElement(bleedingNFS);
   } else if (selectedContext === "Infection") {
     randomNFS = getRandomElement(infectionNFS);
   } else {
@@ -69,6 +79,12 @@ generateNfsButton.addEventListener("click", () => {
 
   const moyenneNFS = calculerMoyenneSiObjets(
     randomNFS,
+    randomInjuryNFS,
+    randomLiverNFS,
+    randomBleedingNFS,
+    randomLeukemiaNFS,
+    randomInsufNFS,
+    randomInfarctNFS,
     randomTobaccoNFS,
     randomalcoholNFS,
     randomSoftDrugsNFS,
@@ -114,13 +130,13 @@ generateVSButton.addEventListener("click", () => {
   const selectedContext = vsContextSelect.value;
   const smoking = document.querySelector('input[name="vsTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="vsAlcohol"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="vsSoftDrugs"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="vsHardDrugs"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="vsSoftDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="vsHardDrugs"]:checked') ? true : false;
 
   const randomTobaccoVS = applyFactor(getRandomElement(tobaccoVS), smoking);
   const randomalcoholVS = applyFactor(getRandomElement(alcoholVS), alcohol);
-  const randomSoftDrugsVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrug);
-  const randomHardDrugsVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrug);
+  const randomSoftDrugsVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrugs);
+  const randomHardDrugsVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrugs);
 
   let randomVS = "";
   if (selectedContext === "Normal") {
@@ -230,8 +246,8 @@ generateCoagButton.addEventListener("click", () => {
   const insuf = document.querySelector('input[name="coagInsuf"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="coagTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="coagAlcohol"]:checked') ? true : false;
-  const onSoftDrugs = document.querySelector('input[name="coagSoftDrugs"]:checked') ? true : false;
-  const onHardDrugs = document.querySelector('input[name="coagHardDrugs"]:checked') ? true : false;
+  const onSoftDrugss = document.querySelector('input[name="coagSoftDrugs"]:checked') ? true : false;
+  const onHardDrugss = document.querySelector('input[name="coagHardDrugs"]:checked') ? true : false;
   const food = document.querySelector('input[name="coagFood"]:checked') ? true : false;
   const sport = document.querySelector('input[name="coagSport"]:checked') ? true : false;
   const sedentary = document.querySelector('input[name="coagSedentary"]:checked') ? true : false;
@@ -242,8 +258,8 @@ generateCoagButton.addEventListener("click", () => {
   const randomInsufCoag = applyFactor(getRandomElement(insufCoag), insuf);
   const randomTobaccoCoag = applyFactor(getRandomElement(tobaccoCoag), smoking);
   const randomAlcoholCoag = applyFactor(getRandomElement(alcoholCoag), alcohol);
-  const randomSoftDrugsCoag = applyFactor(getRandomElement(softDrugsCoag), onSoftDrugs);
-  const randomHardDrugsCoag = applyFactor(getRandomElement(hardDrugsCoag), onHardDrugs);
+  const randomSoftDrugsCoag = applyFactor(getRandomElement(softDrugsCoag), onSoftDrugss);
+  const randomHardDrugsCoag = applyFactor(getRandomElement(hardDrugsCoag), onHardDrugss);
   const randomFoodCoag = applyFactor(getRandomElement(foodCoag), food);
   const randomSportCoag = applyFactor(getRandomElement(sportCoag), sport);
   const randomSedentaryCoag = applyFactor(getRandomElement(sedentaryCoag), sedentary);
@@ -319,16 +335,16 @@ generateDDimButton.addEventListener("click", () => {
   const injured = document.querySelector('input[name="ddimInjury"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="ddimTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="ddimAlcohol"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="ddimSoftDrugs"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="ddimHardDrugs"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="ddimSoftDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="ddimHardDrugs"]:checked') ? true : false;
 
   const randomThrombosisDDim = applyFactor(getRandomElement(thrombosisDDim), thrombosis);
   const randomStrokeDDim = applyFactor(getRandomElement(strokeDDim), stroke);
   const randomInjuredDDim = applyFactor(getRandomElement(injuryDDim), injured);
   const randomTobaccoDDim = applyFactor(getRandomElement(tobaccoDDim), smoking);
   const randomalcoholDDim = applyFactor(getRandomElement(alcoholDDim), alcohol);
-  const randomSoftDrugsDDim = applyFactor(getRandomElement(softDrugsDDim), onSoftDrug);
-  const randomHardDrugsDDim = applyFactor(getRandomElement(hardDrugsDDim), onHardDrug);
+  const randomSoftDrugsDDim = applyFactor(getRandomElement(softDrugsDDim), onSoftDrugs);
+  const randomHardDrugsDDim = applyFactor(getRandomElement(hardDrugsDDim), onHardDrugs);
 
   let randomDDim = "";
   if (selectedContext === "Normal") {
@@ -402,7 +418,7 @@ generateSugarButton.addEventListener("click", () => {
   const treated = document.querySelector('input[name="sugarTreated"]:checked') ? true : false;
   const untreated = document.querySelector('input[name="sugarUntreated"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="sugarAlcohol"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="sugarHardDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="sugarHardDrugs"]:checked') ? true : false;
   const food = document.querySelector('input[name="sugarFood"]:checked') ? true : false;
   const sport = document.querySelector('input[name="sugarSport"]:checked') ? true : false;
   const sedentary = document.querySelector('input[name="sugarSedentary"]:checked') ? true : false;
@@ -411,7 +427,7 @@ generateSugarButton.addEventListener("click", () => {
   const randomTreatedSugar = applyFactor(getRandomElement(treatedSugar), treated);
   const randomUntreatedSugar = applyFactor(getRandomElement(untreatedSugar), untreated);
   const randomAlcoholSugar = applyFactor(getRandomElement(alcoholSugar), alcohol);
-  const randomHardDrugsSugar = applyFactor(getRandomElement(hardDrugsSugar), onHardDrug);
+  const randomHardDrugsSugar = applyFactor(getRandomElement(hardDrugsSugar), onHardDrugs);
   const randomFoodSugar = applyFactor(getRandomElement(foodSugar), food);
   const randomSportSugar = applyFactor(getRandomElement(sportSugar), sport);
   const randomSedentarySugar = applyFactor(getRandomElement(sedentarySugar), sedentary);
@@ -573,8 +589,12 @@ generateKidneyButton.addEventListener("click", () => {
   const untreated = document.querySelector('input[name="kidneyUntreated"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="kidneyAlcohol"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="kidneyTobacco"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="kidneySoftDrugs"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="kidneyHardDrugs"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="kidneySoftDrugs"]:checked')
+    ? true
+    : false;
+  const onHardDrugs = document.querySelector('input[name="kidneyHardDrugs"]:checked')
+    ? true
+    : false;
   const food = document.querySelector('input[name="kidneyFood"]:checked') ? true : false;
   const sport = document.querySelector('input[name="kidneySport"]:checked') ? true : false;
   const sedentary = document.querySelector('input[name="kidneySedentary"]:checked') ? true : false;
@@ -584,8 +604,8 @@ generateKidneyButton.addEventListener("click", () => {
   const randomUntreatedKidney = applyFactor(getRandomElement(untreatedKidney), untreated);
   const randomalcoholKidney = applyFactor(getRandomElement(alcoholKidney), alcohol);
   const randomTobaccoKidney = applyFactor(getRandomElement(tobaccoKidney), smoking);
-  const randomSoftDrugsKidney = applyFactor(getRandomElement(softDrugsKidney), onSoftDrug);
-  const randomHardDrugsKidney = applyFactor(getRandomElement(hardDrugsKidney), onHardDrug);
+  const randomSoftDrugsKidney = applyFactor(getRandomElement(softDrugsKidney), onSoftDrugs);
+  const randomHardDrugsKidney = applyFactor(getRandomElement(hardDrugsKidney), onHardDrugs);
   const randomFoodKidney = applyFactor(getRandomElement(foodKidney), food);
   const randomSportKidney = applyFactor(getRandomElement(sportKidney), sport);
   const randomSedentaryKidney = applyFactor(getRandomElement(sedentaryKidney), sedentary);
@@ -673,8 +693,8 @@ generateLiverButton.addEventListener("click", () => {
   const selectedContext = liverContextSelect.value;
   const alcohol = document.querySelector('input[name="liverAlcohol"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="liverTobacco"]:checked') ? true : false;
-  const onSoftDrug = document.querySelector('input[name="liverSoftDrugs"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="liverHardDrugs"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="liverSoftDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="liverHardDrugs"]:checked') ? true : false;
   const gesta = document.querySelector('input[name="liverGesta"]:checked') ? true : false;
   const cholestase = document.querySelector('input[name="liverCholestase"]:checked') ? true : false;
   const treated = document.querySelector('input[name="liverTreated"]:checked') ? true : false;
@@ -685,8 +705,8 @@ generateLiverButton.addEventListener("click", () => {
 
   const randomalcoholLiver = applyFactor(getRandomElement(alcoholLiver), alcohol);
   const randomTobaccoLiver = applyFactor(getRandomElement(tobaccoLiver), smoking);
-  const randomSoftDrugsLiver = applyFactor(getRandomElement(softDrugsLiver), onSoftDrug);
-  const randomHardDrugsLiver = applyFactor(getRandomElement(hardDrugsLiver), onHardDrug);
+  const randomSoftDrugsLiver = applyFactor(getRandomElement(softDrugsLiver), onSoftDrugs);
+  const randomHardDrugsLiver = applyFactor(getRandomElement(hardDrugsLiver), onHardDrugs);
   const randomGestaLiver = applyFactor(getRandomElement(gestaLiver), gesta);
   const randomCholestaseLiver = applyFactor(getRandomElement(cholestaseLiver), cholestase);
   const randomTreatedLiver = applyFactor(getRandomElement(treatedLiver), treated);
@@ -780,7 +800,7 @@ function createUrineTable(urineData) {
 generateUrineButton.addEventListener("click", () => {
   const selectedContext = urineContextSelect.value;
   const alcohol = document.querySelector('input[name="urineAlcohol"]:checked') ? true : false;
-  const onHardDrug = document.querySelector('input[name="urineHardDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="urineHardDrugs"]:checked') ? true : false;
   const gesta = document.querySelector('input[name="urineGesta"]:checked') ? true : false;
   const treated = document.querySelector('input[name="urineTreated"]:checked') ? true : false;
   const untreated = document.querySelector('input[name="urineUntreated"]:checked') ? true : false;
@@ -793,7 +813,7 @@ generateUrineButton.addEventListener("click", () => {
   const sedentary = document.querySelector('input[name="urineSedentary"]:checked') ? true : false;
 
   const randomalcoholUrine = applyFactor(getRandomElement(alcoholUrine), alcohol);
-  const randomHardDrugsUrine = applyFactor(getRandomElement(hardDrugsUrine), onHardDrug);
+  const randomHardDrugsUrine = applyFactor(getRandomElement(hardDrugsUrine), onHardDrugs);
   const randomGestaUrine = applyFactor(getRandomElement(gestaUrine), gesta);
   const randomTreatedUrine = applyFactor(getRandomElement(treatedUrine), treated);
   const randomUntreatedUrine = applyFactor(getRandomElement(untreatedUrine), untreated);

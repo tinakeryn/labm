@@ -253,6 +253,7 @@ main .container form fieldset label input {
 main .container form fieldset label input[type=checkbox] {
   cursor: pointer;
 }
+main .container #nfsContextForm,
 main .container #coagContextForm,
 main .container #ddimContextForm,
 main .container #sugarContextForm,
@@ -263,6 +264,7 @@ main .container #urineContextForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+main .container #nfsContextForm fieldset,
 main .container #coagContextForm fieldset,
 main .container #ddimContextForm fieldset,
 main .container #sugarContextForm fieldset,
@@ -275,6 +277,7 @@ main .container #urineContextForm fieldset {
   align-content: flex-start;
   gap: 5px;
 }
+main .container #nfsContextForm fieldset:first-of-type,
 main .container #coagContextForm fieldset:first-of-type,
 main .container #ddimContextForm fieldset:first-of-type,
 main .container #sugarContextForm fieldset:first-of-type,
