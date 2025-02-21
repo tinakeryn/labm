@@ -778,7 +778,7 @@ function createUrineTable(urineData) {
         </tr>
         <tr>
           <td class="tdTitle">Sodium urinaire</td>
-          <td>${urineData.na} mmol/L</td>
+          <td>${urineData.una} mmol/L</td>
         </tr>
         <tr>
           <td class="tdTitle">Potassium urinaire</td>
@@ -931,6 +931,126 @@ generateTropoButton.addEventListener("click", () => {
 });
 //? Générer troponine <--
 
+//? --> Générer Vitamins en fonction du contexte
+const generateVitaminsButton = document.getElementById("generateVitaminsButton");
+const vitaminsContextSelect = document.getElementById("vitaminsContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau Vitamins
+function createVitaminsTable(vitaminsData) {
+  const vitaminsResultDiv = document.getElementById("vitaminsResult");
+
+  vitaminsResultDiv.innerHTML = "";
+
+  const vitaminsTableHtml = `
+    <table id="vitaminsTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Vitamine B9</td>
+          <td>${vitaminsData.fol} ng/mL</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Vitamine B12</td>
+          <td>${vitaminsData.b12} pg/mL</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Vitamine D</td>
+          <td>${vitaminsData.vitd} ng/mL</td>
+        </tr>
+      </tbody>
+    </table>`;
+  vitaminsResultDiv.innerHTML += vitaminsTableHtml;
+}
+
+//* Génère la Vitamins en fonction du contexte au clic sur le bouton
+generateVitaminsButton.addEventListener("click", () => {
+  const selectedContext = vitaminsContextSelect.value;
+  const bleedingVitamins = document.querySelector('input[name="vitaminsBleeding"]:checked')
+    ? true
+    : false;
+  const vitaminsLeukemia = document.querySelector('input[name="vitaminsLeukemia"]:checked')
+    ? true
+    : false;
+  const vitaminsCancer = document.querySelector('input[name="vitaminsCancer"]:checked')
+    ? true
+    : false;
+  const liver = document.querySelector('input[name="vitaminsLiver"]:checked') ? true : false;
+  const vitaminsInsuf = document.querySelector('input[name="vitaminsInsuf"]:checked')
+    ? true
+    : false;
+  const alcohol = document.querySelector('input[name="vitaminsAlcohol"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="vitaminsTobacco"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="vitaminsSoftDrugs"]:checked')
+    ? true
+    : false;
+  const onHardDrugs = document.querySelector('input[name="vitaminsHardDrugs"]:checked')
+    ? true
+    : false;
+  const food = document.querySelector('input[name="vitaminsFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="vitaminsSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="vitaminsSedentary"]:checked')
+    ? true
+    : false;
+  const outside = document.querySelector('input[name="vitaminsOutside"]:checked') ? true : false;
+  const inside = document.querySelector('input[name="vitaminsInside"]:checked') ? true : false;
+
+  const randomLiverVitamins = applyFactor(getRandomElement(liverVitamins), liver);
+  const randomBleedingVitamins = applyFactor(getRandomElement(ulcerVitamins), bleedingVitamins);
+  const randomLeukemiaVitamins = applyFactor(getRandomElement(leukemiaVitamins), vitaminsLeukemia);
+  const randomCancerVitamins = applyFactor(getRandomElement(cancerVitamins), vitaminsCancer);
+  const randomInsufVitamins = applyFactor(getRandomElement(insufVitamins), vitaminsInsuf);
+  const randomTobaccoVitamins = applyFactor(getRandomElement(tobaccoVitamins), smoking);
+  const randomalcoholVitamins = applyFactor(getRandomElement(alcoholVitamins), alcohol);
+  const randomSoftDrugsVitamins = applyFactor(getRandomElement(softDrugsVitamins), onSoftDrugs);
+  const randomHardDrugsVitamins = applyFactor(getRandomElement(hardDrugsVitamins), onHardDrugs);
+  const randomFoodVitamins = applyFactor(getRandomElement(foodVitamins), food);
+  const randomSportVitamins = applyFactor(getRandomElement(sportVitamins), sport);
+  const randomSedentaryVitamins = applyFactor(getRandomElement(sedentaryVitamins), sedentary);
+  const randomOutsideVitamins = applyFactor(getRandomElement(outsideVitamins), outside);
+  const randomInsideVitamins = applyFactor(getRandomElement(insideVitamins), inside);
+
+  let randomVitamins = "";
+  if (selectedContext === "Normal") {
+    randomVitamins = getRandomElement(normalVitamins);
+  } else if (selectedContext === "Grossesse") {
+    randomVitamins = getRandomElement(pregnancyVitamins);
+  } else if (selectedContext === "Chimio") {
+    randomVitamins = getRandomElement(chemoVitamins);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneVitamins = calculerMoyenneSiObjets(
+    randomVitamins,
+    randomLiverVitamins,
+    randomBleedingVitamins,
+    randomLeukemiaVitamins,
+    randomCancerVitamins,
+    randomInsufVitamins,
+    randomTobaccoVitamins,
+    randomalcoholVitamins,
+    randomSoftDrugsVitamins,
+    randomHardDrugsVitamins,
+    randomFoodVitamins,
+    randomSportVitamins,
+    randomSedentaryVitamins,
+    randomOutsideVitamins,
+    randomInsideVitamins
+  );
+
+  createVitaminsTable(moyenneVitamins);
+
+  showNextElement("generateVitaminsButton");
+  document.getElementById("vitaminsResult").classList.remove("hidden");
+});
+//? Générer Vitamins en fonction du contexte <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -943,6 +1063,7 @@ scrollToSection("generateKidneyButton", "kidneySection");
 scrollToSection("generateLiverButton", "liverSection");
 scrollToSection("generateUrineButton", "urineSection");
 scrollToSection("generateTropoButton", "tropoSection");
+scrollToSection("generateVitaminsButton", "vitaminsSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -979,7 +1100,7 @@ document.getElementById("urineClose").addEventListener("click", function () {
 document.getElementById("tropoClose").addEventListener("click", function () {
   hideElements(["tropoClose", "tropoResult"]);
 });
+document.getElementById("vitaminsClose").addEventListener("click", function () {
+  hideElements(["vitaminsClose", "vitaminsResult"]);
+});
 //? Masquer la section au clic sur la croix <--
-
-//TODO: Automatiser Troponine
-//TODO: Automatiser Vitamines

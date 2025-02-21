@@ -602,9 +602,68 @@
         <div id="tropoResult"></div>
       </section>
       <section class="container" id="vitaminsSection">
-        <h2>Vitamines</h2>
-        <p>Vitamines (B9, B12 et D)</p>
-        <i class="fa-solid fa-person-digging"></i>
+        <h2>Vitamines B9, B12 et D</h2>
+        <form id="vitaminsContextForm">
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="vitaminsContextSelect" name="vitaminsContext">
+              <option value="Normal">Normal</option>
+              <option value="Grossesse">Grossesse</option>
+              <option value="Chimio">Chimio</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label
+              ><input type="checkbox" name="vitaminsBleeding" value="oui" />Ulcère à l'estomac qui
+              saigne</label
+            >
+            <label><input type="checkbox" name="vitaminsLeukemia" value="oui" />Leucémie</label>
+            <label><input type="checkbox" name="vitaminsCancer" value="oui" />Autre cancer</label>
+            <label
+              ><input type="checkbox" name="vitaminsLiver" value="oui" />Trouble hépatique</label
+            >
+            <label
+              ><input type="checkbox" name="vitaminsInsuf" value="oui" />Insuffisance rénale</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs de consommation</legend>
+            <label
+              ><input type="checkbox" name="vitaminsAlcohol" value="oui" />Consomme de
+              l'alcool</label
+            >
+            <label
+              ><input type="checkbox" name="vitaminsTobacco" value="oui" />Fume du tabac
+            </label>
+            <label
+              ><input type="checkbox" name="vitaminsSoftDrugs" value="oui" />Consomme drogue(s)
+              douce(s)</label
+            >
+            <label
+              ><input type="checkbox" name="vitaminsHardDrugs" value="oui" />Consomme drogue(s)
+              dure(s)</label
+            >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label
+              ><input type="checkbox" name="vitaminsFood" value="oui" />Mauvaise alimentation</label
+            >
+            <label
+              ><input type="checkbox" name="vitaminsSport" value="oui" />Activité physique
+              régulière</label
+            >
+            <label><input type="checkbox" name="vitaminsSedentary" value="oui" />Sédentarité</label>
+            <label
+              ><input type="checkbox" name="vitaminsOutside" value="oui" />Est souvent dehors</label
+            >
+            <label><input type="checkbox" name="vitaminsInside" value="oui" />Sort rarement</label>
+          </fieldset>
+        </form>
+        <button id="generateVitaminsButton">Générer Vitamines</button>
+        <i id="vitaminsClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="vitaminsResult"></div>
       </section>
     </main>
     <footer><i id="arrowUp" class="fa-solid fa-arrow-up"></i></footer>

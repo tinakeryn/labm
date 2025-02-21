@@ -4086,3 +4086,567 @@ const kidneyTropo = {
   },
 };
 //? Dictionnaires Troponine <--
+
+//? --> Dictionnaires Vitamines
+//* Dictionnaire vitamines normal
+const normalVitamins = {
+  "normal.1": {
+    fol: 10,
+    b12: 500,
+    vitd: 40,
+  },
+  "normal.2": {
+    fol: 15,
+    b12: 600,
+    vitd: 50,
+  },
+  "normal.3": {
+    fol: 18,
+    b12: 550,
+    vitd: 55,
+  },
+  "normal.4": {
+    fol: 12,
+    b12: 650,
+    vitd: 38,
+  },
+  "normal.5": {
+    fol: 14,
+    b12: 700,
+    vitd: 45,
+  },
+  "normal.6": {
+    fol: 16,
+    b12: 750,
+    vitd: 60,
+  },
+};
+//* Dictionnaire vitamines en cas de grossesse
+const pregnancyVitamins = {
+  "pregnancy.1": {
+    fol: 16,
+    b12: 600,
+    vitd: 50,
+  },
+  "pregnancy.2": {
+    fol: 18,
+    b12: 650,
+    vitd: 55,
+  },
+  "pregnancy.3": {
+    fol: 17,
+    b12: 700,
+    vitd: 60,
+  },
+  "pregnancy.4": {
+    fol: 15,
+    b12: 675,
+    vitd: 52,
+  },
+  "pregnancy.5": {
+    fol: 19,
+    b12: 725,
+    vitd: 64,
+  },
+  "pregnancy.6": {
+    fol: 20,
+    b12: 680,
+    vitd: 58,
+  },
+};
+//* Dictionnaire vitamines en cas de chimio
+const chemoVitamins = {
+  "chemo.1": {
+    fol: 12,
+    b12: 450,
+    vitd: 35,
+  },
+  "chemo.2": {
+    fol: 14,
+    b12: 500,
+    vitd: 38,
+  },
+  "chemo.3": {
+    fol: 13,
+    b12: 480,
+    vitd: 30,
+  },
+  "chemo.4": {
+    fol: 15,
+    b12: 530,
+    vitd: 32,
+  },
+  "chemo.5": {
+    fol: 11,
+    b12: 460,
+    vitd: 36,
+  },
+  "chemo.6": {
+    fol: 14,
+    b12: 495,
+    vitd: 34,
+  },
+};
+//* Dictionnaire vitamines en cas d'hémorragie (ulcère à l'estomac par exemple)
+const ulcerVitamins = {
+  "bleeding.1": {
+    fol: 8,
+    b12: 300,
+    vitd: 32,
+  },
+  "bleeding.2": {
+    fol: 9,
+    b12: 320,
+    vitd: 35,
+  },
+  "bleeding.3": {
+    fol: 7,
+    b12: 310,
+    vitd: 30,
+  },
+  "bleeding.4": {
+    fol: 10,
+    b12: 340,
+    vitd: 33,
+  },
+  "bleeding.5": {
+    fol: 8,
+    b12: 330,
+    vitd: 31,
+  },
+  "bleeding.6": {
+    fol: 9,
+    b12: 315,
+    vitd: 34,
+  },
+};
+//* Dictionnaire Vitamines en cas de leucémie
+const leukemiaVitamins = {
+  "leukemia.1": {
+    fol: 11,
+    b12: 400,
+    vitd: 36,
+  },
+  "leukemia.2": {
+    fol: 13,
+    b12: 450,
+    vitd: 38,
+  },
+  "leukemia.3": {
+    fol: 10,
+    b12: 380,
+    vitd: 34,
+  },
+  "leukemia.4": {
+    fol: 12,
+    b12: 420,
+    vitd: 35,
+  },
+  "leukemia.5": {
+    fol: 9,
+    b12: 390,
+    vitd: 33,
+  },
+  "leukemia.6": {
+    fol: 14,
+    b12: 430,
+    vitd: 37,
+  },
+};
+//* Dictionnaire Vitamines en cas de cancer
+const cancerVitamins = {
+  "cancer.1": {
+    fol: 12,
+    b12: 420,
+    vitd: 37,
+  },
+  "cancer.2": {
+    fol: 14,
+    b12: 450,
+    vitd: 40,
+  },
+  "cancer.3": {
+    fol: 11,
+    b12: 430,
+    vitd: 35,
+  },
+  "cancer.4": {
+    fol: 13,
+    b12: 460,
+    vitd: 38,
+  },
+  "cancer.5": {
+    fol: 10,
+    b12: 415,
+    vitd: 34,
+  },
+  "cancer.6": {
+    fol: 15,
+    b12: 470,
+    vitd: 42,
+  },
+};
+//* Dictionnaire Vitamines en cas de troubles hépatiques
+const liverVitamins = {
+  "liver.1": {
+    fol: 10,
+    b12: 390,
+    vitd: 28,
+  },
+  "liver.2": {
+    fol: 11,
+    b12: 410,
+    vitd: 30,
+  },
+  "liver.3": {
+    fol: 9,
+    b12: 380,
+    vitd: 26,
+  },
+  "liver.4": {
+    fol: 12,
+    b12: 400,
+    vitd: 32,
+  },
+  "liver.5": {
+    fol: 8,
+    b12: 370,
+    vitd: 29,
+  },
+  "liver.6": {
+    fol: 13,
+    b12: 420,
+    vitd: 31,
+  },
+};
+//* Dictionnaire Vitamines en cas d'insuffisance rénale'
+const insufVitamins = {
+  "insuf.1": {
+    fol: 11,
+    b12: 420,
+    vitd: 25,
+  },
+  "insuf.2": {
+    fol: 13,
+    b12: 450,
+    vitd: 27,
+  },
+  "insuf.3": {
+    fol: 10,
+    b12: 400,
+    vitd: 22,
+  },
+  "insuf.4": {
+    fol: 12,
+    b12: 430,
+    vitd: 24,
+  },
+  "insuf.5": {
+    fol: 9,
+    b12: 410,
+    vitd: 26,
+  },
+  "insuf.6": {
+    fol: 14,
+    b12: 440,
+    vitd: 23,
+  },
+};
+//* Dictionnaire Vitamines en cas de consommation d'alcool
+const alcoholVitamins = {
+  "alcohol.1": {
+    fol: 8,
+    b12: 380,
+    vitd: 28,
+  },
+  "alcohol.2": {
+    fol: 7,
+    b12: 360,
+    vitd: 30,
+  },
+  "alcohol.3": {
+    fol: 10,
+    b12: 400,
+    vitd: 26,
+  },
+  "alcohol.4": {
+    fol: 9,
+    b12: 390,
+    vitd: 27,
+  },
+  "alcohol.5": {
+    fol: 8,
+    b12: 370,
+    vitd: 29,
+  },
+  "alcohol.6": {
+    fol: 7,
+    b12: 350,
+    vitd: 25,
+  },
+};
+//* Dictionnaire Vitamines en cas de consommation de tabac
+const tobaccoVitamins = {
+  "tobacco.1": {
+    fol: 10,
+    b12: 400,
+    vitd: 32,
+  },
+  "tobacco.2": {
+    fol: 9,
+    b12: 380,
+    vitd: 34,
+  },
+  "tobacco.3": {
+    fol: 11,
+    b12: 420,
+    vitd: 30,
+  },
+  "tobacco.4": {
+    fol: 8,
+    b12: 390,
+    vitd: 28,
+  },
+  "tobacco.5": {
+    fol: 9,
+    b12: 410,
+    vitd: 33,
+  },
+  "tobacco.6": {
+    fol: 10,
+    b12: 395,
+    vitd: 31,
+  },
+};
+//* Dictionnaire Vitamines en cas de consommation de drogue douce
+const softDrugsVitamins = {
+  "softDrugs.1": {
+    fol: 11,
+    b12: 410,
+    vitd: 36,
+  },
+  "softDrugs.2": {
+    fol: 10,
+    b12: 400,
+    vitd: 35,
+  },
+  "softDrugs.3": {
+    fol: 12,
+    b12: 430,
+    vitd: 38,
+  },
+  "softDrugs.4": {
+    fol: 9,
+    b12: 390,
+    vitd: 33,
+  },
+  "softDrugs.5": {
+    fol: 11,
+    b12: 420,
+    vitd: 34,
+  },
+  "softDrugs.6": {
+    fol: 10,
+    b12: 415,
+    vitd: 32,
+  },
+};
+//* Dictionnaire Vitamines en cas de consommation de drogue dure
+const hardDrugsVitamins = {
+  "hardDrugs.1": {
+    fol: 6,
+    b12: 320,
+    vitd: 22,
+  },
+  "hardDrugs.2": {
+    fol: 7,
+    b12: 340,
+    vitd: 24,
+  },
+  "hardDrugs.3": {
+    fol: 5,
+    b12: 300,
+    vitd: 20,
+  },
+  "hardDrugs.4": {
+    fol: 8,
+    b12: 360,
+    vitd: 25,
+  },
+  "hardDrugs.5": {
+    fol: 6,
+    b12: 310,
+    vitd: 21,
+  },
+  "hardDrugs.6": {
+    fol: 7,
+    b12: 330,
+    vitd: 23,
+  },
+};
+//* Dictionnaire Vitamines en cas de malbouffe
+const foodVitamins = {
+  "food.1": {
+    fol: 8,
+    b12: 350,
+    vitd: 28,
+  },
+  "food.2": {
+    fol: 7,
+    b12: 330,
+    vitd: 26,
+  },
+  "food.3": {
+    fol: 9,
+    b12: 370,
+    vitd: 30,
+  },
+  "food.4": {
+    fol: 6,
+    b12: 340,
+    vitd: 25,
+  },
+  "food.5": {
+    fol: 8,
+    b12: 360,
+    vitd: 27,
+  },
+  "food.6": {
+    fol: 7,
+    b12: 380,
+    vitd: 29,
+  },
+};
+//* Dictionnaire Vitamines en cas d'activité physique régulière
+const sportVitamins = {
+  "sport.1": {
+    fol: 14,
+    b12: 550,
+    vitd: 50,
+  },
+  "sport.2": {
+    fol: 13,
+    b12: 530,
+    vitd: 48,
+  },
+  "sport.3": {
+    fol: 15,
+    b12: 570,
+    vitd: 52,
+  },
+  "sport.4": {
+    fol: 12,
+    b12: 540,
+    vitd: 47,
+  },
+  "sport.5": {
+    fol: 14,
+    b12: 560,
+    vitd: 49,
+  },
+  "sport.6": {
+    fol: 13,
+    b12: 580,
+    vitd: 51,
+  },
+};
+//* Dictionnaire Vitamines en cas de sédentarité
+const sedentaryVitamins = {
+  "sedentary.1": {
+    fol: 10,
+    b12: 400,
+    vitd: 35,
+  },
+  "sedentary.2": {
+    fol: 9,
+    b12: 390,
+    vitd: 33,
+  },
+  "sedentary.3": {
+    fol: 11,
+    b12: 410,
+    vitd: 34,
+  },
+  "sedentary.4": {
+    fol: 8,
+    b12: 380,
+    vitd: 32,
+  },
+  "sedentary.5": {
+    fol: 10,
+    b12: 395,
+    vitd: 36,
+  },
+  "sedentary.6": {
+    fol: 9,
+    b12: 385,
+    vitd: 31,
+  },
+};
+//* Dictionnaire Vitamines si la personne est souvent dehors
+const outsideVitamins = {
+  "outside.1": {
+    fol: 14,
+    b12: 540,
+    vitd: 65,
+  },
+  "outside.2": {
+    fol: 13,
+    b12: 520,
+    vitd: 68,
+  },
+  "outside.3": {
+    fol: 15,
+    b12: 560,
+    vitd: 70,
+  },
+  "outside.4": {
+    fol: 12,
+    b12: 550,
+    vitd: 60,
+  },
+  "outside.5": {
+    fol: 14,
+    b12: 580,
+    vitd: 72,
+  },
+  "outside.6": {
+    fol: 13,
+    b12: 530,
+    vitd: 66,
+  },
+};
+//* Dictionnaire Vitamines si la personne sort rarement
+const insideVitamins = {
+  "inside.1": {
+    fol: 11,
+    b12: 430,
+    vitd: 20,
+  },
+  "inside.2": {
+    fol: 10,
+    b12: 410,
+    vitd: 22,
+  },
+  "inside.3": {
+    fol: 12,
+    b12: 440,
+    vitd: 18,
+  },
+  "inside.4": {
+    fol: 11,
+    b12: 420,
+    vitd: 21,
+  },
+  "inside.5": {
+    fol: 10,
+    b12: 450,
+    vitd: 19,
+  },
+  "inside.6": {
+    fol: 12,
+    b12: 415,
+    vitd: 23,
+  },
+};
+//? Dictionnaires Vitamines <--

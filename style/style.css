@@ -260,7 +260,8 @@ main .container #sugarContextForm,
 main .container #ealContextForm,
 main .container #kidneyContextForm,
 main .container #liverContextForm,
-main .container #urineContextForm {
+main .container #urineContextForm,
+main .container #vitaminsContextForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -271,7 +272,8 @@ main .container #sugarContextForm fieldset,
 main .container #ealContextForm fieldset,
 main .container #kidneyContextForm fieldset,
 main .container #liverContextForm fieldset,
-main .container #urineContextForm fieldset {
+main .container #urineContextForm fieldset,
+main .container #vitaminsContextForm fieldset {
   display: grid;
   border: 1px solid #a3c1da;
   align-content: flex-start;
@@ -284,7 +286,8 @@ main .container #sugarContextForm fieldset:first-of-type,
 main .container #ealContextForm fieldset:first-of-type,
 main .container #kidneyContextForm fieldset:first-of-type,
 main .container #liverContextForm fieldset:first-of-type,
-main .container #urineContextForm fieldset:first-of-type {
+main .container #urineContextForm fieldset:first-of-type,
+main .container #vitaminsContextForm fieldset:first-of-type {
   grid-column: 1/-1;
   height: 50px;
   width: 300px;

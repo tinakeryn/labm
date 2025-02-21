@@ -75,40 +75,9 @@ function reloadContainer(iconId, sectionId) {
 //? Recharger la section <--
 
 //? --> Calculer une moyenne depuis plusieurs dictionnaires
-// function calculerMoyenneObjets(...objets) {
-//   if (objets.length === 0) {
-//     return {}; // Retourne un objet vide si aucun objet n'est fourni
-//   }
-
-//   const moyenneObj = {};
-//   const nombreObjets = objets.length;
-
-//   // Utilisons les clés du premier objet comme base
-//   const clés = Object.keys(objets[0]);
-
-//   for (const clé of clés) {
-//     // Vérifions si tous les objets ont la clé
-//     let somme = 0;
-//     let compte = 0;
-
-//     for (const objet of objets) {
-//       if (objet.hasOwnProperty(clé)) {
-//         somme += objet[clé];
-//         compte++;
-//       }
-//     }
-
-//     // Calculons la moyenne uniquement si tous les objets ont la clé
-//     if (compte === nombreObjets) {
-//       moyenneObj[clé] = somme / nombreObjets;
-//     }
-//   }
-
-//   return moyenneObj;
-// }
 function calculerMoyenneObjets(...objets) {
   if (objets.length === 0) {
-    return {}; // Retourne un objet vide si aucun objet n'est fourni
+    return {};
   }
   const moyenneObj = {};
   const nombreObjets = objets.length;
@@ -133,7 +102,18 @@ function calculerMoyenneObjets(...objets) {
         moyenne = Math.round(moyenne / 1000) * 1000;
       }
       // Arrondi spécifique à l'entier le + proche
-      if (clé === "na" || clé === "tgo" || clé === "tgp" || clé === "ggt" || clé === "pal") {
+      if (
+        clé === "na" ||
+        clé === "tgo" ||
+        clé === "tgp" ||
+        clé === "ggt" ||
+        clé === "pal" ||
+        clé === "fol" ||
+        clé === "b12" ||
+        clé === "vitd" ||
+        clé === "una" ||
+        clé === "uk"
+      ) {
         moyenne = Math.round(moyenne).toFixed(0);
       }
       // Arrondi spécifique à un chiffre après la virgule
@@ -141,10 +121,19 @@ function calculerMoyenneObjets(...objets) {
         moyenne = (Math.round(moyenne * 10) / 10).toFixed(1);
       }
       // Arrondi spécifique à 2 chiffres après la virgule
-      if (clé === "inr" || clé === "gly" || clé === "choles" || clé === "trigly") {
+      if (
+        clé === "inr" ||
+        clé === "gly" ||
+        clé === "choles" ||
+        clé === "trigly" ||
+        clé === "tropo" ||
+        clé === "ucr" ||
+        clé === "ug"
+      ) {
         moyenne = (Math.round(moyenne * 100) / 100).toFixed(2);
       }
-      moyenneObj[clé] = typeof moyenne === "number" ? moyenne.toLocaleString("fr-FR") : moyenne;
+      // Convertir systématiquement en nombre puis formater en "fr-FR" pour obtenir le séparateur virgule
+      moyenneObj[clé] = parseFloat(moyenne).toLocaleString("fr-FR");
     }
   }
   return moyenneObj;
