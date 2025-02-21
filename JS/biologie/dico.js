@@ -676,6 +676,270 @@ const liverCoag = {
     tca: 44,
   },
 };
+//* Dictionnaire TP/TCA chez une personne ayant une insuffisance rénale
+const insufCoag = {
+  "insuf.1": {
+    tp: 58,
+    inr: 1.8,
+    tca: 48,
+  },
+  "insuf.2": {
+    tp: 56,
+    inr: 1.85,
+    tca: 49,
+  },
+  "insuf.3": {
+    tp: 54,
+    inr: 1.9,
+    tca: 50,
+  },
+  "insuf.4": {
+    tp: 52,
+    inr: 2.0,
+    tca: 52,
+  },
+  "insuf.5": {
+    tp: 50,
+    inr: 2.1,
+    tca: 54,
+  },
+  "insuf.6": {
+    tp: 48,
+    inr: 2.2,
+    tca: 56,
+  },
+};
+//* Dictionnaire TP/TCA en cas de consommation d'alcool
+const alcoholCoag = {
+  "alcohol.1": {
+    tp: 68,
+    inr: 1.45,
+    tca: 39,
+  },
+  "alcohol.2": {
+    tp: 66,
+    inr: 1.5,
+    tca: 40,
+  },
+  "alcohol.3": {
+    tp: 64,
+    inr: 1.55,
+    tca: 41,
+  },
+  "alcohol.4": {
+    tp: 62,
+    inr: 1.6,
+    tca: 42,
+  },
+  "alcohol.5": {
+    tp: 60,
+    inr: 1.65,
+    tca: 43,
+  },
+  "alcohol.6": {
+    tp: 58,
+    inr: 1.7,
+    tca: 44,
+  },
+};
+//* Dictionnaire TP/TCA en cas de consommation de tabac
+const tobaccoCoag = {
+  "tobacco.1": {
+    tp: 72,
+    inr: 1.3,
+    tca: 37,
+  },
+  "tobacco.2": {
+    tp: 70,
+    inr: 1.35,
+    tca: 38,
+  },
+  "tobacco.3": {
+    tp: 68,
+    inr: 1.4,
+    tca: 39,
+  },
+  "tobacco.4": {
+    tp: 66,
+    inr: 1.45,
+    tca: 40,
+  },
+  "tobacco.5": {
+    tp: 64,
+    inr: 1.5,
+    tca: 41,
+  },
+  "tobacco.6": {
+    tp: 62,
+    inr: 1.55,
+    tca: 42,
+  },
+};
+//* Dictionnaire TP/TCA en cas de consommation de drogue douce
+const softDrugsCoag = {
+  "softDrugs.1": {
+    tp: 74,
+    inr: 1.25,
+    tca: 36,
+  },
+  "softDrugs.2": {
+    tp: 73,
+    inr: 1.3,
+    tca: 37,
+  },
+  "softDrugs.3": {
+    tp: 72,
+    inr: 1.35,
+    tca: 38,
+  },
+  "softDrugs.4": {
+    tp: 71,
+    inr: 1.4,
+    tca: 39,
+  },
+  "softDrugs.5": {
+    tp: 70,
+    inr: 1.45,
+    tca: 40,
+  },
+  "softDrugs.6": {
+    tp: 69,
+    inr: 1.5,
+    tca: 41,
+  },
+};
+//* Dictionnaire TP/TCA en cas de consommation de drogue dure
+const hardDrugsCoag = {
+  "hardDrugs.1": {
+    tp: 65,
+    inr: 1.6,
+    tca: 43,
+  },
+  "hardDrugs.2": {
+    tp: 63,
+    inr: 1.65,
+    tca: 44,
+  },
+  "hardDrugs.3": {
+    tp: 60,
+    inr: 1.7,
+    tca: 46,
+  },
+  "hardDrugs.4": {
+    tp: 58,
+    inr: 1.8,
+    tca: 48,
+  },
+  "hardDrugs.5": {
+    tp: 55,
+    inr: 1.9,
+    tca: 50,
+  },
+  "hardDrugs.6": {
+    tp: 52,
+    inr: 2.0,
+    tca: 52,
+  },
+};
+//* Dictionnaire TP/TCA en cas de malbouffe
+const foodCoag = {
+  "food.1": {
+    tp: 68,
+    inr: 1.5,
+    tca: 40,
+  },
+  "food.2": {
+    tp: 66,
+    inr: 1.55,
+    tca: 41,
+  },
+  "food.3": {
+    tp: 64,
+    inr: 1.6,
+    tca: 42,
+  },
+  "food.4": {
+    tp: 62,
+    inr: 1.65,
+    tca: 43,
+  },
+  "food.5": {
+    tp: 60,
+    inr: 1.7,
+    tca: 44,
+  },
+  "food.6": {
+    tp: 58,
+    inr: 1.75,
+    tca: 45,
+  },
+};
+//* Dictionnaire TP/TCA en cas d'activité physique régulière
+const sportCoag = {
+  "sport.1": {
+    tp: 78,
+    inr: 1.1,
+    tca: 35,
+  },
+  "sport.2": {
+    tp: 76,
+    inr: 1.15,
+    tca: 36,
+  },
+  "sport.3": {
+    tp: 74,
+    inr: 1.2,
+    tca: 37,
+  },
+  "sport.4": {
+    tp: 72,
+    inr: 1.25,
+    tca: 38,
+  },
+  "sport.5": {
+    tp: 70,
+    inr: 1.3,
+    tca: 39,
+  },
+  "sport.6": {
+    tp: 68,
+    inr: 1.35,
+    tca: 40,
+  },
+};
+//* Dictionnaire TP/TCA en cas de sédentarité
+const sedentaryCoag = {
+  "sedentary.1": {
+    tp: 66,
+    inr: 1.5,
+    tca: 42,
+  },
+  "sedentary.2": {
+    tp: 65,
+    inr: 1.55,
+    tca: 43,
+  },
+  "sedentary.3": {
+    tp: 64,
+    inr: 1.6,
+    tca: 44,
+  },
+  "sedentary.4": {
+    tp: 63,
+    inr: 1.65,
+    tca: 45,
+  },
+  "sedentary.5": {
+    tp: 62,
+    inr: 1.7,
+    tca: 46,
+  },
+  "sedentary.6": {
+    tp: 61,
+    inr: 1.75,
+    tca: 47,
+  },
+};
 //? Dictionnaires TP et TCA <--
 
 //? --> Dictionnaires DDIM

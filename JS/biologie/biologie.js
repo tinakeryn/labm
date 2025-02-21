@@ -48,8 +48,8 @@ generateNfsButton.addEventListener("click", () => {
 
   const randomTobaccoNFS = applyFactor(getRandomElement(tobaccoNFS), smoking);
   const randomalcoholNFS = applyFactor(getRandomElement(alcoholNFS), alcohol);
-  const randomSoftDrugNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
-  const randomHardDrugNFS = applyFactor(getRandomElement(hardDrugsNFS), onHardDrug);
+  const randomSoftDrugsNFS = applyFactor(getRandomElement(softDrugsNFS), onSoftDrug);
+  const randomHardDrugsNFS = applyFactor(getRandomElement(hardDrugsNFS), onHardDrug);
 
   let randomNFS = "";
   if (selectedContext === "Normal") {
@@ -71,8 +71,8 @@ generateNfsButton.addEventListener("click", () => {
     randomNFS,
     randomTobaccoNFS,
     randomalcoholNFS,
-    randomSoftDrugNFS,
-    randomHardDrugNFS
+    randomSoftDrugsNFS,
+    randomHardDrugsNFS
   );
 
   createNfsTable(moyenneNFS);
@@ -119,8 +119,8 @@ generateVSButton.addEventListener("click", () => {
 
   const randomTobaccoVS = applyFactor(getRandomElement(tobaccoVS), smoking);
   const randomalcoholVS = applyFactor(getRandomElement(alcoholVS), alcohol);
-  const randomSoftDrugVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrug);
-  const randomHardDrugVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrug);
+  const randomSoftDrugsVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrug);
+  const randomHardDrugsVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrug);
 
   let randomVS = "";
   if (selectedContext === "Normal") {
@@ -142,8 +142,8 @@ generateVSButton.addEventListener("click", () => {
     randomVS,
     randomTobaccoVS,
     randomalcoholVS,
-    randomSoftDrugVS,
-    randomHardDrugVS
+    randomSoftDrugsVS,
+    randomHardDrugsVS
   );
 
   createVSTable(moyenneVS);
@@ -227,10 +227,26 @@ generateCoagButton.addEventListener("click", () => {
   const avk = document.querySelector('input[name="coagAVK"]:checked') ? true : false;
   const injured = document.querySelector('input[name="coagInjury"]:checked') ? true : false;
   const liver = document.querySelector('input[name="coagLiver"]:checked') ? true : false;
+  const insuf = document.querySelector('input[name="coagInsuf"]:checked') ? true : false;
+  const smoking = document.querySelector('input[name="coagTobacco"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="coagAlcohol"]:checked') ? true : false;
+  const onSoftDrugs = document.querySelector('input[name="coagSoftDrugs"]:checked') ? true : false;
+  const onHardDrugs = document.querySelector('input[name="coagHardDrugs"]:checked') ? true : false;
+  const food = document.querySelector('input[name="coagFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="coagSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="coagSedentary"]:checked') ? true : false;
 
   const randomAVKCoag = applyFactor(getRandomElement(avkCoag), avk);
   const randomInjuredCoag = applyFactor(getRandomElement(injuryCoag), injured);
   const randomLiverCoag = applyFactor(getRandomElement(liverCoag), liver);
+  const randomInsufCoag = applyFactor(getRandomElement(insufCoag), insuf);
+  const randomTobaccoCoag = applyFactor(getRandomElement(tobaccoCoag), smoking);
+  const randomAlcoholCoag = applyFactor(getRandomElement(alcoholCoag), alcohol);
+  const randomSoftDrugsCoag = applyFactor(getRandomElement(softDrugsCoag), onSoftDrugs);
+  const randomHardDrugsCoag = applyFactor(getRandomElement(hardDrugsCoag), onHardDrugs);
+  const randomFoodCoag = applyFactor(getRandomElement(foodCoag), food);
+  const randomSportCoag = applyFactor(getRandomElement(sportCoag), sport);
+  const randomSedentaryCoag = applyFactor(getRandomElement(sedentaryCoag), sedentary);
 
   let randomCoag = "";
   if (selectedContext === "Normal") {
@@ -250,7 +266,15 @@ generateCoagButton.addEventListener("click", () => {
     randomCoag,
     randomAVKCoag,
     randomInjuredCoag,
-    randomLiverCoag
+    randomLiverCoag,
+    randomInsufCoag,
+    randomTobaccoCoag,
+    randomAlcoholCoag,
+    randomSoftDrugsCoag,
+    randomHardDrugsCoag,
+    randomFoodCoag,
+    randomSportCoag,
+    randomSedentaryCoag
   );
 
   createCoagTable(moyenneCoag);
@@ -294,7 +318,7 @@ generateDDimButton.addEventListener("click", () => {
   const stroke = document.querySelector('input[name="ddimStroke"]:checked') ? true : false;
   const injured = document.querySelector('input[name="ddimInjury"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="ddimTobacco"]:checked') ? true : false;
-  const alcohol = document.querySelector('input[name="ddimsAlcohol"]:checked') ? true : false;
+  const alcohol = document.querySelector('input[name="ddimAlcohol"]:checked') ? true : false;
   const onSoftDrug = document.querySelector('input[name="ddimSoftDrugs"]:checked') ? true : false;
   const onHardDrug = document.querySelector('input[name="ddimHardDrugs"]:checked') ? true : false;
 
@@ -303,8 +327,8 @@ generateDDimButton.addEventListener("click", () => {
   const randomInjuredDDim = applyFactor(getRandomElement(injuryDDim), injured);
   const randomTobaccoDDim = applyFactor(getRandomElement(tobaccoDDim), smoking);
   const randomalcoholDDim = applyFactor(getRandomElement(alcoholDDim), alcohol);
-  const randomSoftDrugDDim = applyFactor(getRandomElement(softDrugsDDim), onSoftDrug);
-  const randomHardDrugDDim = applyFactor(getRandomElement(hardDrugsDDim), onHardDrug);
+  const randomSoftDrugsDDim = applyFactor(getRandomElement(softDrugsDDim), onSoftDrug);
+  const randomHardDrugsDDim = applyFactor(getRandomElement(hardDrugsDDim), onHardDrug);
 
   let randomDDim = "";
   if (selectedContext === "Normal") {
@@ -329,8 +353,8 @@ generateDDimButton.addEventListener("click", () => {
     randomInjuredDDim,
     randomTobaccoDDim,
     randomalcoholDDim,
-    randomSoftDrugDDim,
-    randomHardDrugDDim
+    randomSoftDrugsDDim,
+    randomHardDrugsDDim
   );
 
   createDDimTable(moyenneDDim);
@@ -342,6 +366,7 @@ generateDDimButton.addEventListener("click", () => {
 
 //? --> Générer Glycémie à jeun et HbA1c
 const generateSugarButton = document.getElementById("generateSugarButton");
+const sugarContextSelect = document.getElementById("sugarContextSelect");
 
 //* Fonction pour créer dynamiquement un tableau Sugar
 function createSugarTable(sugarData) {
@@ -559,8 +584,8 @@ generateKidneyButton.addEventListener("click", () => {
   const randomUntreatedKidney = applyFactor(getRandomElement(untreatedKidney), untreated);
   const randomalcoholKidney = applyFactor(getRandomElement(alcoholKidney), alcohol);
   const randomTobaccoKidney = applyFactor(getRandomElement(tobaccoKidney), smoking);
-  const randomSoftDrugKidney = applyFactor(getRandomElement(softDrugsKidney), onSoftDrug);
-  const randomHardDrugKidney = applyFactor(getRandomElement(hardDrugsKidney), onHardDrug);
+  const randomSoftDrugsKidney = applyFactor(getRandomElement(softDrugsKidney), onSoftDrug);
+  const randomHardDrugsKidney = applyFactor(getRandomElement(hardDrugsKidney), onHardDrug);
   const randomFoodKidney = applyFactor(getRandomElement(foodKidney), food);
   const randomSportKidney = applyFactor(getRandomElement(sportKidney), sport);
   const randomSedentaryKidney = applyFactor(getRandomElement(sedentaryKidney), sedentary);
@@ -590,8 +615,8 @@ generateKidneyButton.addEventListener("click", () => {
     randomUntreatedKidney,
     randomalcoholKidney,
     randomTobaccoKidney,
-    randomSoftDrugKidney,
-    randomHardDrugKidney,
+    randomSoftDrugsKidney,
+    randomHardDrugsKidney,
     randomFoodKidney,
     randomSportKidney,
     randomSedentaryKidney
@@ -660,8 +685,8 @@ generateLiverButton.addEventListener("click", () => {
 
   const randomalcoholLiver = applyFactor(getRandomElement(alcoholLiver), alcohol);
   const randomTobaccoLiver = applyFactor(getRandomElement(tobaccoLiver), smoking);
-  const randomSoftDrugLiver = applyFactor(getRandomElement(softDrugsLiver), onSoftDrug);
-  const randomHardDrugLiver = applyFactor(getRandomElement(hardDrugsLiver), onHardDrug);
+  const randomSoftDrugsLiver = applyFactor(getRandomElement(softDrugsLiver), onSoftDrug);
+  const randomHardDrugsLiver = applyFactor(getRandomElement(hardDrugsLiver), onHardDrug);
   const randomGestaLiver = applyFactor(getRandomElement(gestaLiver), gesta);
   const randomCholestaseLiver = applyFactor(getRandomElement(cholestaseLiver), cholestase);
   const randomTreatedLiver = applyFactor(getRandomElement(treatedLiver), treated);
@@ -690,8 +715,8 @@ generateLiverButton.addEventListener("click", () => {
     randomLiver,
     randomalcoholLiver,
     randomTobaccoLiver,
-    randomSoftDrugLiver,
-    randomHardDrugLiver,
+    randomSoftDrugsLiver,
+    randomHardDrugsLiver,
     randomGestaLiver,
     randomCholestaseLiver,
     randomTreatedLiver,
@@ -768,7 +793,7 @@ generateUrineButton.addEventListener("click", () => {
   const sedentary = document.querySelector('input[name="urineSedentary"]:checked') ? true : false;
 
   const randomalcoholUrine = applyFactor(getRandomElement(alcoholUrine), alcohol);
-  const randomHardDrugUrine = applyFactor(getRandomElement(hardDrugsUrine), onHardDrug);
+  const randomHardDrugsUrine = applyFactor(getRandomElement(hardDrugsUrine), onHardDrug);
   const randomGestaUrine = applyFactor(getRandomElement(gestaUrine), gesta);
   const randomTreatedUrine = applyFactor(getRandomElement(treatedUrine), treated);
   const randomUntreatedUrine = applyFactor(getRandomElement(untreatedUrine), untreated);
@@ -796,7 +821,7 @@ generateUrineButton.addEventListener("click", () => {
   const moyenneUrine = calculerMoyenneSiObjets(
     randomUrine,
     randomalcoholUrine,
-    randomHardDrugUrine,
+    randomHardDrugsUrine,
     randomGestaUrine,
     randomTreatedUrine,
     randomUntreatedUrine,
