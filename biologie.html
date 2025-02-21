@@ -59,7 +59,10 @@
               <a href="#urineSection"><i class="fa-solid fa-caret-right"></i> Urines</a>
             </li>
             <li>
-              <a href="#otherSection"><i class="fa-solid fa-caret-right"></i> Divers</a>
+              <a href="#tropoSection"><i class="fa-solid fa-caret-right"></i> Troponine</a>
+            </li>
+            <li>
+              <a href="#vitaminsSection"><i class="fa-solid fa-caret-right"></i> Vitamines</a>
             </li>
           </ul>
           <li>
@@ -563,9 +566,44 @@
         <i id="urineClose" class="fa-solid fa-xmark hidden"></i>
         <div id="urineResult"></div>
       </section>
-      <section class="container" id="otherSection">
-        <h2>Divers</h2>
-        <p>Troponine, Vitamines (B9, B12 et D), Biochimie urinaire</p>
+      <section class="container" id="tropoSection">
+        <h2>Générer Troponine</h2>
+        <form id="tropoContextForm">
+          <fieldset>
+            <legend>Sélectionnez un contexte</legend>
+            <select id="tropoContextSelect" name="tropoContext">
+              <option value="Normal">Normal</option>
+              <option value="Infarctus">Crise cardiaque</option>
+              <option value="Sepsis">Septicémie (sepsis)</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="tropoHeart" value="oui" />Insuffisance cardiaque
+            </label>
+            <label> <input type="checkbox" name="tropoStroke" value="oui" />AVC </label>
+            <label>
+              <input type="checkbox" name="tropoThrombosis" value="oui" />Embolie pulmonaire
+            </label>
+            <label>
+              <input type="checkbox" name="tropoInjury" value="oui" />Blessure au thorax
+            </label>
+            <label>
+              <input type="checkbox" name="tropoLiver" value="oui" />Trouble hépatique
+            </label>
+            <label>
+              <input type="checkbox" name="tropoKidney" value="oui" />Insuffisance rénale
+            </label>
+          </fieldset>
+        </form>
+        <button id="generateTropoButton">Générer Troponine</button>
+        <i id="tropoClose" class="fa-solid fa-xmark hidden"></i>
+        <div id="tropoResult"></div>
+      </section>
+      <section class="container" id="vitaminsSection">
+        <h2>Vitamines</h2>
+        <p>Vitamines (B9, B12 et D)</p>
         <i class="fa-solid fa-person-digging"></i>
       </section>
     </main>

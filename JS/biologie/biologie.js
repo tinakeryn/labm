@@ -858,6 +858,79 @@ generateUrineButton.addEventListener("click", () => {
 });
 //? Générer chimie urinaire <--
 
+//? --> Générer troponine
+const generateTropoButton = document.getElementById("generateTropoButton");
+const tropoContextSelect = document.getElementById("tropoContextSelect");
+
+//* Fonction pour créer dynamiquement un tableau Tropo
+function createTropoTable(tropoData) {
+  const tropoResultDiv = document.getElementById("tropoResult");
+
+  tropoResultDiv.innerHTML = "";
+
+  const tropoTableHtml = `
+    <table id="tropoTable">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Troponine</td>
+          <td>${tropoData.tropo} ng/L</td>
+        </tr>
+      </tbody>
+    </table>`;
+  tropoResultDiv.innerHTML += tropoTableHtml;
+}
+
+generateTropoButton.addEventListener("click", () => {
+  const selectedContext = tropoContextSelect.value;
+  const heart = document.querySelector('input[name="tropoHeart"]:checked') ? true : false;
+  const stroke = document.querySelector('input[name="tropoStroke"]:checked') ? true : false;
+  const thrombosis = document.querySelector('input[name="tropoThrombosis"]:checked') ? true : false;
+  const injury = document.querySelector('input[name="tropoInjury"]:checked') ? true : false;
+  const liver = document.querySelector('input[name="tropoLiver"]:checked') ? true : false;
+  const kidney = document.querySelector('input[name="tropoKidney"]:checked') ? true : false;
+
+  const randomHeartTropo = applyFactor(getRandomElement(heartTropo), heart);
+  const randomStrokeTropo = applyFactor(getRandomElement(strokeTropo), stroke);
+  const randomThrombosisTropo = applyFactor(getRandomElement(thrombosisTropo), thrombosis);
+  const randomInjuryTropo = applyFactor(getRandomElement(injuryTropo), injury);
+  const randomLiverTropo = applyFactor(getRandomElement(liverTropo), liver);
+  const randomKidneyTropo = applyFactor(getRandomElement(kidneyTropo), kidney);
+
+  let randomTropo = "";
+  if (selectedContext === "Normal") {
+    randomTropo = getRandomElement(normalTropo);
+  } else if (selectedContext === "Infarctus") {
+    randomTropo = getRandomElement(infarctTropo);
+  } else if (selectedContext === "Sepsis") {
+    randomTropo = getRandomElement(sepsisTropo);
+  } else {
+    alert("Veuillez choisir un contexte !");
+    return;
+  }
+
+  const moyenneTropo = calculerMoyenneSiObjets(
+    randomTropo,
+    randomHeartTropo,
+    randomStrokeTropo,
+    randomThrombosisTropo,
+    randomInjuryTropo,
+    randomLiverTropo,
+    randomKidneyTropo
+  );
+
+  createTropoTable(moyenneTropo);
+
+  showNextElement("generateTropoButton");
+  document.getElementById("tropoResult").classList.remove("hidden");
+});
+//? Générer troponine <--
+
 //? Afficher toute la section au clic sur le bouton
 scrollToSection("generateNfsButton", "nfsSection");
 scrollToSection("generateVSButton", "vsSection");
@@ -869,6 +942,7 @@ scrollToSection("generateEALButton", "ealSection");
 scrollToSection("generateKidneyButton", "kidneySection");
 scrollToSection("generateLiverButton", "liverSection");
 scrollToSection("generateUrineButton", "urineSection");
+scrollToSection("generateTropoButton", "tropoSection");
 //? Afficher toute la section au clic sur le bouton <--
 
 //? Masquer la section au clic sur la croix
@@ -901,6 +975,9 @@ document.getElementById("liverClose").addEventListener("click", function () {
 });
 document.getElementById("urineClose").addEventListener("click", function () {
   hideElements(["urineClose", "urineResult"]);
+});
+document.getElementById("tropoClose").addEventListener("click", function () {
+  hideElements(["tropoClose", "tropoResult"]);
 });
 //? Masquer la section au clic sur la croix <--
 

@@ -3894,3 +3894,195 @@ const sedentaryUrine = {
   },
 };
 //? Dictionnaires Chimie urinaire <--
+
+//? --> Dictionnaires Troponine
+//* Dictionnaire troponine normale
+const normalTropo = {
+  "normal.1": {
+    tropo: 0.01,
+  },
+  "normal.2": {
+    tropo: 0.02,
+  },
+  "normal.3": {
+    tropo: 0.01,
+  },
+  "normal.4": {
+    tropo: 0.03,
+  },
+  "normal.5": {
+    tropo: 0.02,
+  },
+  "normal.6": {
+    tropo: 0.01,
+  },
+};
+//* Dictionnaire troponine dans le cas d'un infarctus du myocarde
+const infarctTropo = {
+  "infarct.1": {
+    tropo: 2.0,
+  },
+  "infarct.2": {
+    tropo: 5.0,
+  },
+  "infarct.3": {
+    tropo: 10.0,
+  },
+  "infarct.4": {
+    tropo: 7.0,
+  },
+  "infarct.5": {
+    tropo: 12.0,
+  },
+  "infarct.6": {
+    tropo: 15.0,
+  },
+};
+//* Dictionnaire troponine dans le cas d'un sepsis
+const sepsisTropo = {
+  "sepsis.1": {
+    tropo: 0.05,
+  },
+  "sepsis.2": {
+    tropo: 0.07,
+  },
+  "sepsis.3": {
+    tropo: 0.08,
+  },
+  "sepsis.4": {
+    tropo: 0.06,
+  },
+  "sepsis.5": {
+    tropo: 0.09,
+  },
+  "sepsis.6": {
+    tropo: 0.1,
+  },
+};
+//* Dictionnaire troponine dans le cas d'une insuffisance cardiaque
+const heartTropo = {
+  "heart.1": {
+    tropo: 0.05,
+  },
+  "heart.2": {
+    tropo: 0.07,
+  },
+  "heart.3": {
+    tropo: 0.06,
+  },
+  "heart.4": {
+    tropo: 0.08,
+  },
+  "heart.5": {
+    tropo: 0.05,
+  },
+  "heart.6": {
+    tropo: 0.09,
+  },
+};
+//* Dictionnaire troponine dans le cas d'un AVC
+const strokeTropo = {
+  "stroke.1": {
+    tropo: 0.04,
+  },
+  "stroke.2": {
+    tropo: 0.05,
+  },
+  "stroke.3": {
+    tropo: 0.06,
+  },
+  "stroke.4": {
+    tropo: 0.07,
+  },
+  "stroke.5": {
+    tropo: 0.05,
+  },
+  "stroke.6": {
+    tropo: 0.06,
+  },
+};
+//* Dictionnaire troponine dans le cas d'une embolie pulmonaire
+const thrombosisTropo = {
+  "thrombosis.1": {
+    tropo: 0.05,
+  },
+  "thrombosis.2": {
+    tropo: 0.06,
+  },
+  "thrombosis.3": {
+    tropo: 0.07,
+  },
+  "thrombosis.4": {
+    tropo: 0.08,
+  },
+  "thrombosis.5": {
+    tropo: 0.06,
+  },
+  "thrombosis.6": {
+    tropo: 0.07,
+  },
+};
+//* Dictionnaire troponine dans le cas d'une blessure au thorax
+const injuryTropo = {
+  "injury.1": {
+    tropo: 0.06,
+  },
+  "injury.2": {
+    tropo: 0.08,
+  },
+  "injury.3": {
+    tropo: 0.11,
+  },
+  "injury.4": {
+    tropo: 0.09,
+  },
+  "injury.5": {
+    tropo: 0.1,
+  },
+  "injury.6": {
+    tropo: 0.12,
+  },
+};
+//* Dictionnaire troponine dans le cas d'un trouble hépatique
+const liverTropo = {
+  "liver.1": {
+    tropo: 0.03,
+  },
+  "liver.2": {
+    tropo: 0.04,
+  },
+  "liver.3": {
+    tropo: 0.05,
+  },
+  "liver.4": {
+    tropo: 0.03,
+  },
+  "liver.5": {
+    tropo: 0.04,
+  },
+  "liver.6": {
+    tropo: 0.05,
+  },
+};
+//* Dictionnaire troponine dans le cas d'une insuffisance rénale
+const kidneyTropo = {
+  "kidney.1": {
+    tropo: 0.06,
+  },
+  "kidney.2": {
+    tropo: 0.08,
+  },
+  "kidney.3": {
+    tropo: 0.07,
+  },
+  "kidney.4": {
+    tropo: 0.09,
+  },
+  "kidney.5": {
+    tropo: 0.1,
+  },
+  "kidney.6": {
+    tropo: 0.11,
+  },
+};
+//? Dictionnaires Troponine <--
