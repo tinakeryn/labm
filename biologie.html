@@ -180,9 +180,26 @@
               <option value="Normal">Normal</option>
               <option value="Grossesse">Grossesse</option>
               <option value="Chimio">Chimio</option>
-              <option value="Saignement">Saignement</option>
-              <option value="Infection">Infection</option>
             </select>
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs médicaux</legend>
+            <label>
+              <input type="checkbox" name="vsInfection" value="oui" />Infection diverse</label
+            >
+            <label><input type="checkbox" name="vsBleeding" value="oui" />Saignement</label>
+            <label> <input type="checkbox" name="vsLiver" value="oui" />Trouble hépatique</label>
+            <label> <input type="checkbox" name="vsKidney" value="oui" />Insuffisance rénale</label>
+            <label>
+              <input type="checkbox" name="vsGesta" value="oui" />Diabète gestationnel non
+              traité</label
+            >
+            <label> <input type="checkbox" name="vsTreated" value="oui" />Diabète traité</label>
+            <label>
+              <input type="checkbox" name="vsUntreated" value="oui" />Diabète non ou mal
+              traité</label
+            >
+            <label><input type="checkbox" name="vsCancer" value="oui" />Cancer</label>
           </fieldset>
           <fieldset>
             <legend>Facteurs de consommation</legend>
@@ -197,6 +214,14 @@
               <input type="checkbox" name="vsHardDrugs" value="oui" />Consomme drogue(s)
               dure(s)</label
             >
+          </fieldset>
+          <fieldset>
+            <legend>Facteurs liés au style de vie</legend>
+            <label><input type="checkbox" name="vsFood" value="oui" />Mauvaise alimentation</label>
+            <label>
+              <input type="checkbox" name="vsSport" value="oui" />Activité physique régulière
+            </label>
+            <label><input type="checkbox" name="vsSedentary" value="oui" />Sédentarité</label>
           </fieldset>
         </form>
         <button id="generateVSButton">Générer une VS</button>

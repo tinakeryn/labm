@@ -103,6 +103,7 @@ function calculerMoyenneObjets(...objets) {
       }
       // Arrondi spécifique à l'entier le + proche
       if (
+        clé === "vs" ||
         clé === "na" ||
         clé === "tgo" ||
         clé === "tgp" ||

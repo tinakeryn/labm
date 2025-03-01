@@ -234,15 +234,16 @@ main {
     #kidneyContextForm,
     #liverContextForm,
     #urineContextForm,
-    #vitaminsContextForm {
+    #vitaminsContextForm,
+    #vsContextForm {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 5;
       fieldset {
-        display: grid;
-        border: 1px solid $quatre;
-        -ms-flex-line-pack: start;
-        align-content: flex-start;
-        gap: 5px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
         &:first-of-type {
           grid-column: 1 / -1;
           height: 50px;
@@ -255,6 +256,66 @@ main {
           -ms-flex-pack: center;
           justify-content: center;
         }
+      }
+    }
+    #coagContextForm,
+    #sugarContextForm,
+    #ealContextForm,
+    #kidneyContextForm,
+    #liverContextForm {
+      fieldset:nth-of-type(4) {
+        grid-column: 1 / -1;
+        margin: 0 auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+    }
+    #vsContextForm,
+    #urineContextForm {
+      fieldset:nth-of-type(2) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+      }
+      fieldset:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+      fieldset:nth-of-type(4) {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+      }
+    }
+    #vsContextForm {
+      fieldset:nth-of-type(2) {
+        height: 280px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+    }
+    #sugarContextForm {
+      fieldset:nth-of-type(3) {
+        height: 112px;
+      }
+    }
+    #kidneyContextForm {
+      fieldset:nth-of-type(2) {
+        height: 142px;
+      }
+    }
+    #urineContextForm {
+      fieldset:nth-of-type(2) {
+        height: 220px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+    }
+    #vitaminsContextForm {
+      fieldset:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
       }
     }
     div {

@@ -128,15 +128,37 @@ function createVSTable(vsData) {
 
 generateVSButton.addEventListener("click", () => {
   const selectedContext = vsContextSelect.value;
+  const vsInfection = document.querySelector('input[name="vsInfection"]:checked') ? true : false;
+  const vsBleeding = document.querySelector('input[name="vsBleeding"]:checked') ? true : false;
+  const vsLiver = document.querySelector('input[name="vsLiver"]:checked') ? true : false;
+  const vsKidney = document.querySelector('input[name="vsKidney"]:checked') ? true : false;
+  const vsGesta = document.querySelector('input[name="vsGesta"]:checked') ? true : false;
+  const vsTreated = document.querySelector('input[name="vsTreated"]:checked') ? true : false;
+  const vsUntreated = document.querySelector('input[name="vsUntreated"]:checked') ? true : false;
+  const vsCancer = document.querySelector('input[name="vsCancer"]:checked') ? true : false;
   const smoking = document.querySelector('input[name="vsTobacco"]:checked') ? true : false;
   const alcohol = document.querySelector('input[name="vsAlcohol"]:checked') ? true : false;
   const onSoftDrugs = document.querySelector('input[name="vsSoftDrugs"]:checked') ? true : false;
   const onHardDrugs = document.querySelector('input[name="vsHardDrugs"]:checked') ? true : false;
+  const food = document.querySelector('input[name="vsFood"]:checked') ? true : false;
+  const sport = document.querySelector('input[name="vsSport"]:checked') ? true : false;
+  const sedentary = document.querySelector('input[name="vsSedentary"]:checked') ? true : false;
 
+  const randomInfectionVS = applyFactor(getRandomElement(infectionVS), vsInfection);
+  const randomBleedingVS = applyFactor(getRandomElement(bleedingVS), vsBleeding);
+  const randomLiverVS = applyFactor(getRandomElement(liverVS), vsLiver);
+  const randomKidneyVS = applyFactor(getRandomElement(kidneyVS), vsKidney);
+  const randomGestaVS = applyFactor(getRandomElement(gestaVS), vsGesta);
+  const randomTreatedVS = applyFactor(getRandomElement(treatedVS), vsTreated);
+  const randomUntreatedVS = applyFactor(getRandomElement(untreatedVS), vsUntreated);
+  const randomCancerVS = applyFactor(getRandomElement(cancerVS), vsCancer);
   const randomTobaccoVS = applyFactor(getRandomElement(tobaccoVS), smoking);
   const randomalcoholVS = applyFactor(getRandomElement(alcoholVS), alcohol);
   const randomSoftDrugsVS = applyFactor(getRandomElement(softDrugsVS), onSoftDrugs);
   const randomHardDrugsVS = applyFactor(getRandomElement(hardDrugsVS), onHardDrugs);
+  const randomFoodVS = applyFactor(getRandomElement(foodVS), food);
+  const randomSportVS = applyFactor(getRandomElement(sportVS), sport);
+  const randomSedentaryVS = applyFactor(getRandomElement(sedentaryVS), sedentary);
 
   let randomVS = "";
   if (selectedContext === "Normal") {
@@ -145,10 +167,6 @@ generateVSButton.addEventListener("click", () => {
     randomVS = getRandomElement(pregnancyVS);
   } else if (selectedContext === "Chimio") {
     randomVS = getRandomElement(chemoVS);
-  } else if (selectedContext === "Saignement") {
-    randomVS = getRandomElement(bleedingVS);
-  } else if (selectedContext === "Infection") {
-    randomVS = getRandomElement(infectionVS);
   } else {
     alert("Veuillez choisir un contexte !");
     return;
@@ -156,10 +174,21 @@ generateVSButton.addEventListener("click", () => {
 
   const moyenneVS = calculerMoyenneSiObjets(
     randomVS,
+    randomInfectionVS,
+    randomBleedingVS,
+    randomLiverVS,
+    randomKidneyVS,
+    randomGestaVS,
+    randomTreatedVS,
+    randomUntreatedVS,
+    randomCancerVS,
     randomTobaccoVS,
     randomalcoholVS,
     randomSoftDrugsVS,
-    randomHardDrugsVS
+    randomHardDrugsVS,
+    randomFoodVS,
+    randomSportVS,
+    randomSedentaryVS
   );
 
   createVSTable(moyenneVS);

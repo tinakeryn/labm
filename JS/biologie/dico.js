@@ -590,27 +590,6 @@ const pregnancyVS = {
     vs: 27,
   },
 };
-//* Dictionnaire VS en cas d'hémorragie
-const bleedingVS = {
-  "bleeding.1": {
-    vs: 18,
-  },
-  "bleeding.2": {
-    vs: 20,
-  },
-  "bleeding.3": {
-    vs: 22,
-  },
-  "bleeding.4": {
-    vs: 21,
-  },
-  "bleeding.5": {
-    vs: 19,
-  },
-  "bleeding.6": {
-    vs: 23,
-  },
-};
 //* Dictionnaire VS en cas de chimiothérapie
 const chemoVS = {
   "chemo.1": {
@@ -651,6 +630,153 @@ const infectionVS = {
   },
   "infection.6": {
     vs: 55,
+  },
+};
+//* Dictionnaire VS en cas d'hémorragie
+const bleedingVS = {
+  "bleeding.1": {
+    vs: 18,
+  },
+  "bleeding.2": {
+    vs: 20,
+  },
+  "bleeding.3": {
+    vs: 22,
+  },
+  "bleeding.4": {
+    vs: 21,
+  },
+  "bleeding.5": {
+    vs: 19,
+  },
+  "bleeding.6": {
+    vs: 23,
+  },
+};
+//* Dictionnaire VS en cas de trouble hépatique
+const liverVS = {
+  "liver.1": {
+    vs: 25,
+  },
+  "liver.2": {
+    vs: 28,
+  },
+  "liver.3": {
+    vs: 22,
+  },
+  "liver.4": {
+    vs: 27,
+  },
+  "liver.5": {
+    vs: 24,
+  },
+  "liver.6": {
+    vs: 30,
+  },
+};
+//* Dictionnaire VS en cas d'insuffisance rénale
+const kidneyVS = {
+  "kidney.1": {
+    vs: 20,
+  },
+  "kidney.2": {
+    vs: 23,
+  },
+  "kidney.3": {
+    vs: 18,
+  },
+  "kidney.4": {
+    vs: 22,
+  },
+  "kidney.5": {
+    vs: 19,
+  },
+  "kidney.6": {
+    vs: 25,
+  },
+};
+//* Dictionnaire VS en cas de diabète gesta non traité
+const gestaVS = {
+  "gesta.1": {
+    vs: 18,
+  },
+  "gesta.2": {
+    vs: 20,
+  },
+  "gesta.3": {
+    vs: 17,
+  },
+  "gesta.4": {
+    vs: 21,
+  },
+  "gesta.5": {
+    vs: 19,
+  },
+  "gesta.6": {
+    vs: 22,
+  },
+};
+//* Dictionnaire VS en cas de diabète traité
+const treatedVS = {
+  "treated.1": {
+    vs: 13,
+  },
+  "treated.2": {
+    vs: 15,
+  },
+  "treated.3": {
+    vs: 12,
+  },
+  "treated.4": {
+    vs: 14,
+  },
+  "treated.5": {
+    vs: 16,
+  },
+  "treated.6": {
+    vs: 13,
+  },
+};
+//* Dictionnaire VS en cas de diabète non ou mal traité
+const untreatedVS = {
+  "untreated.1": {
+    vs: 20,
+  },
+  "untreated.2": {
+    vs: 22,
+  },
+  "untreated.3": {
+    vs: 18,
+  },
+  "untreated.4": {
+    vs: 25,
+  },
+  "untreated.5": {
+    vs: 19,
+  },
+  "untreated.6": {
+    vs: 23,
+  },
+};
+//* Dictionnaire VS pour un cancer autre que leucémie
+const cancerVS = {
+  "cancer.1": {
+    vs: 25,
+  },
+  "cancer.2": {
+    vs: 30,
+  },
+  "cancer.3": {
+    vs: 27,
+  },
+  "cancer.4": {
+    vs: 35,
+  },
+  "cancer.5": {
+    vs: 40,
+  },
+  "cancer.6": {
+    vs: 45,
   },
 };
 //* Dictionnaire VS en cas de consommation d'alcool
@@ -735,6 +861,69 @@ const hardDrugsVS = {
   },
   "hardDrugs.6": {
     vs: 29,
+  },
+};
+//* Dictionnaire VS en cas de malbouffe
+const foodVS = {
+  "food.1": {
+    vs: 18,
+  },
+  "food.2": {
+    vs: 20,
+  },
+  "food.3": {
+    vs: 22,
+  },
+  "food.4": {
+    vs: 17,
+  },
+  "food.5": {
+    vs: 19,
+  },
+  "food.6": {
+    vs: 21,
+  },
+};
+//* Dictionnaire VS en cas d'activité physique régulière
+const sportVS = {
+  "sport.1": {
+    vs: 12,
+  },
+  "sport.2": {
+    vs: 10,
+  },
+  "sport.3": {
+    vs: 14,
+  },
+  "sport.4": {
+    vs: 13,
+  },
+  "sport.5": {
+    vs: 11,
+  },
+  "sport.6": {
+    vs: 9,
+  },
+};
+//* Dictionnaire VS en cas de sédentarité
+const sedentaryVS = {
+  "sedentary.1": {
+    vs: 16,
+  },
+  "sedentary.2": {
+    vs: 17,
+  },
+  "sedentary.3": {
+    vs: 18,
+  },
+  "sedentary.4": {
+    vs: 19,
+  },
+  "sedentary.5": {
+    vs: 16,
+  },
+  "sedentary.6": {
+    vs: 18,
   },
 };
 //? Dictionnaires VS <--
