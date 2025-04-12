@@ -580,78 +580,38 @@ document.getElementById("generateHGPOButton").addEventListener("click", function
 //? --> Calcul du risque de T21
 //* Calculer le risque
 function calculateT21Risk(age, nuchalThickness) {
-  let ageRisk = "";
-  let nuchalRisk = "";
+  let ageRisk;
 
-  // Détermination du risque en fonction de l'âge
+  // Déterminer le risque selon l'âge via le dictionnaire
   if (age < 25) {
-    ageRisk = "1/1500";
-  } else if (age >= 25 && age < 30) {
-    ageRisk = "1/1000";
-  } else if (age >= 30 && age < 31) {
-    ageRisk = "1/900";
-  } else if (age === 31) {
-    ageRisk = "1/800";
-  } else if (age === 32) {
-    ageRisk = "1/600";
-  } else if (age === 33) {
-    ageRisk = "1/500";
-  } else if (age === 34) {
-    ageRisk = "1/400";
-  } else if (age === 35) {
-    ageRisk = "1/270";
-  } else if (age === 36) {
-    ageRisk = "1/200";
-  } else if (age === 37) {
-    ageRisk = "1/150";
-  } else if (age === 38) {
-    ageRisk = "1/100";
-  } else if (age === 39) {
-    ageRisk = "1/70";
-  } else if (age === 40) {
-    ageRisk = "1/50";
-  } else if (age === 41) {
-    ageRisk = "1/40";
-  } else if (age === 42) {
-    ageRisk = "1/30";
+    ageRisk = risksByAge["<25"];
+  } else if (age >= 25 && age <= 29) {
+    ageRisk = risksByAge["25-29"];
+  } else if (age >= 30 && age <= 42) {
+    ageRisk = risksByAge[age];
   } else {
-    ageRisk = "1/20";
+    ageRisk = risksByAge[">42"];
   }
 
-  // Ajustement du risque selon la clarté nucale
+  // Convertir le risque en nombre (ex: "1/1000" => 1000)
+  const baseRiskValue = parseInt(ageRisk.split("/")[1]);
+
+  // Ajustement selon la clarté nucale
+  let adjustedRiskValue;
   if (nuchalThickness <= 2.5) {
-    nuchalRisk = "faible";
+    adjustedRiskValue = baseRiskValue; // aucun changement
   } else if (nuchalThickness > 2.5 && nuchalThickness <= 3.5) {
-    nuchalRisk = "modéré";
+    adjustedRiskValue = Math.round(baseRiskValue / 2); // double le risque
   } else {
-    nuchalRisk = "élevé";
+    adjustedRiskValue = Math.round(baseRiskValue / 4); // quadruple le risque
   }
 
-  // Estimation finale
-  let finalRisk;
-  if (ageRisk === "1/1500" && nuchalRisk === "faible") {
-    finalRisk = "Risque faible";
-  } else if (
-    (ageRisk === "1/1000" && nuchalRisk === "faible") ||
-    (ageRisk === "1/900" && nuchalRisk === "faible") ||
-    (ageRisk === "1/800" && nuchalRisk === "faible") ||
-    (ageRisk === "1/600" && nuchalRisk === "faible")
-  ) {
-    finalRisk = "Risque faible";
-  } else if (
-    (ageRisk === "1/500" && nuchalRisk === "faible") ||
-    (ageRisk === "1/400" && nuchalRisk === "faible") ||
-    (ageRisk === "1/270" && nuchalRisk === "faible") ||
-    (ageRisk === "1/200" && nuchalRisk === "faible") ||
-    (ageRisk === "1/150" && nuchalRisk === "modéré") ||
-    (ageRisk === "1/100" && nuchalRisk === "modéré")
-  ) {
-    finalRisk = "Risque modéré";
-  } else {
-    finalRisk = "Risque élevé";
-  }
+  // Retour au format "1/x"
+  const finalRisk = `1/${adjustedRiskValue}`;
 
-  return { ageRisk, nuchalRisk, finalRisk };
+  return {
+    finalRisk,
+  };
 }
 //* Faire le calcul au clic ou en appuyant sur Entrée
 document.getElementById("generateT21Button").addEventListener("click", function () {
@@ -676,10 +636,42 @@ document.getElementById("generateT21Button").addEventListener("click", function 
   }
 
   // Calcul du risque
-  const { ageRisk, nuchalRisk, finalRisk } = calculateT21Risk(age, nuchalInput);
+  const { finalRisk } = calculateT21Risk(age, nuchalInput);
+
+  // Obtenir l’interprétation à partir du dictionnaire
+  const riskConclusion = riskInterpretation[finalRisk] || "Conclusion non disponible";
+
   // Affichage du résultat
   const t21ResultElement = document.getElementById("t21Result");
-  t21ResultElement.innerHTML = `Risque basé sur l'âge: ${ageRisk}, <br>Risque basé sur la clarté nucale: ${nuchalRisk},<br>Estimation finale: ${finalRisk}`;
+
+  t21ResultElement.innerHTML = `
+    <table id="t21Table">
+      <thead>
+        <tr>
+          <th>Élément</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tdTitle">Âge de la patiente</td>
+          <td>${age} ans</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Clarté nucale</td>
+          <td>${nuchalInput.toString().replace(".", ",")} mm</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Taux de risque estimé</td>
+          <td>${finalRisk}</td>
+        </tr>
+        <tr>
+          <td class="tdTitle">Conclusion</td>
+          <td>${riskConclusion}</td>
+        </tr>
+      </tbody>
+    </table>
+`;
   t21ResultElement.classList.remove("hidden"); // Affiche le résultat
 
   // Affichage du bouton pour fermer ou naviguer

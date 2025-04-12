@@ -100,3 +100,43 @@ const caseDictionary = {
 };
 
 //? Dictionnaires βHCG <--
+
+//? --> Dictionnaires T21
+const risksByAge = {
+  "<25": "1/1500",
+  "25-29": "1/1000",
+  30: "1/900",
+  31: "1/800",
+  32: "1/600",
+  33: "1/500",
+  34: "1/400",
+  35: "1/270",
+  36: "1/200",
+  37: "1/150",
+  38: "1/100",
+  39: "1/70",
+  40: "1/50",
+  41: "1/40",
+  42: "1/30",
+  ">42": "1/20",
+};
+
+const riskInterpretation = {
+  "1/1500": "Risque très faible",
+  "1/1000": "Risque très faible",
+  "1/900": "Risque faible",
+  "1/800": "Risque faible",
+  "1/600": "Risque faible",
+  "1/500": "Risque faible",
+  "1/400": "Risque faible",
+  "1/270": "Risque modéré",
+  "1/200": "Risque modéré",
+  "1/150": "Risque modéré",
+  "1/100": "Risque élevé",
+  "1/70": "Risque élevé",
+  "1/50": "Risque élevé",
+  "1/40": "Risque très élevé",
+  "1/30": "Risque très élevé",
+  "1/20": "Risque très élevé",
+};
+//? Dictionnaires T21 <--
