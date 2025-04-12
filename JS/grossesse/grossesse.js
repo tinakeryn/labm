@@ -666,7 +666,7 @@ document.getElementById("generateT21Button").addEventListener("click", function 
   // Calcul de l'âge de la patiente
   const dob = new Date(dobInput);
   const today = new Date();
-  const age = today.getFullYear() - dob.getFullYear();
+  let age = today.getFullYear() - dob.getFullYear();
   // Ajustement si l'anniversaire n'est pas encore passé cette année
   if (
     today.getMonth() < dob.getMonth() ||
@@ -677,7 +677,6 @@ document.getElementById("generateT21Button").addEventListener("click", function 
 
   // Calcul du risque
   const { ageRisk, nuchalRisk, finalRisk } = calculateT21Risk(age, nuchalInput);
-
   // Affichage du résultat
   const t21ResultElement = document.getElementById("t21Result");
   t21ResultElement.innerHTML = `Risque basé sur l'âge: ${ageRisk}, <br>Risque basé sur la clarté nucale: ${nuchalRisk},<br>Estimation finale: ${finalRisk}`;
